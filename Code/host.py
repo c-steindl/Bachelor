@@ -1,27 +1,19 @@
 import socket
 import sys
 import time
-
-class Enum():
-    dur = 'duration'
-    start = 'start'
-    end = 'finish'
-    IO = 'IOTest'
-    Net = 'NetworkTest'
+import enum
 
 class Host():
-    duration = 0
     port = 0
     clients = list()
     numClients = 0
-    startTime = 0
-    endTime = 0
-    enum = Enum()
+    iter = 5
+    enum = enum.Enum()
     
-    def __init__(self, port, numClients, duration):
+    def __init__(self, port, numClients, iter):
         self.port = port
         self.numClients = numClients
-        self.duration = duration
+        self.iter = int(iter)
 
     def initConnect(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -43,12 +35,14 @@ class Host():
             i = i + 1
             
     def sendAll(self, message):
+        self.initConnect()
         i = 0
         while i < self.numClients:
             client = self.clients[i]
             client[2].send(message)
             i = i + 1
-            
+        self.closeConnect()
+    
     def recv(self, sockets):
         test = list()
         i = 0
@@ -79,29 +73,41 @@ class Host():
             sockets.insert(i, conn)
         print 'connected clients', self.clients
 
+    def netConnect(self):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind(('localhost', self.port))
+        s.listen(1)
+        stop = 0
+        while stop < self.numClients:
+            conn, addr = s.accept()
+            d = conn.recv(128).split()
+            if d[0] == self.enum.stop:
+                stop = stop + 1
+                client = [stop, addr, conn]
+                self.clients.insert(stop, client)
+
 def usage():
-    print 'USAGE: python host.py <Port to listen> <Number of clients> <Duration in seconds>'
+    print 'USAGE: python host.py <Port to listen> <Number of clients> <Number of iterations>'
 
 if __name__ == "__main__":
     if len(sys.argv) == 4:
         myServer = Host(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))
-        myServer.initConnect()
+        
+        message = myServer.enum.iter + ' ' + str(myServer.iter)
+        myServer.sendAll(message)
+        
         message = myServer.enum.start
         myServer.sendAll(message)
-        myServer.closeConnect()
-        
-        myServer.initConnect()
         myServer.sendAll(message)
+        
+        myServer.sendAll(message)
+        myServer.netConnect()
         myServer.closeConnect()
         
-        #myServer.initConnect()
-        #myServer.sendAll(message)
-        #myServer.recvConnect()
-        #myServer.closeConnect()
-        
-        #myServer.initConnect()
-        #myServer.sendAll(message)
-        #myServer.closeConnect()
 
+        
+        
+        
+        
         
     else: usage()

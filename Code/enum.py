@@ -1,6 +1,7 @@
 class Enum():
     dur = 'duration'
     start = 'start'
-    end = 'finish'
+    stop = 'finish'
     IO = 'IOTest'
     Net = 'NetworkTest'
+    iter = 'NumberOfIterations'

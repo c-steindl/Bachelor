@@ -1,20 +1,34 @@
+#!/usr/bin/env python
+ 
+ 
 import socket
-
-# the public network interface
-HOST = socket.gethostbyname(socket.gethostname())
-
-# create a raw socket and bind it to the public interface
-s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
-s.bind((HOST, 0))
-
-# Include IP headers
-s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
-
-# receive all packages
-s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
-
-# receive a package
-print(s.recvfrom(65565))
-
-# disabled promiscuous mode
-s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
+import sys
+ 
+HOST = 'coding.debuntu.org'
+GET = '/index.html'
+PORT = 80
+ 
+try:
+  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+except socket.error, msg:
+  sys.stderr.write("[ERROR] %s\n" % msg[1])
+  sys.exit(1)
+ 
+try:
+  sock.connect((HOST, PORT))
+except socket.error, msg:
+  sys.stderr.write("[ERROR] %s\n" % msg[1])
+  sys.exit(2)
+ 
+sock.send("GET %s HTTP/1.0\r\nHost: %s\r\n\r\n" % (GET, HOST))
+ 
+data = sock.recv(1024)
+string = ""
+while len(data):
+  string = string + data
+  data = sock.recv(1024)
+sock.close()
+ 
+print string
+ 
+sys.exit(0)

@@ -1,0 +1,2454 @@
+Content-Type: multipart/related; start=<op.mhtml.1310419536576.35f6393e682069c4@10.0.0.7>; boundary=----------1vRAVl0sa2O7owJD4wn4Fi
+Content-Location: http://blogs.oracle.com/nike/entry/python_api_to_the_virtualbox
+Subject: =?utf-8?Q?Python=20API=20to=20the=20VirtualBox=20VM=20(Nikolay=20Igotti)?=
+MIME-Version: 1.0
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline; filename=python_api_to_the_virtualbox.htm
+Content-Type: text/html; charset=utf-8; name=python_api_to_the_virtualbox.htm
+Content-ID: <op.mhtml.1310419536576.35f6393e682069c4@10.0.0.7>
+Content-Location: http://blogs.oracle.com/nike/entry/python_api_to_the_virtualbox
+Content-Transfer-Encoding: Quoted-Printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- Page Info -->
+		<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-=
+8" />
+		            <title>Python API to the VirtualBox VM (Nikolay Igotti)</t=
+itle>
+                           <meta http-equiv=3D"Content-Language" content=
+=3D"en-us" />
+<meta http-equiv=3D"Content-Style-Type" content=3D"text/css" />
+<meta http-equiv=3D"Content-Script-Type" content=3D"text/javascript" />
+<meta http-equiv=3D"imagetoolbar" content=3D"no" />
+
+           <link rel=3D"EditURI"   type=3D"application/rsd+xml" title=3D=
+"RSD" href=3D"http://blogs.oracle.com/nike/rsd"/>
+        =
+
+            <link rel=3D"alternate" type=3D"application/atom+xml" title=3D=
+"Recent Entries (Atom)"  href=3D"http://blogs.oracle.com/nike/feed/entri=
+es/atom" />
+    <link rel=3D"alternate" type=3D"application/rss+xml"  title=3D"Recen=
+t Entries (RSS)"   href=3D"http://blogs.oracle.com/nike/feed/entries/rss=
+" />
+    <link rel=3D"alternate" type=3D"application/atom+xml" title=3D"Recen=
+t Comments (Atom)" href=3D"http://blogs.oracle.com/nike/feed/comments/at=
+om" />
+    <link rel=3D"alternate" type=3D"application/rss+xml"  title=3D"Recen=
+t Comments (RSS)"  href=3D"http://blogs.oracle.com/nike/feed/comments/rs=
+s" />
+
+    =
+
+    =
+
+<!-- Stylesheets -->
+<link rel=3D"stylesheet" href=3D"http://blogs.oracle.com/nike/resource/o=
+racle2col/theme.css" type=3D"text/css" media=3D"screen" />
+
+<!-- Favicon -->
+<link rel=3D"shortcut icon" href=3D"http://blogs.oracle.com/nike/resourc=
+e/oracle2col/favicon.gif" />    	</head>
+	<body>
+		<div id=3D"container" class=3D"two-columns"> <!-- Note: Change the cla=
+ss from "two-columns" to "three-columns" if needed -->
+			=
+
+			<!-- Header -->
+			<div id=3D"header">
+				<ul id=3D"nav">
+					<li id=3D"logo"><h6><a href=3D"http://www.oracle.com">Oracle</a></h=
+6></li>
+					<li class=3D"current"><a href=3D"/">Blogs Home</a></li>
+					<li><a href=3D"http://www.oracle.com/products/index.html">Products =
+&amp; Services</a></li>
+					<li><a href=3D"http://www.oracle.com/industries/index.html">Industr=
+ies</a></li>
+					<li><a href=3D"http://www.oracle.com/support/index.html">Support</a=
+></li>
+					<li><a href=3D"http://www.oracle.com/partnerships/index.html">Partn=
+ers</a></li>
+					<li><a href=3D"http://www.oracle.com/us/community/index.html">Commu=
+nities</a></li>
+					<li><a href=3D"http://www.oracle.com/corporate/index.html">About</a=
+></li>
+                                            <li id=3D"signIn"><a href=3D=
+"/roller-ui/login-redirect.rol">Login</a></li>
+                    				</ul>
+				<div id=3D"jumbotron">
+					<h4>Oracle Blog</h4>
+          <h5>Nikolay Igotti</h5>
+          <h5 class=3D"subhead">Words, VMs and beyond</h5>
+				</div>
+                																										</div>
+			=
+
+			<!-- Content -->
+			<div id=3D"content">
+                <div id=3D"mainColumn">
+                    =
+
+                    <!-- Previous and Next Entries -->
+                    <div id=3D"pager">
+                                                    &laquo; <a href=3D"h=
+ttp://blogs.oracle.com/nike/entry/informative_paper_on_memhttp_blogs">In=
+formative paper on...</a> |  =
+
+                <a href=3D"/nike/">Main</a>
+                | <a href=3D"http://blogs.oracle.com/nike/entry/long_abs=
+olute_jumps_on_amd64">Long absolute jumps...</a> &raquo;
+                        </div>
+
+                    <!-- Entries -->
+				    =
+
+                <div class=3D"day">
+
+
+	<div class=3D"entry" id=3D"python_api_to_the_virtualbox">
+
+	<h3 class=3D"entry-title">
+			Python API to the VirtualBox VM
+	    </h3>
+
+    <h4 class=3D"entry-meta">By nike on <a href=3D"#">Sep 05, 2008</a></=
+h4>
+
+    <div class=3D"entry-body">
+            =
+
+                <p> One of the important advantages of the <a href=3D"ht=
+tp://virtualbox.org">VirtualBox</a> virtualization solution is powerful =
+public API allowing to control every aspect of virtual machine configura=
+tion and execution. Last month I was working on Python and Java bindings=
+ to that API.
+Those bindings are shipped with VirtualBox 2.0 <a href=3D"http://downloa=
+d.virtualbox.org/virtualbox/2.0.0/VirtualBoxSDK-2.0.0-36011.zip">SDK</a>=
+.</p>
+
+<p>
+There are two families of API bindings:
+<ul>
+ <li> remote, over <a href=3Dhttp://en.wikipedia.org/wiki/SOAP">SOAP</a>=
+</a>
+ <li> local, using <a href=3D"http://en.wikipedia.org/wiki/XPCOM">XPCOM<=
+/a>
+</ul>
+ SOAP allows to control remote VMs over HTTP, while XPCOM is much more h=
+igh-performing and exposes certain functionality not available with SOAP=
+.
+
+ They use very different technologies (SOAP is procedural, while XPCOM i=
+s OOP), but as it is ultimately API to the same functionality of the Vir=
+tualBox, we kept in bindings original semantics, so other that connectio=
+n establishment, code could be written in such a way that people may not=
+ care what communication channel with VirtualBox instance is used.
+
+As an example of how flexible and powerful those API are, I developed ex=
+tensible Python command line shell to the ViritualBox, usable as simpler=
+ CLI alternative to GUI. Same shell code can work with either SOAP or XP=
+COM connection to the VirtualBox.
+
+To start XPCOM version of shell:
+<ul>
+ <li>download <a href=3D"http://download.virtualbox.org/virtualbox/2.0.0=
+/VirtualBoxSDK-2.0.0-36011.zip">VirtualBox 2.0</a> for your platform (Li=
+nux and Solaris Python bindings officially supported)</li>
+ <li>download <a href=3D"http://download.virtualbox.org/virtualbox/2.0.0=
+/VirtualBoxSDK-2.0.0-36011.zip">SDK</a>
+ <li>unpack SDK</li>
+ <li><code>cd  sdk/bindings/xpcom/python/sample</code></li>
+ <li><code>export VBOX_PROGRAM_PATH=3D/opt/VirtualBox-2.0.0/   PYTHONPAT=
+H=3D..:$VBOX_PROGRAM_PATH</code></li>
+ <li><code>./vboxshell.py</code> to start the shell</li>
+</ul>
+
+Currently shell is capable to start/suspend/resume/powerdown VMs, and pe=
+rsistently set any VM variable. You can easily extend shell with your ow=
+n command, for example let's implement command to show information on ha=
+rd disk of the machine.
+
+
+<PRE>
+<B>def</B> <B>showvdiCmd</B>(ctx, args):
+    mach =3D argsToMach(ctx,args) =
+
+    <B>if</B> mach =3D=3D None:
+        <B>return</B> 0
+    hdd =3D mach.getHardDisk(ctx[<B>'ifaces'</B>].StorageBus.IDE, 0, 0)
+    <B>print</B> <B>'HDD0 info: id=3D%s desc=3D&quot;%s&quot; size=3D%dM=
+ location=3D%s'</B> %(hdd.id,hdd.description,hdd.size,hdd.location)
+    <B>return</B> 0
+
+</PRE>
+
+and add following line to <code>commands</code> map:
+<PRE>
+<B>'vdiinfo'</B>:[<B>'Show VDI info'</B>, showvdiCmd],
+</PRE>
+
+<p>
+Then you can run it like this: <code>vdiinfo Win32</code> (or however yo=
+ur VM of interest is named).
+Easy, isn't it? Moreover this command will work not only with XPCOM bind=
+ings, but with SOAP too.
+This example also shows how to access VirtualBox constants in toolkit ne=
+utral manner - 'ifaces' field of context contains reflection information=
+
+useadble to get values of the constant. =
+
+</p>
+
+<p>
+Actually, there are other languages bindings to VirtualBox API shipped w=
+ith SDK, including Java and C++, but I personally find Python easiest fo=
+r start. You can ask here questions on VirtualBox language bindings (not=
+ only Python), and I will try to help. =
+
+</p>
+                                        =
+
+    </div>
+
+    <div class=3D"entry-footer">
+        <p class=3D"entry-category">Category: Sun</p>
+        <p class=3D"entry-tags">Tags:  none </p>
+        <p class=3D"entry-links">
+        <a href=3D"http://blogs.oracle.com/nike/entry/python_api_to_the_=
+virtualbox">Permanent link to this entry</a>
+                        </p>
+    </div>
+
+	    =
+
+	</div>
+
+</div>
+    =
+
+    =
+
+                    <!-- Comments -->
+                                                <a name=3D"comments"></a=
+>
+    <div class=3D"comments" id=3D"comments">
+
+            <div class=3D"comments-head">Comments:</div>
+            =
+
+    <br/>
+                        <a name=3D"comment-1220767593000" id=3D"comment-=
+1220767593000"></a>
+            <div class=3D"comment odd" id=3D"comment1">
+
+                =
+
+<p>This is really great.  </p>
+
+
+<p>I'll be very interested to try it out, but I ran into what I think is=
+ a missing library on Mac OS 10.5:</p>
+
+
+<p><a href=3D"http://www.virtualbox.org/ticket/2135" rel=3D"nofollow">ht=
+tp://www.virtualbox.org/ticket/2135</a></p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Robert Hopson</b>
+                =
+
+                on September 07, 2008 at 10:06 AM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1220767593000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1220868683000" id=3D"=
+comment-1220868683000"></a>
+            <div class=3D"comment even" id=3D"comment2">
+
+                =
+
+<p>Actually problem is that we don't ship 2.5 version yet, but you can b=
+uild it yourself using VBox OSE. In upcoming releases of VirtualBox may =
+consider to include Python 2.5 support for MacOS.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Nikolay Igotti</b>
+                =
+
+                on September 08, 2008 at 02:11 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1220868683000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1220883009000" id=3D"=
+comment-1220883009000"></a>
+            <div class=3D"comment odd" id=3D"comment3">
+
+                =
+
+<p>Ah, thanks for the info.  I saw mention of 2.5 in bindings/xpcom/pyth=
+on/xpcom/vboxxpcom.py and thought maybe it was just missing.</p>
+
+
+<p>Will try building it.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Robert Hopson</b>
+                =
+
+                on September 08, 2008 at 06:10 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1220883009000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1221663163000" id=3D"=
+comment-1221663163000"></a>
+            <div class=3D"comment even" id=3D"comment4">
+
+                =
+
+<p>vboxshell is not a shell, it is a command line interface. A \*real\* =
+shell would support functions, if, then, else expressions, loops and oth=
+er features bash and ksh have. Stop calling this a &quot;shell&quot;, it=
+ isn't one. The name vboxshell is misleading - not a shell.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Ralf Schmitt</b>
+                =
+
+                on September 17, 2008 at 06:52 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1221663163000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1221663979000" id=3D"=
+comment-1221663979000"></a>
+            <div class=3D"comment odd" id=3D"comment5">
+
+                =
+
+<p>Let's start flamewars not.<br/>
+This particular shell, being written in Python can use any Python constr=
+uct, including loops, functions, or anything else (via eval/exec)- it's =
+just nobody needed it yet.  If someone will need it - it may be implemen=
+ted pretty easily.<br/>
+Just for your pleasure - may provide eval command in next versions ;). <=
+/p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Nikolay Igotti</b>
+                =
+
+                on September 17, 2008 at 07:06 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1221663979000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1222278066000" id=3D"=
+comment-1222278066000"></a>
+            <div class=3D"comment even" id=3D"comment6">
+
+                =
+
+<p>Nikolay:<br/>
+1. A agree with Ralf. A shell is a shell such as the Korn Shell, Bourne =
+Again Shell (aka bash) or zsh. Your demo is a command line interface and=
+ not a shell and shall never be called a shell. A shell is easy to use a=
+nd Python is NOT easy<br/>
+2. Python is not standardized and the wrong language choice<br/>
+3. As demo the pyapi is nice but you must go back to the design board an=
+d create something new, better</p>
+
+
+<p>Nico</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Nico Krynavoksi</b>
+                =
+
+                on September 24, 2008 at 09:41 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1222278066000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1222327438000" id=3D"=
+comment-1222327438000"></a>
+            <div class=3D"comment odd" id=3D"comment7">
+
+                =
+
+<p>As I already said - I find no interest in useless flamewars - instead=
+ enjoy doing new things. <br/>
+As promised, implemented eval command, allowing full power of Python  to=
+ be used from the shell (see help eval).</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Nikolay Igotti</b>
+                =
+
+                on September 25, 2008 at 11:23 AM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1222327438000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1244351519000" id=3D"=
+comment-1244351519000"></a>
+            <div class=3D"comment even" id=3D"comment8">
+
+                =
+
+<p>functions, if, then, else expressions, loops and other features bash =
+and ksh have make them programming languages, not shells.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Nicol&aacute;s</b>
+                =
+
+                on June 07, 2009 at 09:11 AM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1244351519000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1246840467000" id=3D"=
+comment-1246840467000"></a>
+            <div class=3D"comment odd" id=3D"comment9">
+
+                =
+
+<p>I've been playing with the VBox python API and making some good progr=
+ess - registering VMs, starting them up, shutting them down, etc. Howeve=
+r I'm stuck on how to use the IVirtualBoxCallback interface. I want to u=
+se IVirtualBox.registerCallback() to find out when a VM changes state, b=
+ut I don't understand how to construct the callback argument/object. Any=
+ pointers? An example would be much appreciated? Thanks in advance.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <a rel=3D"nofollow" href=3D"http://w=
+ww.vwelch.com"><b>Von</b></a>
+                =
+
+                on July 06, 2009 at 04:34 AM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1246840467000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1246865859000" id=3D"=
+comment-1246865859000"></a>
+            <div class=3D"comment even" id=3D"comment10">
+
+                =
+
+<p>You can look at lastest vboxshell.py, shipped with VirtualBox 3.0. It=
+ has 'monitorVbox' and 'monitorGuest' commands, using callbacks and wait=
+ing for events to happen. It also uses universal wrapper, providing unif=
+orm VBox API access from XPCOM, MSCOM and Webservices.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Nikolay Igotti</b>
+                =
+
+                on July 06, 2009 at 11:37 AM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1246865859000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1246884298000" id=3D"=
+comment-1246884298000"></a>
+            <div class=3D"comment odd" id=3D"comment11">
+
+                =
+
+<p>Ah, I see vboxshell.py has moved to bindings/glue/python/sample in th=
+e 3.0 SDK - I missed it. Thanks, that should help.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <a rel=3D"nofollow" href=3D"http://w=
+ww.vwelch.com"><b>Von</b></a>
+                =
+
+                on July 06, 2009 at 04:44 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1246884298000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1253369439000" id=3D"=
+comment-1253369439000"></a>
+            <div class=3D"comment even" id=3D"comment12">
+
+                =
+
+<p>How to use Vbox Python API to do some operation in Guest OS (like cre=
+ate process, create file, delete file ). This will be more useful to aut=
+omate some job in guest OS</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Saravanan Mohankumar</b>
+                =
+
+                on September 19, 2009 at 06:10 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1253369439000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1253523736000" id=3D"=
+comment-1253523736000"></a>
+            <div class=3D"comment odd" id=3D"comment13">
+
+                =
+
+<p>Unfortunately, there's no VBox API to do that yet, so Python bindings=
+ cannot help here. You can simulate such a behavior using ssh (with pass=
+wordless authentification) and port forwarding. We're considering implem=
+enting this feature in next releases.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>nike</b>
+                =
+
+                on September 21, 2009 at 01:02 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1253523736000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1255990856000" id=3D"=
+comment-1255990856000"></a>
+            <div class=3D"comment even" id=3D"comment14">
+
+                =
+
+<p>I use VirtualBoxSDK-3.0.8-53138, and Python 2.6 </p>
+
+
+<p>I have read the documentation and your reply comment <a href=3D"http:=
+//vbox.innotek.de/pipermail/vbox-dev/2009-August/001674.html" rel=3D"nof=
+ollow">http://vbox.innotek.de/pipermail/vbox-dev/2009-August/001674.html=
+</a> </p>
+
+
+<p>But I can not understand how I ask the class ISession and call attrib=
+ute IConsole. </p>
+
+
+<p>I want using the powerDown - turn off the virtual machine. </p>
+
+
+<p>The problem is that I do not understand how I can turn to the class I=
+Session. </p>
+
+
+<p>It would be very thankful and grateful for the help. </p>
+
+
+<p>Yours sincerely Nikolay Tkachuk</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <a rel=3D"nofollow" href=3D"http://w=
+ww.mukola.org.ua"><b>Nikolay</b></a>
+                =
+
+                on October 20, 2009 at 02:20 AM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1255990856000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1256030961000" id=3D"=
+comment-1256030961000"></a>
+            <div class=3D"comment odd" id=3D"comment15">
+
+                =
+
+<p>Use vboxshell.py as an example - it has powerDown command.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>Nikolay Igotti</b>
+                =
+
+                on October 20, 2009 at 01:29 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1256030961000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1262959407000" id=3D"=
+comment-1262959407000"></a>
+            <div class=3D"comment even" id=3D"comment16">
+
+                =
+
+<p>hy<br/>
+i had a probleme with creating a session to launch a virtual Machine in =
+COM i use the fonction CoCreateInstance and i have this code error 0x800=
+40154 .<br/>
+i use windows 7 .</p>
+
+
+<p>and can you please telle me how to create an instance for IVirtualBox=
+ from Portable-virtualBox</p>
+
+
+<p>thanks in advance.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>moncef</b>
+                =
+
+                on January 08, 2010 at 05:03 PM MSK
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1262959407000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1263199787000" id=3D"=
+comment-1263199787000"></a>
+            <div class=3D"comment odd" id=3D"comment17">
+
+                =
+
+<p>HRESULT 0x80040154 means &quot;Class not registered&quot;, so maybe y=
+ou don't have VBox installed, or use wrong CLSID/UUID to get class insta=
+nce (or use mismatching bitness of COM client and server). Please ask su=
+ch questions on VirtualBox mailing list: <a href=3D"http://www.virtualbo=
+x.org/mailman/listinfo/vbox-dev" rel=3D"nofollow">http://www.virtualbox.=
+org/mailman/listinfo/vbox-dev</a></p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>82.196.92.221</b>
+                =
+
+                on January 11, 2010 at 11:49 AM MSK
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1263199787000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1264432806000" id=3D"=
+comment-1264432806000"></a>
+            <div class=3D"comment even" id=3D"comment18">
+
+                =
+
+<p>I have successfully used VirtualBox API on XP, and I tried it on wind=
+ows 7 and had COM errors as well. It could be the fact that python exten=
+sions for windows has poor support for windows 7, or it could be that my=
+ XP is 32bit and my Windows 7 is 64bit.</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>68.111.100.110</b>
+                =
+
+                on January 25, 2010 at 06:20 PM MSK
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1264432806000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1271414955000" id=3D"=
+comment-1271414955000"></a>
+            <div class=3D"comment odd" id=3D"comment19">
+
+                =
+
+<p>hi..I wanted to make a command line interface for virtualbox and  i t=
+ried controlling the virtual machines using 'pyvb' . it worked...Is ther=
+e any advantage of using 'pyvb' instead of xpcom? are they the same...??=
+?</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>ASK</b>
+                =
+
+                on April 16, 2010 at 02:49 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1271414955000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                                <a name=3D"comment-1281627189000" id=3D"=
+comment-1281627189000"></a>
+            <div class=3D"comment even" id=3D"comment20">
+
+                =
+
+<p>Hi. I want to know if there is a way to create delete IDE controllers=
+ on a machine and then attach detach an immutable vdi on this. Thank you=
+</p>
+
+
+
+                <p class=3D"comment-details">
+                Posted by
+                                    <b>fanfan</b>
+                =
+
+                on August 12, 2010 at 07:33 PM MSD
+
+                <a href=3D"http://blogs.oracle.com/nike/entry/python_api=
+_to_the_virtualbox#comment-1281627189000"
+                   class=3D"entrypermalink" title=3D"comment permalink">=
+#</a>
+                </p>
+
+            </div>
+
+                </div>
+                        =
+
+    <div class=3D"comments-form">
+    <div class=3D"comments-head">Post a Comment:</div>
+    <a name=3D"comment-form"></a>
+
+
+    =
+
+    <form method=3D"post" action=3D"http://blogs.oracle.com/nike/entry/p=
+ython_api_to_the_virtualbox" focus=3D"name" =
+
+        name=3D"commentForm" onsubmit=3D"fixURL(this); return validateCo=
+mments(this)">    =
+
+        <input type=3D"hidden" name=3D"method" value=3D"post" />
+
+        <ul>
+            <li>
+                <label class=3D"desc">Name:</label>
+                <input type=3D"text" name=3D"name" class=3D"text large" =
+value=3D"" size=3D"50" maxlength=3D"255" />
+            </li>
+
+            <li><label class=3D"desc">E-Mail:</label>
+                <input type=3D"text" name=3D"email" class=3D"text large"=
+ value=3D"" size=3D"50" maxlength=3D"255" />
+            </li>
+
+            <li><label class=3D"desc">URL:</label>
+                <input type=3D"text" name=3D"url" class=3D"text large" v=
+alue=3D"" size=3D"50" maxlength=3D"255" />
+            </li>
+
+                    <li><input type=3D"checkbox" class=3D"checkbox" id=3D=
+"notify" name=3D"notify" />
+                <label for=3D"notify" class=3D"choice">Notify me by emai=
+l of new comments</label>
+            </li>
+                    <li>
+                <input type=3D"checkbox" class=3D"checkbox" id=3D"rememb=
+erInfo" name=3D"rememberInfo" />
+                <label for=3D"rememberInfo" class=3D"choice">Remember In=
+formation?</label>
+            </li>
+            <li>
+                <label class=3D"desc">Your Comment:</label>
+             =
+
+            <textarea name=3D"content" class=3D"textarea large" cols=3D"=
+40" rows=3D"10"></textarea>
+
+            </li>
+            <li class=3D"info">
+                <span class=3D"comments-syntax-indicator">
+                HTML Syntax:
+                                    <span class=3D"disabled">NOT allowed=
+</span>
+                                </span>
+            </li>
+            <li class=3D"info">
+               <script type=3D"text/javascript" src=3D"/theme/scripts/cl=
+ientSideInclude.js"></script>
+               <div id=3D"commentAuthenticator"></div>
+            </li>
+            <li>
+               <input type=3D"button" class=3D"button" name=3D"post" val=
+ue=3D"&nbsp;Preview&nbsp;"
+                  onclick=3D"this.form.method.value=3D'preview';this.for=
+m.submit()" />
+               <input type=3D"submit" class=3D"button" name=3D"post" val=
+ue=3D"&nbsp;Post&nbsp;" />
+            </li>
+        </ul>
+
+    </form>
+
+    <script type=3D"text/javascript" src=3D"/theme/scripts/roller.js"></=
+script>
+    <script type=3D"text/javascript">
+    clientSideInclude('commentAuthenticator', '/CommentAuthenticatorServ=
+let');
+
+    var author =3D getCookie("commentAuthor");
+    var email =3D getCookie("commentEmail");
+    var url =3D getCookie("commentUrl");
+    // check each field - IE will render "null"
+   =
+
+    if (author) {
+        document.forms['commentForm'].name.value =3D author;
+    }else{
+        document.forms['commentForm'].name.value =3D "guest";
+    }
+
+    if (email) {
+        document.forms['commentForm'].email.value =3D email;
+    }
+    if (url) {
+        document.forms['commentForm'].url.value =3D url;
+    }
+
+    if (author || email || url) {
+        document.forms['commentForm'].rememberInfo.checked =3D true;
+    }
+
+    function fixURL(theForm) {
+        if (theForm.url.value !=3D "" &&
+            theForm.url.value.indexOf("http://") =3D=3D -1) { //prepend =
+http://
+            theForm.url.value =3D "http://"+theForm.url.value;
+        }
+        saveUserInformation(theForm);
+    }
+
+    function saveUserInformation(theForm) {
+        if (theForm.rememberInfo.checked) {
+            rememberUser(theForm);
+        } else {
+            forgetUser(theForm);
+        }
+    }
+
+    function validateComments(theForm) {
+        if (theForm.content.value =3D=3D "") {
+            alert("Please enter a comment.");
+            theForm.content.focus();
+            return false;
+        }
+ =
+
+        if (document.forms['commentForm'].name.value=3D=3D"" ) {
+        document.forms['commentForm'].name.value =3D "guest";
+        }
+
+    }
+    </script>
+
+
+    </div>
+                    				</div>
+
+                <!-- Sidebar -->
+                           <!-- Right Sidebar -->
+<div id=3D"rightColumn">
+
+    <!-- About -->
+    <h5 class=3D"section-title">About</h5>
+    <div class=3D"section-body">
+                  <p>nike</p>
+            </div>
+
+
+
+    <!-- Search -->
+    <h5 class=3D"section-title">Search</h5>
+    <div class=3D"section-body">
+        <script type=3D"text/javascript">
+    function prepareSearchForm() {
+        document.getElementById("searchForm").searchQuery.name =3D "oq";=
+
+        document.getElementById("searchFilter").innerHTML =3D "<input ty=
+pe=3D'hidden' id=3D'searchFilteredQuery' name=3D'q' value=3D''>" +
+                "<input type=3D'checkbox' id=3D'searchScope' checked=3D'=
+true' /><label for=3D'searchScope'>Search only this blog</label>";
+    }
+    function submitSearchForm() {
+        var form =3D document.getElementById("searchForm");
+        var query =3D form.searchQuery.value;
+        if (query =3D=3D null || query =3D=3D "") {
+            return false;
+        }
+        var filter =3D " weblog:=3Dnike";
+        var curUrl =3D window.location.href;
+        if (form.searchScope.checked && form.searchQuery.value.indexOf(f=
+ilter) =3D=3D -1) {
+            form.searchFilteredQuery.value =3D form.searchQuery.value + =
+filter;
+        }
+        else {
+            form.searchFilteredQuery.value =3D form.searchQuery.value;
+        }
+
+        if(curUrl.indexOf("-dev") !=3D -1) {
+               form.searchFilteredQuery.value =3D form.searchFilteredQue=
+ry.value + " site:blogs-stage.oracle.com";
+               form.action=3D"http://search-stage.oracle.com/search/sear=
+ch";
+           }
+        else if(curUrl.indexOf("-stage") !=3D -1) {
+               form.searchFilteredQuery.value =3D form.searchFilteredQue=
+ry.value + " site:blogs-stage.oracle.com";
+               form.action=3D"http://search-stage.oracle.com/search/sear=
+ch";
+           }
+        else {
+              form.searchFilteredQuery.value =3D form.searchFilteredQuer=
+y.value + " site:blogs.oracle.com";
+              form.action=3D"http://search.oracle.com/search/search";
+           }
+
+        return true;
+    }
+</script>
+<form id=3D"searchForm" action=3D"http://search.oracle.com/search/search=
+"
+      onsubmit=3D"return submitSearchForm();" method=3D"get">
+    <input type=3D"hidden" id=3D"searchOp" name=3D"search_p_main_operato=
+r" value=3D"all" />
+    <input type=3D"hidden" id=3D"searchGroup" name=3D"group" value=3D"Bl=
+ogs" />
+    <input type=3D"text" id=3D"searchQuery" name=3D"q" class=3D"text" />=
+
+    <input type=3D"image" class=3D"input-image" id=3D"searchSubmit" src=3D=
+"http://blogs.oracle.com/nike/resource/search-button.gif" />
+    <span id=3D"searchFilter">
+    <noscript>Search filtering requires JavaScript</noscript>
+    </span>
+</form>
+<script type=3D"text/javascript">prepareSearchForm();</script>
+    </div>
+
+    <!-- Recent Posts -->
+                <h5 class=3D"section-title">Recent Posts</h5>
+        <div class=3D"section-body">
+            <ul>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/cecr_talk">CECR talk</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/bug_inverstigation_part_1_tale">Bug investigation (part 1 =
+- tale of sir VIF)</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/long_absolute_jumps_on_amd64">Long absolute jumps on AMD64=
+</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/python_api_to_the_virtualbox">Python API to the VirtualBox=
+ VM</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/informative_paper_on_memhttp_blogs">Informative paper on m=
+emory</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/back_at_sun">Back at Sun</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/leaving_sun">Leaving Sun</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/fs_neutral_data_recovery_tool">FS neutral data recovery to=
+ol</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/explicit_template_instantiation_in_shared">Explicit templa=
+te instantiation in shared libraries</a></li>
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/entry/double_mapping_of_memory_regions">Double mapping of memory=
+ regions on Unix</a></li>
+                            </ul>
+        </div>
+    =
+
+    <!-- Top Tags -->
+            <h5 class=3D"section-title">Top Tags</h5>
+    <div class=3D"tags section-body">
+        <ul class=3D"tag-cloud">
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/boo=
+ks" title=3D"1" class=3D"weight-1">books</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/cod=
+ing" title=3D"19" class=3D"weight-5">coding</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/con=
+ference" title=3D"1" class=3D"weight-1">conference</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/fun=
+" title=3D"2" class=3D"weight-1">fun</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/gen=
+etics" title=3D"1" class=3D"weight-1">genetics</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/hac=
+king" title=3D"1" class=3D"weight-1">hacking</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/hot=
+spot" title=3D"1" class=3D"weight-1">hotspot</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/tags/vir=
+tualbox" title=3D"1" class=3D"weight-1">virtualbox</a></li>
+                </ul>
+    </div>
+    =
+
+    <!-- Categories -->
+    <h5 class=3D"section-title">Categories</h5>
+    <div class=3D"section-body">
+                        <ul class=3D"rCategory">
+                                                                        =
+    <li><a href=3D"http://blogs.oracle.com/nike/category/Personal">Perso=
+nal</a></li>
+                                                                        =
+                                    <li><a href=3D"http://blogs.oracle.c=
+om/nike/category/Sun">Sun</a></li>
+                                                                        =
+    </ul>
+        </div>
+
+
+    <!-- Archives -->
+    <h5 class=3D"section-title">Archives</h5>
+    <div class=3D"section-body">
+        <table cellspacing=3D"0" border=3D"0"  summary=3D"Blog Archive C=
+alendar" class=3D"hCalendarTable"><tr><td colspan=3D"7" align=3D"center"=
+ class=3D"hCalendarMonthYearRow"><a href=3D"/nike/date/200910" title=3D"=
+Prev" class=3D"hCalendarNavBar">&laquo;</a> July 2011</td></tr><tr><th c=
+lass=3D"hCalendarDayNameRow" align=3D"center">Sun</th><th class=3D"hCale=
+ndarDayNameRow" align=3D"center">Mon</th><th class=3D"hCalendarDayNameRo=
+w" align=3D"center">Tue</th><th class=3D"hCalendarDayNameRow" align=3D"c=
+enter">Wed</th><th class=3D"hCalendarDayNameRow" align=3D"center">Thu</t=
+h><th class=3D"hCalendarDayNameRow" align=3D"center">Fri</th><th class=3D=
+"hCalendarDayNameRow" align=3D"center">Sat</th></tr><tr><td class=3D"hCa=
+lendarDayNotInMonth">&nbsp;</td><td class=3D"hCalendarDayNotInMonth">&nb=
+sp;</td><td class=3D"hCalendarDayNotInMonth">&nbsp;</td><td class=3D"hCa=
+lendarDayNotInMonth">&nbsp;</td><td class=3D"hCalendarDayNotInMonth">&nb=
+sp;</td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTitle">1</d=
+iv></td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTitle">2</d=
+iv></td></tr><tr><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTi=
+tle">3</div></td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTi=
+tle">4</div></td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTi=
+tle">5</div></td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTi=
+tle">6</div></td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTi=
+tle">7</div></td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTi=
+tle">8</div></td><td class=3D"hCalendarDay"><div class=3D"hCalendarDayTi=
+tle">9</div></td></tr><tr><td class=3D"hCalendarDay"><div class=3D"hCale=
+ndarDayTitle">10</div></td><td class=3D"hCalendarDayCurrent"><div class=3D=
+"hCalendarDayTitle">11</div></td><td class=3D"hCalendarDay"><div class=3D=
+"hCalendarDayTitle">12</div></td><td class=3D"hCalendarDay"><div class=3D=
+"hCalendarDayTitle">13</div></td><td class=3D"hCalendarDay"><div class=3D=
+"hCalendarDayTitle">14</div></td><td class=3D"hCalendarDay"><div class=3D=
+"hCalendarDayTitle">15</div></td><td class=3D"hCalendarDay"><div class=3D=
+"hCalendarDayTitle">16</div></td></tr><tr><td class=3D"hCalendarDay"><di=
+v class=3D"hCalendarDayTitle">17</div></td><td class=3D"hCalendarDay"><d=
+iv class=3D"hCalendarDayTitle">18</div></td><td class=3D"hCalendarDay"><=
+div class=3D"hCalendarDayTitle">19</div></td><td class=3D"hCalendarDay">=
+<div class=3D"hCalendarDayTitle">20</div></td><td class=3D"hCalendarDay"=
+><div class=3D"hCalendarDayTitle">21</div></td><td class=3D"hCalendarDay=
+"><div class=3D"hCalendarDayTitle">22</div></td><td class=3D"hCalendarDa=
+y"><div class=3D"hCalendarDayTitle">23</div></td></tr><tr><td class=3D"h=
+CalendarDay"><div class=3D"hCalendarDayTitle">24</div></td><td class=3D"=
+hCalendarDay"><div class=3D"hCalendarDayTitle">25</div></td><td class=3D=
+"hCalendarDay"><div class=3D"hCalendarDayTitle">26</div></td><td class=3D=
+"hCalendarDay"><div class=3D"hCalendarDayTitle">27</div></td><td class=3D=
+"hCalendarDay"><div class=3D"hCalendarDayTitle">28</div></td><td class=3D=
+"hCalendarDay"><div class=3D"hCalendarDayTitle">29</div></td><td class=3D=
+"hCalendarDay"><div class=3D"hCalendarDayTitle">30</div></td></tr><tr><t=
+d class=3D"hCalendarDay"><div class=3D"hCalendarDayTitle">31</div></td><=
+td class=3D"hCalendarDayNotInMonth">&nbsp;</td><td class=3D"hCalendarDay=
+NotInMonth">&nbsp;</td><td class=3D"hCalendarDayNotInMonth">&nbsp;</td><=
+td class=3D"hCalendarDayNotInMonth">&nbsp;</td><td class=3D"hCalendarDay=
+NotInMonth">&nbsp;</td><td class=3D"hCalendarDayNotInMonth">&nbsp;</td><=
+/tr><tr class=3D"hCalendarNextPrev"><td colspan=3D"7" align=3D"center"><=
+a href=3D"/nike/" class=3D"hCalendarNavBar">Today</a></td></tr></table>
+    </div>
+
+    <!-- Bookmarks -->
+                <h5 class=3D"section-title">Bookmarks</h5>
+        <div class=3D"section-body">
+            <ul class=3D"rFolder">
+                    <li class=3D"rFolderItem">
+                                <a href=3D"http://blogs.sun.com"
+               title=3D"$bookmark.description"
+               class=3D"rBookmark0">blogs.sun.com</a>
+                </li>
+            <li class=3D"rFolderItem">
+                                <a href=3D"http://java.com"
+               title=3D"$bookmark.description"
+               class=3D"rBookmark0">java.com</a>
+                </li>
+            <li class=3D"rFolderItem">
+                                <a href=3D"http://java.net"
+               title=3D"$bookmark.description"
+               class=3D"rBookmark0">java.net</a>
+                </li>
+            <li class=3D"rFolderItem">
+                                <a href=3D"http://www.opensolaris.org"
+               title=3D"$bookmark.description"
+               class=3D"rBookmark0">opensolaris.org</a>
+                </li>
+                    </ul>
+        </div>
+            =
+
+    <!-- Blog and Author Menu -->
+    <h5 class=3D"section-title">Menu</h5>
+    <div class=3D"section-body">
+            <ul class=3D"rNavigationBar">
+        <li class=3D"rNavItem">
+            <a href=3D"/"><span>Blogs Home</span></a>
+        </li>
+        <li class=3D"rNavItem">
+            <a href=3D"http://blogs.oracle.com/nike/"><span>Weblog</span=
+></a>
+        </li>
+                                                                        =
+                                                                        =
+                    <li class=3D"rNavItem">
+                    <a href=3D"/roller-ui/login-redirect.rol"><span>Logi=
+n</span></a>
+                </li>
+                        </ul>
+            </div>
+    =
+
+    <!-- Feeds -->
+    <h5 class=3D"section-title">Feeds</h5>
+    <div class=3D"section-body">
+        <b>RSS</b>
+            <ul class=3D"rFeeds">
+    <li><a href=3D"http://blogs.oracle.com/nike/feed/entries/rss">All</a=
+></li>
+                        <li><a href=3D"http://blogs.oracle.com/nike/feed=
+/entries/rss?cat=3D%2FPersonal">/Personal</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/feed/ent=
+ries/rss?cat=3D%2FSun">/Sun</a></li>
+        <li><a href=3D"http://blogs.oracle.com/nike/feed/comments/rss">C=
+omments</a></li>
+    </ul>
+        <b>Atom</b>    =
+
+            <ul class=3D"rFeeds">
+    <li><a href=3D"http://blogs.oracle.com/nike/feed/entries/atom">All</=
+a></li>
+                        <li><a href=3D"http://blogs.oracle.com/nike/feed=
+/entries/atom?cat=3D%2FPersonal">/Personal</a></li>
+                    <li><a href=3D"http://blogs.oracle.com/nike/feed/ent=
+ries/atom?cat=3D%2FSun">/Sun</a></li>
+        <li><a href=3D"http://blogs.oracle.com/nike/feed/comments/atom">=
+Comments</a></li>
+    </ul>
+    </div>     =
+
+</div>
+    			</div>
+
+			<!-- Footer -->
+			<div id=3D"footer">
+				<p>The views expressed on this blog are those of the author and do n=
+ot necessarily reflect the views of Oracle. <a href=3D"http://www.oracle=
+.com/html/terms.html">Terms of Use</a> | <a href=3D"http://www.oracle.co=
+m/html/privacy.html">Your Privacy Rights</a></p>
+			</div>
+                <!-- Omniture Script -->
+                        =
+
+<!-- Start SiteCatalyst code -->
+
+<script language=3D"JavaScript" src=3D"/main/resource/resources/ora_code=
+_blogs.js"></script>
+
+<!-- End SiteCatalyst code -->
+		</div>
+	</body>
+</html>
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline
+Content-Type: image/gif
+Content-Location: http://blogs.oracle.com/nike/resource/oracle2col/favicon.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhEAAQAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//
+AAAA//8A/wD//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAA
+mQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBmAABmMwBmZgBmmQBmzABm/wCZAACZ
+MwCZZgCZmQCZzACZ/wDMAADMMwDMZgDMmQDMzADM/wD/AAD/MwD/ZgD/mQD/zAD/
+/zMAADMAMzMAZjMAmTMAzDMA/zMzADMzMzMzZjMzmTMzzDMz/zNmADNmMzNmZjNm
+mTNmzDNm/zOZADOZMzOZZjOZmTOZzDOZ/zPMADPMMzPMZjPMmTPMzDPM/zP/ADP/
+MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YzAGYzM2YzZmYzmWYzzGYz
+/2ZmAGZmM2ZmZmZmmWZmzGZm/2aZAGaZM2aZZmaZmWaZzGaZ/2bMAGbMM2bMZmbM
+mWbMzGbM/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5kzAJkz
+M5kzZpkzmZkzzJkz/5lmAJlmM5lmZplmmZlmzJlm/5mZAJmZM5mZZpmZmZmZzJmZ
+/5nMAJnMM5nMZpnMmZnMzJnM/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswA
+mcwAzMwA/8wzAMwzM8wzZswzmcwzzMwz/8xmAMxmM8xmZsxmmcxmzMxm/8yZAMyZ
+M8yZZsyZmcyZzMyZ/8zMAMzMM8zMZszMmczMzMzM/8z/AMz/M8z/Zsz/mcz/zMz/
+//8AAP8AM/8AZv8Amf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9m
+mf9mzP9m//+ZAP+ZM/+ZZv+Zmf+ZzP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//
+M///Zv//mf//zP///yH5BAEAABAALAAAAAAQABAAAAg5ALkJHEiwoMGDCBMe/Mew
+IUODDiM2HDhx4UNuFxFe/KdQIEeMHUFi/KjxY0WIGSVKRLkypMuXIQMCADs=
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline
+Content-Type: image/gif
+Content-Location: http://blogs.oracle.com/nike/resource/oracle2col/nav-bg.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhAQAVAMQAAN3d3fr6+tra2tDQ0NfX1/Hx8f7+/u7u7uvr6/j4+Ojo6OXl
+5dXV1eLi4tLS0vz8/N/f3/b29vPz89PT0////wAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAABABUAAAUSIGU8QRJJxYEoSwMBAsFM
+zhACADs=
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline
+Content-Type: image/gif
+Content-Location: http://blogs.oracle.com/nike/resource/oracle2col/jumbotron-bg.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhAQBeAMQAAOfn5/T09Pn5+ff39/Pz8+np6e3t7erq6vDw8Pb29ubm5u/v
+7+Pj4/Hx8e7u7vv7++vr6/j4+Ojo6PX19fLy8uzs7OTk5OXl5fz8/Pr6+v7+/v39
+/f///wAAAAAAAAAAACH5BAAAAAAALAAAAAABAF4AAAU2ICeKWlluKIqt2ONmcCbM
+UT3cST7tQU/8lGBjiCguFo6kYVlpQp6HaGEqqQKuiuxle7F4LYwQADs=
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline
+Content-Type: image/gif
+Content-Location: http://blogs.oracle.com/nike/resource/oracle2col/oracle.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhQQFeANUAAPHx8fT09PX19eXl5fj4+O/v7+bm5ujo6Onp6evr6+Tk5Ozs
+7PDw8PLy8vPz8/b29u7u7uPj4/4/P/6+vv5+fv29vf8QEP3Nzfzc3P5PT/2dnf8g
+IP5fX/zs7P4vL/5vb/3t7f2Njf4fH/2trf6Ojv6env8wMPvr6/3d3fy8vPysrP1u
+bv6urvzMzP19fe3t7erq6ufn5/f39/n5+fr6+vz8/P39/fv7+/7+/v8AAP///wAA
+AAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABBAV4AAAb/QJ1wSCwaj8ikcslsOp/Q
+qHRKrVqv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/gkbs/v+/+AgYKDhIWG
+h4iJiouMjY6PkJGOeZSVlpeYmZqbnJ2en6ChoqOkpV6SqKmqq6ytrq+wsbKztLW2
+t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zdqzXe4eLbNzbH
+N+jp6uvs7e7v6+bj87no8vT4+cg0/Pf6/wB78aNRLqDBg7YGEkTIsGErhTTAOZxI
+sdGMixhr2NjIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjnsRIU6PMmzhz6tzJs6fP
+/58qadIESrSo0aNIkyr1SKCp06YzlkqdSrWq1aNPs0a9yrUoChIZJIgdSzYDhQse
+L5Bdu5YCipIfJGRAS3ICBbZsbZQQ+0HlVw54ybKwwcFs141ZtR5erBNEhhyQI0ue
+nEPC240TKGuO3FckhcgbQIicsGHzZAo2PldGCeKDacmhSWywsIEuVxm4c+uWMcMm
+498tL1h4vdkC3czET4e8MLnzxxLJIZvYqFrCSRAmoueYYIOEiQ1zD+8ez9s38PMm
+QZSGvIHEhPfw45OQENmCaOTb4+svMTyHfZDZTcadR/jlkEEJ+sV3WXUnBZjDBhQk
+CB9djkng3G3k7bYVehyOpP9aDhycREJkIeJHEnOQDebRh/xJ99F6FgxYEoMlQQcZ
+B6J1KNIDPPboo48E1CDkkEQWaeSRSCap5JJMNunkk0j2lwGUrkHWQQWRMUlfDhQU
+iUFkEtQwQmRdDjkmZCM8WV2T64UJ5ZtwxlnDj3T62JuceOap555PYgkZBlB2ENkI
+fuawZAf9aVDklhYAWsOWOVwwpGoeQLnmkl9CRkEFnHbqaaeS8imqkXWW+sCdo6aq
+6qpJagBZpW9uuWmWSWLgQWSOChlCZCEMiUF/sD4K2QeWQuamkoVqVwGrowrg7LPQ
+RutskMxWa+2eu+YQ7JOyFlqDq8RxQOSvrxb5Ya/Ccln/bGVMJpvclNfqKe280coQ
+7734thtZB28m6q2Y/WnmAb9DQhoqkbf6B2iV2zJ5qZIogkjBxBRXPDHB+cJJ78bO
+2pvxxxkLqimU2eaAwb81CEeZBIoSeSaIeK3HLriRqmlsk/2JC7KqAfTs889AA/3A
+DTsXbS0HkbXMpMrsolyDrZFlgPGQiLLXQZWm9drfBrku+bCSHypttJ5Bl2320GOn
+PSq5Nx585AVY1+x0DR1A6kHXNTwG2bIdyKyZBR3QbAEFeB/5dZJVQ5bBsmrLafbj
+QAtAdOOUy0mzdkkLObeQSENmAeNikujrp5y+PGXn2mHwYXRnBZwcsZUX6cDstNdu
+//vtswdAEDy89+7778AHLzzvKYiAuX8qpJNCZO6UnIMGN5xgvH8n9L5CZMmH4Lpp
+LtzgAuYeoNNCwsSJUP3w6KOP+/rs657++/DHLz/vGmQwfXEsn4/O8pC9o0HAK7ge
+ZJLXO+l5Dh0YCAGkNCMCBN6POC1QR/0eSJkUzO+C7WCfBnE3Awx68IMgDKEIR0jC
+EgKvAShMoQpXyEIWysCEMIyhDGdIwxqmr4U4zKEKJWfDHvrwh0AM4vB0SEQcuk+I
+SEyiEpdIQgA48YlQjKIUp+jEBnSQiVjMoha36A4qevGLUSQAF8dIxjL+EIxo/OIL
+zcjGNrrRgwyIoxznSMc62v+xjkd8ox73yMd33PGPgLyjFftIyELqMZCITCQD1mjI
+RjoyiwWIpCQnSclKWvKSkdQdRDbJyU568pOgDKUoR0nKUprylKhMpSpXyUpSYvKV
+sMQkAGbQylra8pa4zKUud8lLXELgl8AMpjCHScxiBrMAD+ilMpfJzGY685m3NKY0
+p0lNB0DzmtjMpja3yUpqevObwWQAAbhJznKa85zMfIE618nOdrrznfCMpybRSc96
+2vOenYynPvfJT3aKUygADahAB0rQghr0oAhNqEIXytCGOvShEI1oQPtJ0Yq2EwIB
+kKhGN8rRjnr0oyANqUMXQNKSmvSkKE2pSldq0n+K9KX/MI2pTGdK04Wy9KY4zalJ
+XxCAxPj0p0ANqlCHStSiGvWoSE2qUpfK1KY69ac6japUUwoAGTz1qljNqla3ytWu
+etWoCQirWMdK1rKa9axoPesCHJChtrr1rXCNq1znSte62vWueM2rXvdq17T69a+A
+RSsEBMDXwhr2sIhNrGIXy1i4BvaxkP0rAB7Q2Mpa9rKYzaxm3QqDznr2s6ANrWhH
+S9rSenatpkqtalfL2ta69rWwja1sZ0vb2tqWtqbNrW53W9oCcOy3wA2ucIdL3OIa
+97jITa5yl8vcaPH2udDVbQIA0NzqWve62M2udrebXQR497vgDa94x0ve8pqXvAto
+/wDk1sve9rr3vfCNr3znS9/62ve++A3AeffL3/769wUOyK+AB0zgAhv4wAgWsH8X
+zOAGwwACG4ywhCdM4Qpb+MIYzrCGN8zhDq/vACAOsYhHTOISm/jEKE4xiBFQgCK6
++MUwjrGMZ0zjGtv4xjjOsYxVzOMe+/jHMGBAGodM5CIb+chITrKSl8zkJjvZiT+O
+spSnDOIECPnJWM6ylrfM5S57+YsxCLOYx0zmMpv5zGhOs5rPnIACKPLNcI6znOdM
+5zrb+c54znMg18znPvv5z2VucywHTehCG/rQiE60ohfN6EY7GpOAjrSkJy3mAyQA
+Ao/OtKY3zelOe/rTgzaAqP9HTepSm/rUqE61qlfNagPEAAYWjbWsZ03rWtv61rjO
+ta7j2epe+/rXwDb1q3dN7GIb+9jITjaxg83sZju71K+eqrSnTe1qW/va2M62tqs9
+gG57+9vgDre4x03ucpv73OI2AAIiy+52u/vd8I63vOdN73aj+974zre+z22AA0T3
+3wAPuMAHTvCCG/zgot23whfO8HPHAAEIj7jEJ07xils8tw3PuMYz/vAGe/zjIA+5
+yEdO8pKb3LsKSLnKV87ylrv85TCPucxnTnOVDyAGVM65znfO8577/OdAP3HNh070
+ohud6ANwNaWXzvSmO/3pUI/6049O9apbvehKl7rWt8479a57XetXD7vYx27zZ5v9
+7GhPu9rXznZfR+DtcI+73OdO97rb/e54z7ve857yjfv974DvO+AHT/iFBwEAOw==
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline
+Content-Type: image/gif
+Content-Location: http://blogs.oracle.com/nike/resource/oracle2col/section-title-bg.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhAQARALMAAPv7+/j4+PX19fLy8u/v7+zs7Pn5+enp6fb29vPz8/Dw8P39
+/e3t7fr6+urq6v7+/iH5BAAAAAAALAAAAAABABEAAAQN8LjCiBpJoGAaWM8TAQA7
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline
+Content-Type: image/gif
+Content-Location: http://blogs.oracle.com/nike/resource/oracle2col/feed-12x.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhDAAMANUsAPzn1ep9NOV1NPq3dvKNNe+GNPGNO/maOeFsLv7y5vm7gvWo
+Z/eXON1jK/qtXvK0i+uCOf/58/jFmu+cZOqPQu6HOvSTPf////udOvaUN/WWPeOA
+PuB7PfSaSeyHPv3v5feZP+6mffmxatteKuVzLud6MuFuNPzAg/ujRvCNQPS8mOOA
+UwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAACH5BAEAACwALAAAAAAMAAwAAAZ9QNYmAKkYDBaNhiIkTTwF
+AiHDOGAopdLlkpB0qhiGBRJYSABcR5hgqBQki8wgEnEQCsbCNjFwRBIpRBYEHScJ
+FwMDFw8CARYZIicoCQkFHwAIAhoMERcKChcTKheZIAcAER0diyEXKwgUawUBJQgI
+DSMcLBRHFRAlAgImukEAOw==
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline; filename=theme.css
+Content-Type: text/css; charset=UTF-8; name=theme.css
+Content-Location: http://blogs.oracle.com/nike/resource/oracle2col/theme.css
+Content-Transfer-Encoding: 8bit
+
+/* Common Tags */
+/* TODO: We'd need to style all entry bodies because of the free-form use of HTML */
+* { margin: 0; padding: 0; }
+html { overflow-x: hidden; }
+body { background: #fff; font: 12px/18px Arial, Verdana, sans-serif; color: #555; }
+img { border: none; }
+ul, ol { margin: 0 0 15px 17px; }
+p { margin: 0 0 15px; }
+a { color: #000; }
+a:hover { color: #ff0000; }
+
+/* Layout: Containers */
+div#container { margin: 0 auto; width: 900px; position: relative; background: #fff; -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+div#container.three-columns { width: 1010px; }
+div#container.three-columns div#mainColumn { width: 520px; }
+div#container.two-columns { width: 900px; }
+div#container.two-columns div#mainColumn { width: 635px; }
+* html div#container { border: 0 solid #ddd; border-width: 0 1px; }
+*:first-child+html div#container { border: 0 solid #ddd; border-width: 0 1px; }
+
+/* Layout: Two / Three Columns */
+div#leftColumn { width: 200px; float: left; margin: 0 25px 0 0; }
+div#mainColumn { float: left; margin: 0 25px 0 0; overflow: hidden; }
+div#rightColumn { width: 200px; float: left; }
+
+/* Header */
+div#header h6 { width: 16px; height: 16px; float: left; margin: 2px 0 0; background: url(favicon.gif) no-repeat; position: relative; }
+div#header h6 a { display: block; text-indent: -10000px; width: 100%; height: 100%; position: relative; }
+div#header h6 a:hover { background: #fff; opacity: 0.75; filter: alpha(opacity=75); }
+div#header ul#nav { list-style: none; border: 0 solid #a5a5a5; border-width: 1px 0; height: 21px; background: url(nav-bg.gif) repeat-x; padding: 0 20px; position: relative; margin: 0; }
+div#header ul#nav li { display: inline; margin: 0 7px; line-height: 20px; }
+div#header ul#nav li a { color: #222; text-decoration: none; font-size: 12px; text-transform: uppercase; }
+div#header ul#nav li a:hover { color: #ff0000; }
+div#header ul#nav li#logo { float: left; margin: 0 9px 0 0; }
+div#header ul#nav li#signIn { position: absolute; right: 20px; top: 0; margin: 0; }
+div#header ul#nav li#signIn a { text-transform: none; }
+
+/* Jumbotron */
+div#header div#jumbotron { height: 94px; background: url(jumbotron-bg.gif) repeat-x; position: relative; }
+div#header div#jumbotron h4 { background: url(oracle.gif) no-repeat; width: 321px; height: 94px; position: absolute; right: 0; top: 0; text-indent: -10000px; z-index: 0; }
+div#header div#jumbotron h5 { color: #000; font-size: 26px; font-weight: normal; line-height: 26px; margin: 0 0 0 25px; padding: 30px 0 0; position: relative; z-index: 10; }
+div#header div#jumbotron h5.subhead { color: #000; font-size: 12px; font-weight: normal; line-height: 30px; margin: 0 0 0 30px; padding: 0px 0 0; position: relative; z-index: 11; }
+
+/* Sub Navigation */
+div#header ul#subNav { list-style: none; border-top: 1px solid #999; height: 18px; overflow: hidden; background: url(nav-bg.gif) repeat-x; padding: 0 0 0 9px; margin: 0; }
+div#header ul#subNav li { float: left; padding: 0 11px; border-right: 1px solid #999; line-height: 18px; }
+div#header ul#subNav li a { color: #666; text-decoration: none; font-size: 12px; }
+div#header ul#subNav li a:hover { color: #ff0000; }
+
+/* Content */
+div#content { overflow: hidden; padding: 20px 20px 40px; height: 1%; }
+div#content:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+/* Previous/Next Entry Pager */
+div#pager { text-align: center; padding-bottom: 20px;}
+
+/* Day */
+div.day { }
+div.day-title h2 { color:#888; font-size: 13px; font-weight: normal; margin-bottom: 10px;}
+* html div.day-title h2 { position: relative; }
+
+/* Blog Entries */
+/*div.entry { padding: 0 0 20px; margin: 0 0 20px; border-bottom: 1px solid #ddd; }*/
+div.entry *.entry-title { font-size: 20px; font-weight: normal; margin: 0 0 3px; }
+div.entry *.entry-title a { color: #000; text-decoration: none; }
+div.entry *.entry-title a:hover { color: #ff0000; }
+div.entry h4.entry-meta { font-size: 11px; font-weight: normal; margin: 0 0 10px; color: #888; }
+div.entry h4.entry-meta a { text-decoration: none; color: #888; }
+div.entry h4.entry-meta a:hover { text-decoration: underline; color: #ff0000; }
+/* Provide default margin and padding for HTML in entry bodies */
+div.entry *.entry-body h1, *.entry-body h2, *.entry-body h3, *.entry-body h4, *.entry-body h5, *.entry-body h6, *.entry-body p, *.entry-body ol, *.entry-body ul, *.entry-body pre, *.entry-body blockquote { margin-top: 10px; margin-bottom: 10px; }
+div.entry *.entry-body li { margin-left: 15px; }
+div.entry *.entry-footer { background: #ededed; font-size: 11px; color: #888; line-height: 140%; padding: 9px 20px 9px 20px !important; margin-bottom: 20px; clear: both; border-top: 10px solid #fff; }
+div.entry *.entry-footer p { margin:0px; display:inline; *margin-left:20px !important; *margin-right:10px; }
+div.entry *.entry-footer p:after { content:" ::: "; margin:0px 3px; }
+div.entry *.entry-footer p + p.entry-links { display:block; }
+div.post div.post-body img { max-width: 635px; }
+/* div.post:last-child { border: 0; margin: 0; padding: 0; } */
+
+/* Comments */
+div.comments-head { margin-top:10px; margin-bottom:10px; font-weight:bold; font-size: 17px; letter-spacing:1px; }
+div.comment { background:#ededed; margin:10px -10px; padding:10px 10px; border:1px solid #ccc; border-width:0px 20px; }
+* html div.comment { height:1px; }
+div.comment + a { }
+div.comment p.comment-details { font-size: 11px; font-weight: normal; color: #888; }
+div.comments-form{ background:#ededed; padding:10px 20px 20px !important; }
+div.comments-form ul, div.comments-form li { list-style:none; margin:6px 0; padding:0; display:block; }
+div.comments-form label{ display:block; font-weight:bold; }
+div.comments-form input.text { border: 1px solid #c1c1c1; padding: 0 0 0 4px; height: 16px }
+/* This catches the math question form */
+div.comments-form p input { border: 1px solid #c1c1c1; padding: 0 0 0 4px; height: 16px }
+div.comments-form input.checkbox { float:left; vertical-align:middle; margin-right:5px; }
+div.comments-form textarea { width:100%; border: 1px solid #c1c1c1; padding: 0 0 0 4px; }
+span.comments-syntax-indicator span.enabled, span.disabled { font-weight: bold; font-style: italic; }
+.error {
+    display: block;
+    background-color: #fcc;
+    border: 1px solid #f00;
+    color: #aa0000;
+    font-weight: bold;
+    margin: 5px 10px 5px 0px;
+    padding: 3px;
+    width: 95%;
+}
+/* Sidebars */
+h5.section-title { background: url(section-title-bg.gif) repeat-x; border-top: 1px solid #ccc; padding: 5px 9px 0; margin: 0 0 10px; font-size: 12px; color: #000; }
+div.section-body { margin: 0 0 20px; }
+div.section-body p { margin: 0 0 0 10px; }
+div.section-body ul { margin: 0 0 0 10px; list-style: none; }
+div.section-body ul li { font-size: 11px; line-height: 15px; margin: 0 0 7px; }
+div.section-body ul li a { color: #000; text-decoration: none; }
+div.section-body ul li a:hover { color: #ff0000; }
+div.section-body ul.tag-cloud { text-align: left; line-height: 18px; }
+div.section-body ul.tag-cloud li { display: inline; margin: 0; line-height: 18px; color: #999; }
+div.section-body ul.tag-cloud a.weight-1 { font-size:11px; font-weight:normal; }
+div.section-body ul.tag-cloud a.weight-2 { font-size:12px; font-weight:normal; }
+div.section-body ul.tag-cloud a.weight-3 { font-size:14px; font-weight:normal; }
+div.section-body ul.tag-cloud a.weight-4 { font-size:16px; font-weight:normal; }
+div.section-body ul.tag-cloud a.weight-5 { font-size:18px; font-weight:normal; }
+div.section-body ul.rFeeds li { padding-left: 16px; background:transparent url(feed-12x.gif) no-repeat; }
+div.section-body table.hCalendarTable { width: 100%; text-align: center; }
+div.section-body form { overflow: hidden; }
+div.section-body form input.text { display: block; border: 1px solid #c1c1c1; float: left; height: 16px; padding: 0 0 0 4px; width: 176px; border-right: 0; }
+div.section-body form input.input-image { float: left; }
+div.section-body span#searchFilter input { margin-top: 10px; margin-left: 10px; margin-right: 5px;}
+div.section-body span#searchFilter label { font-size: smaller;}
+div.section-body span#searchFilter noscript {margin: 0 0 0 10px; font-size: smaller;}
+
+/* Footer */
+div#footer { background: #f00; padding: 10px 0; }
+div#footer p { color: #fff; white-space: nowrap; text-align: center; font-size: 11px; margin: 0; padding: 0; }
+div#footer p a { color: #fff; }
+	
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline; filename=search-button.gif
+Content-Type: image/gif; name=search-button.gif
+Content-Location: http://blogs.oracle.com/nike/resource/search-button.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhEwASAOYAAPT09Le3t4WFhVdXV7i4uJSUlJeXl5CQkKKionx8fH19ffPz
+87m5uby8vL29vbq6ulZWVru7u5ycnJWVlaGhocvLy6WlpaSkpJ6enpaWlp2dnZ+f
+n8nJyYyMjImJiampqcrKypKSklNTU05OTmVlZaCgoE9PT7a2ttzc3Kurq5mZmevr
+619fX5GRkUpKSmRkZFVVVaenp9nZ2bS0tO3t7djY2OXl5e7u7oaGhsPDw2pqalxc
+XKioqOzs7H5+fqysrKOjo97e3szMzK2trcDAwMfHx46OjlFRUbCwsExMTFlZWdbW
+1rW1tWNjY9LS0vDw8JOTk21tbURERPHx8YeHh9TU1Nvb27+/v+Tk5LOzs8jIyF1d
+XeHh4dXV1fj4+PX19fb29vr6+vn5+ff39/z8/P7+/v39/fv7+////wAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAATABIAAAf/gBwPDASFBAGIJwGKAQ49
+ZWggZWZkZ2dkZGaUlWFgCzk0ZVdlAAsAYGKYlGdhYmNfX0ReDGZfAGMAKCBaMl9k
+Yl5gsF8NM7UAACk6JiMkLViuYMJiTENmnikiTR0dUSIHT15j0mJZMWZhNSQvESsr
+QgkDDmHjY2JIFJQNLiFTr2AMjhQ4I87ehw2aHkgBMqZehREtzriyZ6EEpQoQFNxo
+OAYBBB4SvXgJU+KCmTNcFAww0qUKAhYsikgUI+aMBgwnwzhROUDJji0wDoysZCYD
+TlZhlnwQIIBChAQmDoxRNUFCGaStRNJEkSCJAUpmoBgoU8kSq7NnrPjQoMmMgRBk
+LMuavURm0iQzBcoUQFOmr9+/fsmoCIKGww8LFxBskKAiwwQPHqjgYGoDDZpAADs=
+
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline; filename=clientSideInclude.htm
+Content-Type: text/html; charset=utf-8; name=clientSideInclude.htm
+Content-Location: http://blogs.oracle.com/theme/scripts/clientSideInclude.js
+Content-Transfer-Encoding: 8bit
+
+/*
+* Licensed to the Apache Software Foundation (ASF) under one or more
+*  contributor license agreements.  The ASF licenses this file to You
+* under the Apache License, Version 2.0 (the "License"); you may not
+* use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.  For additional information regarding
+* copyright in this work, please see the NOTICE file in the top level
+* directory of this distribution.
+*/
+// global vars for access from callback function
+var req = false;
+var element;
+
+function clientSideInclude(id, url) {
+  // For Safari, Firefox, and other non-MS browsers
+  if (window.XMLHttpRequest) {
+    try {
+      req = new XMLHttpRequest();
+    } catch (e) {
+      req = false;
+    }
+  } else if (window.ActiveXObject) {
+    // For Internet Explorer on Windows
+    try {
+      req = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {
+        req = false;
+      }
+    }
+  }
+ // var element = document.getElementById(id);
+ element = document.getElementById(id);
+ if (!element) {
+  alert("Bad id " + id +
+   "passed to clientSideInclude." +
+   "You need a div or span element " +
+   "with this id in your page.");
+  return;
+ }
+  if (req) {
+    // Asynchronous request using processReqChange callback
+    req.onreadystatechange = processReqChange;
+    req.open('GET', url, true);
+    req.send(null);
+  }
+}
+
+// handle onreadystatechange event of req object
+function processReqChange() {
+    // only if req shows "loaded"
+    if (req.readyState == 4) {
+        // only if "OK"
+        if (req.status == 200) {
+            element.innerHTML = req.responseText;
+         } else {
+            alert("There was a problem retrieving the XML data:\n" +
+                req.statusText);
+         }
+    }
+} 
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline; filename=roller.htm
+Content-Type: text/html; charset=utf-8; name=roller.htm
+Content-Location: http://blogs.oracle.com/theme/scripts/roller.js
+Content-Transfer-Encoding: 8bit
+
+/*
+* Licensed to the Apache Software Foundation (ASF) under one or more
+*  contributor license agreements.  The ASF licenses this file to You
+* under the Apache License, Version 2.0 (the "License"); you may not
+* use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.  For additional information regarding
+* copyright in this work, please see the NOTICE file in the top level
+* directory of this distribution.
+*/
+/* This function is used to set cookies */
+function setCookie(name,value,expires,path,domain,secure) {
+  document.cookie = name + "=" + escape (value) +
+    ((expires) ? "; expires=" + expires.toGMTString() : "") +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+}
+
+/* This function is used to get cookies */
+function getCookie(name) {
+	var prefix = name + "=" 
+	var start = document.cookie.indexOf(prefix) 
+
+	if (start==-1) {
+		return null;
+	}
+	
+	var end = document.cookie.indexOf(";", start+prefix.length) 
+	if (end==-1) {
+		end=document.cookie.length;
+	}
+
+	var value=document.cookie.substring(start+prefix.length, end) 
+	return unescape(value);
+}
+
+/* This function is used to delete cookies */
+function deleteCookie(name,path,domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function rememberUser(theForm) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + 24 * 365 * 60 * 60 * 1000); // sets it for approx 365 days.
+    // sets it for entire domain, so freeroller will remember for all users
+    setCookie("commentAuthor",theForm.name.value,expires,"/"); 
+    setCookie("commentEmail",theForm.email.value,expires,"/");
+    setCookie("commentUrl",theForm.url.value,expires,"/");
+}
+
+function forgetUser(theForm) {
+    deleteCookie("commentAuthor","/");
+    deleteCookie("commentEmail","/");
+    deleteCookie("commentUrl","/");
+}
+
+/* This function is used to show/hide elements with a display:none style attribute */ 
+function toggle(targetId) {
+    if (document.getElementById) {
+        target = document.getElementById(targetId);
+    	if (target.style.display == "none") {
+    		target.style.display = "";            
+    	} else {
+    		target.style.display = "none";
+    	}
+    }
+}
+
+/* The toggleFolder and togglePlusMinus functions are for expanding/contracting folders */
+function toggleFolder(targetId) {
+    var expanded;
+    if (document.getElementById) {
+        target = document.getElementById(targetId);
+    	if (target.style.display == "none") {
+    		target.style.display = "";    
+            expanded = true;        
+    	} else {
+    		target.style.display = "none";
+            expanded = false;
+    	}
+        togglePlusMinus("i" + targetId);
+        
+        // set a cookie to remember this preference
+        var expires = new Date();
+        expires.setTime(expires.getTime() + 24 * 365 * 60 * 60 * 1000); // sets it for approx 365 days.
+        setCookie("rfolder-"+targetId,expanded,expires,"/");
+    }
+}
+
+function togglePlusMinus(targetId) {
+    if (document.getElementById) {
+        target = document.getElementById(targetId);
+    	if (target.innerHTML == "+") {
+    		target.innerHTML = "-";
+    	} else {
+    		target.innerHTML = "+";
+    	}
+    }
+}
+
+/* This function is to set folders to expand/contract based on a user's preference */
+function folderPreference(folderId) {
+    var folderCookie = getCookie("rfolder-"+folderId);
+    if (folderCookie != null) { // we have user's last setting
+        folder = document.getElementById(folderId);
+        plusMinus = document.getElementById("i"+folderId);
+        if (folderCookie == "true") { // show
+            folder.style.display = "";
+            plusMinus.innerHTML = "-";
+        } else { // hide
+            folder.style.display = "none";
+            plusMinus.innerHTML = "+"; 
+        }
+    }
+}
+
+function toggleNextRow(e) {
+    if (e.type == "checkbox") {
+        var checked = e.checked;
+    } else if (e.type == "radio") {
+        var v = e.value;
+        var checked = (v == "1" || v == "y" || v == "true") ? true : false;
+    }
+    // var nextRow = e.parentNode.parentNode.nextSibling;
+    // the above doesn't work on Mozilla since it treats white space as nodes
+    var thisRow = e.parentNode.parentNode;
+    var tableBody = thisRow.parentNode;
+    var nextRow = tableBody.getElementsByTagName("tr")[thisRow.rowIndex+1];
+    
+    if (checked == true) {
+        nextRow.style.display = "";
+    } else {
+        nextRow.style.display = "none";
+    }
+}
+
+function toggleControl(toggleId, targetId) {
+    var expanded;
+    if (document.getElementById) {
+        target = document.getElementById(targetId);
+        toggle = document.getElementById(toggleId);
+    	if (target.style.display == "none") {
+    		target.style.display = "";  
+            expanded = true;  
+                  
+    	} else {
+    		target.style.display = "none";  
+            expanded = false;
+    	}
+        togglePlusMinus("i" + targetId);
+        
+        // set a cookie to remember this preference
+        var expires = new Date();
+        expires.setTime(expires.getTime() + 24 * 365 * 60 * 60 * 1000); // sets it for approx 365 days.
+        setCookie("control-"+targetId,expanded,expires,"/");
+    }
+}
+
+function isblank(s) {
+   for (var i=0; i<s.length; s++) {
+      var c = s.charAt(i);
+      if ((c!=' ') && (c!='\n') && (c!='')) return false;
+   }
+    return true;
+}
+
+// Show the document's title on the status bar
+window.defaultStatus=document.title;
+------------1vRAVl0sa2O7owJD4wn4Fi
+Content-Disposition: inline; filename=ora_code_blogs.htm
+Content-Type: text/html; charset=utf-8; name=ora_code_blogs.htm
+Content-Location: http://blogs.oracle.com/main/resource/resources/ora_code_blogs.js
+Content-Transfer-Encoding: Quoted-Printable
+
+var oraVersion=3D"ora_code_blogs:1.03:H22.1";function s_setAccount(){var=
+ sa=3D["oracledevall","ocom","en-us"];
+if(location.href.indexOf("-stage")!=3D-1||location.href.indexOf("-dev")!=
+=3D-1||location.href.indexOf("localhost")!=3D-1){sa[0]=3D"oracledevblogs=
+1,oracledevall";
+sa[1]=3D"blogs";sa[2]=3D"en-us";}else{sa[0]=3D"oracleblogs,oracleglobal"=
+;sa[1]=3D"blogs";
+sa[2]=3D"en-us";}return sa;}function s_prePlugins(s){s.prop10=3D"Not Set=
+";if(document.getElementById("jumbotron").getElementsByTagName("h5")[0]!=
+=3Dnull){s.prop10=3Ddocument.getElementById("jumbotron").getElementsByTa=
+gName("h5")[0].innerHTML;
+}}var s_account=3D["oracledevall","ocom","en-us"];if(window.s_setAccount=
+){s_account=3Ds_setAccount();
+}var s=3Ds_gi(s_account[0]);s_SetOraConfig();s_SetOraMedia();s_setAdobeP=
+lugins();s.doPlugins=3Ds_doPlugins;
+var s_code=3D"",s_objectID;function s_gi(un,pg,ss){var c=3D"s._c=3D's_c'=
+;s.wd=3Dwindow;if(!s.wd.s_c_in){s.wd.s_c_il=3Dnew Array;s.wd.s_c_in=3D0;=
+}s._il=3Ds.wd.s_c_il;s._in=3Ds.wd.s_c_in;s._il[s._in]=3Ds;s.wd.s_c_in++;=
+s.an=3Ds_an;s.cls=3Dfunction(x,c){var i,y=3D'';if(!c)c=3Dthis.an;for(i=3D=
+0;i<x.length;i++){n=3Dx.substring(i,i+1);if(c.indexOf(n)>=3D0)y+=3Dn}ret=
+urn y};s.fl=3Dfunction(x,l){return x?(''+x).substring(0,l):x};s.co=3Dfun=
+ction(o){if(!o)return o;var n=3Dnew Object,x;for(x in o)if(x.indexOf('se=
+lect')<0&&x.indexOf('filter')<0)n[x]=3Do[x];return n};s.num=3Dfunction(x=
+){x=3D''+x;for(var p=3D0;p<x.length;p++)if(('0123456789').indexOf(x.subs=
+tring(p,p+1))<0)return 0;return 1};s.rep=3Ds_rep;s.sp=3Ds_sp;s.jn=3Ds_jn=
+;s.ape=3Dfunction(x){var s=3Dthis,h=3D'0123456789ABCDEF',i,c=3Ds.charSet=
+,n,l,e,y=3D'';c=3Dc?c.toUpperCase():'';if(x){x=3D''+x;if(s.em=3D=3D3)ret=
+urn encodeURIComponent(x);else if(c=3D=3D'AUTO'&&('').charCodeAt){for(i=3D=
+0;i<x.length;i++){c=3Dx.substring(i,i+1);n=3Dx.charCodeAt(i);if(n>127){l=
+=3D0;e=3D'';while(n||l<4){e=3Dh.substring(n%16,n%16+1)+e;n=3D(n-n%16)/16=
+;l++}y+=3D'%u'+e}else if(c=3D=3D'+')y+=3D'%2B';else y+=3Descape(c)}retur=
+n y}else{x=3Ds.rep(escape(''+x),'+','%2B');if(c&&s.em=3D=3D1&&x.indexOf(=
+'%u')<0&&x.indexOf('%U')<0){i=3Dx.indexOf('%');while(i>=3D0){i++;if(h.su=
+bstring(8).indexOf(x.substring(i,i+1).toUpperCase())>=3D0)return x.subst=
+ring(0,i)+'u00'+x.substring(i);i=3Dx.indexOf('%',i)}}}}return x};s.epa=3D=
+function(x){var s=3Dthis;if(x){x=3D''+x;return s.em=3D=3D3?decodeURIComp=
+onent(x):unescape(s.rep(x,'+',' '))}return x};s.pt=3Dfunction(x,d,f,a){v=
+ar s=3Dthis,t=3Dx,z=3D0,y,r;while(t){y=3Dt.indexOf(d);y=3Dy<0?t.length:y=
+;t=3Dt.substring(0,y);r=3Ds[f](t,a);if(r)return r;z+=3Dy+d.length;t=3Dx.=
+substring(z,x.length);t=3Dz<x.length?t:''}return ''};s.isf=3Dfunction(t,=
+a){var c=3Da.indexOf(':');if(c>=3D0)a=3Da.substring(0,c);if(t.substring(=
+0,2)=3D=3D's_')t=3Dt.substring(2);return (t!=3D''&&t=3D=3Da)};s.fsf=3Dfu=
+nction(t,a){var s=3Dthis;if(s.pt(a,',','isf',t))s.fsg+=3D(s.fsg!=3D''?',=
+':'')+t;return 0};s.fs=3Dfunction(x,f){var s=3Dthis;s.fsg=3D'';s.pt(x,',=
+','fsf',f);return s.fsg};s.si=3Dfunction(){var s=3Dthis,i,k,v,c=3Ds_gi+'=
+var s=3Ds_gi(\"'+s.oun+'\");s.sa(\"'+s.un+'\");';for(i=3D0;i<s.va_g.leng=
+th;i++){k=3Ds.va_g[i];v=3Ds[k];if(v!=3Dundefined){if(typeof(v)!=3D'numbe=
+r')c+=3D's.'+k+'=3D\"'+s_fe(v)+'\";';else c+=3D's.'+k+'=3D'+v+';'}}c+=3D=
+\"s.lnk=3Ds.eo=3Ds.linkName=3Ds.linkType=3Ds.wd.s_objectID=3Ds.ppu=3Ds.p=
+e=3Ds.pev1=3Ds.pev2=3Ds.pev3=3D'';\";return c};s.c_d=3D'';s.c_gdf=3Dfunc=
+tion(t,a){var s=3Dthis;if(!s.num(t))return 1;return 0};s.c_gd=3Dfunction=
+(){var s=3Dthis,d=3Ds.wd.location.hostname,n=3Ds.fpCookieDomainPeriods,p=
+;if(!n)n=3Ds.cookieDomainPeriods;if(d&&!s.c_d){n=3Dn?parseInt(n):2;n=3Dn=
+>2?n:2;p=3Dd.lastIndexOf('.');if(p>=3D0){while(p>=3D0&&n>1){p=3Dd.lastIn=
+dexOf('.',p-1);n--}s.c_d=3Dp>0&&s.pt(d,'.','c_gdf',0)?d.substring(p):d}}=
+return s.c_d};s.c_r=3Dfunction(k){var s=3Dthis;k=3Ds.ape(k);var c=3D' '+=
+s.d.cookie,i=3Dc.indexOf(' '+k+'=3D'),e=3Di<0?i:c.indexOf(';',i),v=3Di<0=
+?'':s.epa(c.substring(i+2+k.length,e<0?c.length:e));return v!=3D'[[B]]'?=
+v:''};s.c_w=3Dfunction(k,v,e){var s=3Dthis,d=3Ds.c_gd(),l=3Ds.cookieLife=
+time,t;v=3D''+v;l=3Dl?(''+l).toUpperCase():'';if(e&&l!=3D'SESSION'&&l!=3D=
+'NONE'){t=3D(v!=3D''?parseInt(l?l:0):-60);if(t){e=3Dnew Date;e.setTime(e=
+.getTime()+(t*1000))}}if(k&&l!=3D'NONE'){s.d.cookie=3Dk+'=3D'+s.ape(v!=3D=
+''?v:'[[B]]')+'; path=3D/;'+(e&&l!=3D'SESSION'?' expires=3D'+e.toGMTStri=
+ng()+';':'')+(d?' domain=3D'+d+';':'');return s.c_r(k)=3D=3Dv}return 0};=
+s.eh=3Dfunction(o,e,r,f){var s=3Dthis,b=3D's_'+e+'_'+s._in,n=3D-1,l,i,x;=
+if(!s.ehl)s.ehl=3Dnew Array;l=3Ds.ehl;for(i=3D0;i<l.length&&n<0;i++){if(=
+l[i].o=3D=3Do&&l[i].e=3D=3De)n=3Di}if(n<0){n=3Di;l[n]=3Dnew Object}x=3Dl=
+[n];x.o=3Do;x.e=3De;f=3Dr?x.b:f;if(r||f){x.b=3Dr?0:o[e];x.o[e]=3Df}if(x.=
+b){x.o[b]=3Dx.b;return b}return 0};s.cet=3Dfunction(f,a,t,o,b){var s=3Dt=
+his,r,tcf;if(s.apv>=3D5&&(!s.isopera||s.apv>=3D7)){tcf=3Dnew Function('s=
+','f','a','t','var e,r;try{r=3Ds[f](a)}catch(e){r=3Ds[t](e)}return r');r=
+=3Dtcf(s,f,a,t)}else{if(s.ismac&&s.u.indexOf('MSIE 4')>=3D0)r=3Ds[b](a);=
+else{s.eh(s.wd,'onerror',0,o);r=3Ds[f](a);s.eh(s.wd,'onerror',1)}}return=
+ r};s.gtfset=3Dfunction(e){var s=3Dthis;return s.tfs};s.gtfsoe=3Dnew Fun=
+ction('e','var s=3Ds_c_il['+s._in+'],c;s.eh(window,\"onerror\",1);s.etfs=
+=3D1;c=3Ds.t();if(c)s.d.write(c);s.etfs=3D0;return true');s.gtfsfb=3Dfun=
+ction(a){return window};s.gtfsf=3Dfunction(w){var s=3Dthis,p=3Dw.parent,=
+l=3Dw.location;s.tfs=3Dw;if(p&&p.location!=3Dl&&p.location.host=3D=3Dl.h=
+ost){s.tfs=3Dp;return s.gtfsf(s.tfs)}return s.tfs};s.gtfs=3Dfunction(){v=
+ar s=3Dthis;if(!s.tfs){s.tfs=3Ds.wd;if(!s.etfs)s.tfs=3Ds.cet('gtfsf',s.t=
+fs,'gtfset',s.gtfsoe,'gtfsfb')}return s.tfs};s.mrq=3Dfunction(u){var s=3D=
+this,l=3Ds.rl[u],n,r;s.rl[u]=3D0;if(l)for(n=3D0;n<l.length;n++){r=3Dl[n]=
+;s.mr(0,0,r.r,0,r.t,r.u)}};s.br=3Dfunction(id,rs){var s=3Dthis;if(s.disa=
+bleBufferedRequests||!s.c_w('s_br',rs))s.brl=3Drs};s.flushBufferedReques=
+ts=3Dfunction(){this.fbr(0)};s.fbr=3Dfunction(id){var s=3Dthis,br=3Ds.c_=
+r('s_br');if(!br)br=3Ds.brl;if(br){if(!s.disableBufferedRequests)s.c_w('=
+s_br','');s.mr(0,0,br)}s.brl=3D0};s.mr=3Dfunction(sess,q,rs,id,ta,u){var=
+ s=3Dthis,dc=3Ds.dc,t1=3Ds.trackingServer,t2=3Ds.trackingServerSecure,tb=
+=3Ds.trackingServerBase,p=3D'.sc',ns=3Ds.visitorNamespace,un=3Ds.cls(u?u=
+:(ns?ns:s.fun)),r=3Dnew Object,l,imn=3D's_i_'+(un),im,b,e;if(!rs){if(t1)=
+{if(t2&&s.ssl)t1=3Dt2}else{if(!tb)tb=3D'2o7.net';if(dc)dc=3D(''+dc).toLo=
+werCase();else dc=3D'd1';if(tb=3D=3D'2o7.net'){if(dc=3D=3D'd1')dc=3D'112=
+';else if(dc=3D=3D'd2')dc=3D'122';p=3D''}t1=3Dun+'.'+dc+'.'+p+tb}rs=3D'h=
+ttp'+(s.ssl?'s':'')+'://'+t1+'/b/ss/'+s.un+'/'+(s.mobile?'5.1':'1')+'/H.=
+22.1/'+sess+'?AQB=3D1&ndh=3D1'+(q?q:'')+'&AQE=3D1';if(s.isie&&!s.ismac)r=
+s=3Ds.fl(rs,2047);if(id){s.br(id,rs);return}}if(s.d.images&&s.apv>=3D3&&=
+(!s.isopera||s.apv>=3D7)&&(s.ns6<0||s.apv>=3D6.1)){if(!s.rc)s.rc=3Dnew O=
+bject;if(!s.rc[un]){s.rc[un]=3D1;if(!s.rl)s.rl=3Dnew Object;s.rl[un]=3Dn=
+ew Array;setTimeout('if(window.s_c_il)window.s_c_il['+s._in+'].mrq(\"'+u=
+n+'\")',750)}else{l=3Ds.rl[un];if(l){r.t=3Dta;r.u=3Dun;r.r=3Drs;l[l.leng=
+th]=3Dr;return ''}imn+=3D'_'+s.rc[un];s.rc[un]++}im=3Ds.wd[imn];if(!im)i=
+m=3Ds.wd[imn]=3Dnew Image;im.s_l=3D0;im.onload=3Dnew Function('e','this.=
+s_l=3D1;var wd=3Dwindow,s;if(wd.s_c_il){s=3Dwd.s_c_il['+s._in+'];s.mrq(\=
+"'+un+'\");s.nrs--;if(!s.nrs)s.m_m(\"rr\")}');if(!s.nrs){s.nrs=3D1;s.m_m=
+('rs')}else s.nrs++;im.src=3Drs;if((!ta||ta=3D=3D'_self'||ta=3D=3D'_top'=
+||(s.wd.name&&ta=3D=3Ds.wd.name))&&rs.indexOf('&pe=3D')>=3D0){b=3De=3Dne=
+w Date;while(!im.s_l&&e.getTime()-b.getTime()<500)e=3Dnew Date}return ''=
+}return '<im'+'g sr'+'c=3D\"'+rs+'\" width=3D1 height=3D1 border=3D0 alt=
+=3D\"\">'};s.gg=3Dfunction(v){var s=3Dthis;if(!s.wd['s_'+v])s.wd['s_'+v]=
+=3D'';return s.wd['s_'+v]};s.glf=3Dfunction(t,a){if(t.substring(0,2)=3D=3D=
+'s_')t=3Dt.substring(2);var s=3Dthis,v=3Ds.gg(t);if(v)s[t]=3Dv};s.gl=3Df=
+unction(v){var s=3Dthis;if(s.pg)s.pt(v,',','glf',0)};s.rf=3Dfunction(x){=
+var s=3Dthis,y,i,j,h,l,a,b=3D'',c=3D'',t;if(x){y=3D''+x;i=3Dy.indexOf('?=
+');if(i>0){a=3Dy.substring(i+1);y=3Dy.substring(0,i);h=3Dy.toLowerCase()=
+;i=3D0;if(h.substring(0,7)=3D=3D'http://')i+=3D7;else if(h.substring(0,8=
+)=3D=3D'https://')i+=3D8;h=3Dh.substring(i);i=3Dh.indexOf(\"/\");if(i>0)=
+{h=3Dh.substring(0,i);if(h.indexOf('google')>=3D0){a=3Ds.sp(a,'&');if(a.=
+length>1){l=3D',q,ie,start,search_key,word,kw,cd,';for(j=3D0;j<a.length;=
+j++){t=3Da[j];i=3Dt.indexOf('=3D');if(i>0&&l.indexOf(','+t.substring(0,i=
+)+',')>=3D0)b+=3D(b?'&':'')+t;else c+=3D(c?'&':'')+t}if(b&&c){y+=3D'?'+b=
++'&'+c;if(''+x!=3Dy)x=3Dy}}}}}}return x};s.hav=3Dfunction(){var s=3Dthis=
+,qs=3D'',fv=3Ds.linkTrackVars,fe=3Ds.linkTrackEvents,mn,i;if(s.pe){mn=3D=
+s.pe.substring(0,1).toUpperCase()+s.pe.substring(1);if(s[mn]){fv=3Ds[mn]=
+.trackVars;fe=3Ds[mn].trackEvents}}fv=3Dfv?fv+','+s.vl_l+','+s.vl_l2:'';=
+for(i=3D0;i<s.va_t.length;i++){var k=3Ds.va_t[i],v=3Ds[k],b=3Dk.substrin=
+g(0,4),x=3Dk.substring(4),n=3DparseInt(x),q=3Dk;if(v&&k!=3D'linkName'&&k=
+!=3D'linkType'){if(s.pe||s.lnk||s.eo){if(fv&&(','+fv+',').indexOf(','+k+=
+',')<0)v=3D'';if(k=3D=3D'events'&&fe)v=3Ds.fs(v,fe)}if(v){if(k=3D=3D'dyn=
+amicVariablePrefix')q=3D'D';else if(k=3D=3D'visitorID')q=3D'vid';else if=
+(k=3D=3D'pageURL'){q=3D'g';v=3Ds.fl(v,255)}else if(k=3D=3D'referrer'){q=3D=
+'r';v=3Ds.fl(s.rf(v),255)}else if(k=3D=3D'vmk'||k=3D=3D'visitorMigration=
+Key')q=3D'vmt';else if(k=3D=3D'visitorMigrationServer'){q=3D'vmf';if(s.s=
+sl&&s.visitorMigrationServerSecure)v=3D''}else if(k=3D=3D'visitorMigrati=
+onServerSecure'){q=3D'vmf';if(!s.ssl&&s.visitorMigrationServer)v=3D''}el=
+se if(k=3D=3D'charSet'){q=3D'ce';if(v.toUpperCase()=3D=3D'AUTO')v=3D'ISO=
+8859-1';else if(s.em=3D=3D2||s.em=3D=3D3)v=3D'UTF-8'}else if(k=3D=3D'vis=
+itorNamespace')q=3D'ns';else if(k=3D=3D'cookieDomainPeriods')q=3D'cdp';e=
+lse if(k=3D=3D'cookieLifetime')q=3D'cl';else if(k=3D=3D'variableProvider=
+')q=3D'vvp';else if(k=3D=3D'currencyCode')q=3D'cc';else if(k=3D=3D'chann=
+el')q=3D'ch';else if(k=3D=3D'transactionID')q=3D'xact';else if(k=3D=3D'c=
+ampaign')q=3D'v0';else if(k=3D=3D'resolution')q=3D's';else if(k=3D=3D'co=
+lorDepth')q=3D'c';else if(k=3D=3D'javascriptVersion')q=3D'j';else if(k=3D=
+=3D'javaEnabled')q=3D'v';else if(k=3D=3D'cookiesEnabled')q=3D'k';else if=
+(k=3D=3D'browserWidth')q=3D'bw';else if(k=3D=3D'browserHeight')q=3D'bh';=
+else if(k=3D=3D'connectionType')q=3D'ct';else if(k=3D=3D'homepage')q=3D'=
+hp';else if(k=3D=3D'plugins')q=3D'p';else if(s.num(x)){if(b=3D=3D'prop')=
+q=3D'c'+n;else if(b=3D=3D'eVar')q=3D'v'+n;else if(b=3D=3D'list')q=3D'l'+=
+n;else if(b=3D=3D'hier'){q=3D'h'+n;v=3Ds.fl(v,255)}}if(v)qs+=3D'&'+q+'=3D=
+'+(k.substring(0,3)!=3D'pev'?s.ape(v):v)}}}return qs};s.ltdf=3Dfunction(=
+t,h){t=3Dt?t.toLowerCase():'';h=3Dh?h.toLowerCase():'';var qi=3Dh.indexO=
+f('?');h=3Dqi>=3D0?h.substring(0,qi):h;if(t&&h.substring(h.length-(t.len=
+gth+1))=3D=3D'.'+t)return 1;return 0};s.ltef=3Dfunction(t,h){t=3Dt?t.toL=
+owerCase():'';h=3Dh?h.toLowerCase():'';if(t&&h.indexOf(t)>=3D0)return 1;=
+return 0};s.lt=3Dfunction(h){var s=3Dthis,lft=3Ds.linkDownloadFileTypes,=
+lef=3Ds.linkExternalFilters,lif=3Ds.linkInternalFilters;lif=3Dlif?lif:s.=
+wd.location.hostname;h=3Dh.toLowerCase();if(s.trackDownloadLinks&&lft&&s=
+.pt(lft,',','ltdf',h))return 'd';if(s.trackExternalLinks&&h.substring(0,=
+1)!=3D'#'&&(lef||lif)&&(!lef||s.pt(lef,',','ltef',h))&&(!lif||!s.pt(lif,=
+',','ltef',h)))return 'e';return ''};s.lc=3Dnew Function('e','var s=3Ds_=
+c_il['+s._in+'],b=3Ds.eh(this,\"onclick\");s.lnk=3Ds.co(this);s.t();s.ln=
+k=3D0;if(b)return this[b](e);return true');s.bc=3Dnew Function('e','var =
+s=3Ds_c_il['+s._in+'],f,tcf;if(s.d&&s.d.all&&s.d.all.cppXYctnr)return;s.=
+eo=3De.srcElement?e.srcElement:e.target;tcf=3Dnew Function(\"s\",\"var e=
+;try{if(s.eo&&(s.eo.tagName||s.eo.parentElement||s.eo.parentNode))s.t()}=
+catch(e){}\");tcf(s);s.eo=3D0');s.oh=3Dfunction(o){var s=3Dthis,l=3Ds.wd=
+.location,h=3Do.href?o.href:'',i,j,k,p;i=3Dh.indexOf(':');j=3Dh.indexOf(=
+'?');k=3Dh.indexOf('/');if(h&&(i<0||(j>=3D0&&i>j)||(k>=3D0&&i>k))){p=3Do=
+.protocol&&o.protocol.length>1?o.protocol:(l.protocol?l.protocol:'');i=3D=
+l.pathname.lastIndexOf('/');h=3D(p?p+'//':'')+(o.host?o.host:(l.host?l.h=
+ost:''))+(h.substring(0,1)!=3D'/'?l.pathname.substring(0,i<0?0:i)+'/':''=
+)+h}return h};s.ot=3Dfunction(o){var t=3Do.tagName;if(o.tagUrn&&!(o.tagU=
+rn=3D=3D=3D''))return '';if(o.scopeName&&!(o.scopeName=3D=3D=3D''))retur=
+n '';t=3Dt&&t.toUpperCase?t.toUpperCase():'';if(t=3D=3D'SHAPE')t=3D'';if=
+(t){if((t=3D=3D'INPUT'||t=3D=3D'BUTTON')&&o.type&&o.type.toUpperCase)t=3D=
+o.type.toUpperCase();else if(!t&&o.href)t=3D'A';}return t};s.oid=3Dfunct=
+ion(o){var s=3Dthis,t=3Ds.ot(o),p,c,n=3D'',x=3D0;if(t&&!o.s_oid){p=3Do.p=
+rotocol;c=3Do.onclick;if(o.href&&(t=3D=3D'A'||t=3D=3D'AREA')&&(!c||!p||p=
+.toLowerCase().indexOf('javascript')<0))n=3Ds.oh(o);else if(c){n=3Ds.rep=
+(s.rep(s.rep(s.rep(''+c,\"\\r\",''),\"\\n\",''),\"\\t\",''),' ','');x=3D=
+2}else if(t=3D=3D'INPUT'||t=3D=3D'SUBMIT'){if(o.value)n=3Do.value;else i=
+f(o.innerText)n=3Do.innerText;else if(o.textContent)n=3Do.textContent;x=3D=
+3}else if(o.src&&t=3D=3D'IMAGE')n=3Do.src;if(n){o.s_oid=3Ds.fl(n,100);o.=
+s_oidt=3Dx}}return o.s_oid};s.rqf=3Dfunction(t,un){var s=3Dthis,e=3Dt.in=
+dexOf('=3D'),u=3De>=3D0?t.substring(0,e):'',q=3De>=3D0?s.epa(t.substring=
+(e+1)):'';if(u&&q&&(','+u+',').indexOf(','+un+',')>=3D0){if(u!=3Ds.un&&s=
+.un.indexOf(',')>=3D0)q=3D'&u=3D'+u+q+'&u=3D0';return q}return ''};s.rq=3D=
+function(un){if(!un)un=3Dthis.un;var s=3Dthis,c=3Dun.indexOf(','),v=3Ds.=
+c_r('s_sq'),q=3D'';if(c<0)return s.pt(v,'&','rqf',un);return s.pt(un,','=
+,'rq',0)};s.sqp=3Dfunction(t,a){var s=3Dthis,e=3Dt.indexOf('=3D'),q=3De<=
+0?'':s.epa(t.substring(e+1));s.sqq[q]=3D'';if(e>=3D0)s.pt(t.substring(0,=
+e),',','sqs',q);return 0};s.sqs=3Dfunction(un,q){var s=3Dthis;s.squ[un]=3D=
+q;return 0};s.sq=3Dfunction(q){var s=3Dthis,k=3D's_sq',v=3Ds.c_r(k),x,c=3D=
+0;s.sqq=3Dnew Object;s.squ=3Dnew Object;s.sqq[q]=3D'';s.pt(v,'&','sqp',0=
+);s.pt(s.un,',','sqs',q);v=3D'';for(x in s.squ)if(x&&(!Object||!Object.p=
+rototype||!Object.prototype[x]))s.sqq[s.squ[x]]+=3D(s.sqq[s.squ[x]]?',':=
+'')+x;for(x in s.sqq)if(x&&(!Object||!Object.prototype||!Object.prototyp=
+e[x])&&s.sqq[x]&&(x=3D=3Dq||c<2)){v+=3D(v?'&':'')+s.sqq[x]+'=3D'+s.ape(x=
+);c++}return s.c_w(k,v,0)};s.wdl=3Dnew Function('e','var s=3Ds_c_il['+s.=
+_in+'],r=3Dtrue,b=3Ds.eh(s.wd,\"onload\"),i,o,oc;if(b)r=3Dthis[b](e);for=
+(i=3D0;i<s.d.links.length;i++){o=3Ds.d.links[i];oc=3Do.onclick?\"\"+o.on=
+click:\"\";if((oc.indexOf(\"s_gs(\")<0||oc.indexOf(\".s_oc(\")>=3D0)&&oc=
+.indexOf(\".tl(\")<0)s.eh(o,\"onclick\",0,s.lc);}return r');s.wds=3Dfunc=
+tion(){var s=3Dthis;if(s.apv>3&&(!s.isie||!s.ismac||s.apv>=3D5)){if(s.b&=
+&s.b.attachEvent)s.b.attachEvent('onclick',s.bc);else if(s.b&&s.b.addEve=
+ntListener)s.b.addEventListener('click',s.bc,false);else s.eh(s.wd,'onlo=
+ad',0,s.wdl)}};s.vs=3Dfunction(x){var s=3Dthis,v=3Ds.visitorSampling,g=3D=
+s.visitorSamplingGroup,k=3D's_vsn_'+s.un+(g?'_'+g:''),n=3Ds.c_r(k),e=3Dn=
+ew Date,y=3De.getYear();e.setYear(y+10+(y<1900?1900:0));if(v){v*=3D100;i=
+f(!n){if(!s.c_w(k,x,e))return 0;n=3Dx}if(n%10000>v)return 0}return 1};s.=
+dyasmf=3Dfunction(t,m){if(t&&m&&m.indexOf(t)>=3D0)return 1;return 0};s.d=
+yasf=3Dfunction(t,m){var s=3Dthis,i=3Dt?t.indexOf('=3D'):-1,n,x;if(i>=3D=
+0&&m){var n=3Dt.substring(0,i),x=3Dt.substring(i+1);if(s.pt(x,',','dyasm=
+f',m))return n}return 0};s.uns=3Dfunction(){var s=3Dthis,x=3Ds.dynamicAc=
+countSelection,l=3Ds.dynamicAccountList,m=3Ds.dynamicAccountMatch,n,i;s.=
+un=3Ds.un.toLowerCase();if(x&&l){if(!m)m=3Ds.wd.location.host;if(!m.toLo=
+werCase)m=3D''+m;l=3Dl.toLowerCase();m=3Dm.toLowerCase();n=3Ds.pt(l,';',=
+'dyasf',m);if(n)s.un=3Dn}i=3Ds.un.indexOf(',');s.fun=3Di<0?s.un:s.un.sub=
+string(0,i)};s.sa=3Dfunction(un){var s=3Dthis;s.un=3Dun;if(!s.oun)s.oun=3D=
+un;else if((','+s.oun+',').indexOf(','+un+',')<0)s.oun+=3D','+un;s.uns()=
+};s.m_i=3Dfunction(n,a){var s=3Dthis,m,f=3Dn.substring(0,1),r,l,i;if(!s.=
+m_l)s.m_l=3Dnew Object;if(!s.m_nl)s.m_nl=3Dnew Array;m=3Ds.m_l[n];if(!a&=
+&m&&m._e&&!m._i)s.m_a(n);if(!m){m=3Dnew Object,m._c=3D's_m';m._in=3Ds.wd=
+.s_c_in;m._il=3Ds._il;m._il[m._in]=3Dm;s.wd.s_c_in++;m.s=3Ds;m._n=3Dn;m.=
+_l=3Dnew Array('_c','_in','_il','_i','_e','_d','_dl','s','n','_r','_g','=
+_g1','_t','_t1','_x','_x1','_rs','_rr','_l');s.m_l[n]=3Dm;s.m_nl[s.m_nl.=
+length]=3Dn}else if(m._r&&!m._m){r=3Dm._r;r._m=3Dm;l=3Dm._l;for(i=3D0;i<=
+l.length;i++)if(m[l[i]])r[l[i]]=3Dm[l[i]];r._il[r._in]=3Dr;m=3Ds.m_l[n]=3D=
+r}if(f=3D=3Df.toUpperCase())s[n]=3Dm;return m};s.m_a=3Dnew Function('n',=
+'g','e','if(!g)g=3D\"m_\"+n;var s=3Ds_c_il['+s._in+'],c=3Ds[g+\"_c\"],m,=
+x,f=3D0;if(!c)c=3Ds.wd[\"s_\"+g+\"_c\"];if(c&&s_d)s[g]=3Dnew Function(\"=
+s\",s_ft(s_d(c)));x=3Ds[g];if(!x)x=3Ds.wd[\\'s_\\'+g];if(!x)x=3Ds.wd[g];=
+m=3Ds.m_i(n,1);if(x&&(!m._i||g!=3D\"m_\"+n)){m._i=3Df=3D1;if((\"\"+x).in=
+dexOf(\"function\")>=3D0)x(s);else s.m_m(\"x\",n,x,e)}m=3Ds.m_i(n,1);if(=
+m._dl)m._dl=3Dm._d=3D0;s.dlt();return f');s.m_m=3Dfunction(t,n,d,e){t=3D=
+'_'+t;var s=3Dthis,i,x,m,f=3D'_'+t,r=3D0,u;if(s.m_l&&s.m_nl)for(i=3D0;i<=
+s.m_nl.length;i++){x=3Ds.m_nl[i];if(!n||x=3D=3Dn){m=3Ds.m_i(x);u=3Dm[t];=
+if(u){if((''+u).indexOf('function')>=3D0){if(d&&e)u=3Dm[t](d,e);else if(=
+d)u=3Dm[t](d);else u=3Dm[t]()}}if(u)r=3D1;u=3Dm[t+1];if(u&&!m[f]){if((''=
++u).indexOf('function')>=3D0){if(d&&e)u=3Dm[t+1](d,e);else if(d)u=3Dm[t+=
+1](d);else u=3Dm[t+1]()}}m[f]=3D1;if(u)r=3D1}}return r};s.m_ll=3Dfunctio=
+n(){var s=3Dthis,g=3Ds.m_dl,i,o;if(g)for(i=3D0;i<g.length;i++){o=3Dg[i];=
+if(o)s.loadModule(o.n,o.u,o.d,o.l,o.e,1);g[i]=3D0}};s.loadModule=3Dfunct=
+ion(n,u,d,l,e,ln){var s=3Dthis,m=3D0,i,g,o=3D0,f1,f2,c=3Ds.h?s.h:s.b,b,t=
+cf;if(n){i=3Dn.indexOf(':');if(i>=3D0){g=3Dn.substring(i+1);n=3Dn.substr=
+ing(0,i)}else g=3D\"m_\"+n;m=3Ds.m_i(n)}if((l||(n&&!s.m_a(n,g)))&&u&&s.d=
+&&c&&s.d.createElement){if(d){m._d=3D1;m._dl=3D1}if(ln){if(s.ssl)u=3Ds.r=
+ep(u,'http:','https:');i=3D's_s:'+s._in+':'+n+':'+g;b=3D'var s=3Ds_c_il[=
+'+s._in+'],o=3Ds.d.getElementById(\"'+i+'\");if(s&&o){if(!o.l&&s.wd.'+g+=
+'){o.l=3D1;if(o.i)clearTimeout(o.i);o.i=3D0;s.m_a(\"'+n+'\",\"'+g+'\"'+(=
+e?',\"'+e+'\"':'')+')}';f2=3Db+'o.c++;if(!s.maxDelay)s.maxDelay=3D250;if=
+(!o.l&&o.c<(s.maxDelay*2)/100)o.i=3DsetTimeout(o.f2,100)}';f1=3Dnew Func=
+tion('e',b+'}');tcf=3Dnew Function('s','c','i','u','f1','f2','var e,o=3D=
+0;try{o=3Ds.d.createElement(\"script\");if(o){o.type=3D\"text/javascript=
+\";'+(n?'o.id=3Di;o.defer=3Dtrue;o.onload=3Do.onreadystatechange=3Df1;o.=
+f2=3Df2;o.l=3D0;':'')+'o.src=3Du;c.appendChild(o);'+(n?'o.c=3D0;o.i=3Dse=
+tTimeout(f2,100)':'')+'}}catch(e){o=3D0}return o');o=3Dtcf(s,c,i,u,f1,f2=
+)}else{o=3Dnew Object;o.n=3Dn+':'+g;o.u=3Du;o.d=3Dd;o.l=3Dl;o.e=3De;g=3D=
+s.m_dl;if(!g)g=3Ds.m_dl=3Dnew Array;i=3D0;while(i<g.length&&g[i])i++;g[i=
+]=3Do}}else if(n){m=3Ds.m_i(n);m._e=3D1}return m};s.vo1=3Dfunction(t,a){=
+if(a[t]||a['!'+t])this[t]=3Da[t]};s.vo2=3Dfunction(t,a){if(!a[t]){a[t]=3D=
+this[t];if(!a[t])a['!'+t]=3D1}};s.dlt=3Dnew Function('var s=3Ds_c_il['+s=
+._in+'],d=3Dnew Date,i,vo,f=3D0;if(s.dll)for(i=3D0;i<s.dll.length;i++){v=
+o=3Ds.dll[i];if(vo){if(!s.m_m(\"d\")||d.getTime()-vo._t>=3Ds.maxDelay){s=
+.dll[i]=3D0;s.t(vo)}else f=3D1}}if(s.dli)clearTimeout(s.dli);s.dli=3D0;i=
+f(f){if(!s.dli)s.dli=3DsetTimeout(s.dlt,s.maxDelay)}else s.dll=3D0');s.d=
+l=3Dfunction(vo){var s=3Dthis,d=3Dnew Date;if(!vo)vo=3Dnew Object;s.pt(s=
+.vl_g,',','vo2',vo);vo._t=3Dd.getTime();if(!s.dll)s.dll=3Dnew Array;s.dl=
+l[s.dll.length]=3Dvo;if(!s.maxDelay)s.maxDelay=3D250;s.dlt()};s.t=3Dfunc=
+tion(vo,id){var s=3Dthis,trk=3D1,tm=3Dnew Date,sed=3DMath&&Math.random?M=
+ath.floor(Math.random()*10000000000000):tm.getTime(),sess=3D's'+Math.flo=
+or(tm.getTime()/10800000)%10+sed,y=3Dtm.getYear(),vt=3Dtm.getDate()+'/'+=
+tm.getMonth()+'/'+(y<1900?y+1900:y)+' '+tm.getHours()+':'+tm.getMinutes(=
+)+':'+tm.getSeconds()+' '+tm.getDay()+' '+tm.getTimezoneOffset(),tcf,tfs=
+=3Ds.gtfs(),ta=3D-1,q=3D'',qs=3D'',code=3D'',vb=3Dnew Object;s.gl(s.vl_g=
+);s.uns();s.m_ll();if(!s.td){var tl=3Dtfs.location,a,o,i,x=3D'',c=3D'',v=
+=3D'',p=3D'',bw=3D'',bh=3D'',j=3D'1.0',k=3Ds.c_w('s_cc','true',0)?'Y':'N=
+',hp=3D'',ct=3D'',pn=3D0,ps;if(String&&String.prototype){j=3D'1.1';if(j.=
+match){j=3D'1.2';if(tm.setUTCDate){j=3D'1.3';if(s.isie&&s.ismac&&s.apv>=3D=
+5)j=3D'1.4';if(pn.toPrecision){j=3D'1.5';a=3Dnew Array;if(a.forEach){j=3D=
+'1.6';i=3D0;o=3Dnew Object;tcf=3Dnew Function('o','var e,i=3D0;try{i=3Dn=
+ew Iterator(o)}catch(e){}return i');i=3Dtcf(o);if(i&&i.next)j=3D'1.7'}}}=
+}}if(s.apv>=3D4)x=3Dscreen.width+'x'+screen.height;if(s.isns||s.isopera)=
+{if(s.apv>=3D3){v=3Ds.n.javaEnabled()?'Y':'N';if(s.apv>=3D4){c=3Dscreen.=
+pixelDepth;bw=3Ds.wd.innerWidth;bh=3Ds.wd.innerHeight}}s.pl=3Ds.n.plugin=
+s}else if(s.isie){if(s.apv>=3D4){v=3Ds.n.javaEnabled()?'Y':'N';c=3Dscree=
+n.colorDepth;if(s.apv>=3D5){bw=3Ds.d.documentElement.offsetWidth;bh=3Ds.=
+d.documentElement.offsetHeight;if(!s.ismac&&s.b){tcf=3Dnew Function('s',=
+'tl','var e,hp=3D0;try{s.b.addBehavior(\"#default#homePage\");hp=3Ds.b.i=
+sHomePage(tl)?\"Y\":\"N\"}catch(e){}return hp');hp=3Dtcf(s,tl);tcf=3Dnew=
+ Function('s','var e,ct=3D0;try{s.b.addBehavior(\"#default#clientCaps\")=
+;ct=3Ds.b.connectionType}catch(e){}return ct');ct=3Dtcf(s)}}}else r=3D''=
+}if(s.pl)while(pn<s.pl.length&&pn<30){ps=3Ds.fl(s.pl[pn].name,100)+';';i=
+f(p.indexOf(ps)<0)p+=3Dps;pn++}s.resolution=3Dx;s.colorDepth=3Dc;s.javas=
+criptVersion=3Dj;s.javaEnabled=3Dv;s.cookiesEnabled=3Dk;s.browserWidth=3D=
+bw;s.browserHeight=3Dbh;s.connectionType=3Dct;s.homepage=3Dhp;s.plugins=3D=
+p;s.td=3D1}if(vo){s.pt(s.vl_g,',','vo2',vb);s.pt(s.vl_g,',','vo1',vo)}if=
+((vo&&vo._t)||!s.m_m('d')){if(s.usePlugins)s.doPlugins(s);var l=3Ds.wd.l=
+ocation,r=3Dtfs.document.referrer;if(!s.pageURL)s.pageURL=3Dl.href?l.hre=
+f:l;if(!s.referrer&&!s._1_referrer){s.referrer=3Dr;s._1_referrer=3D1}s.m=
+_m('g');if(s.lnk||s.eo){var o=3Ds.eo?s.eo:s.lnk;if(!o)return '';var p=3D=
+s.pageName,w=3D1,t=3Ds.ot(o),n=3Ds.oid(o),x=3Do.s_oidt,h,l,i,oc;if(s.eo&=
+&o=3D=3Ds.eo){while(o&&!n&&t!=3D'BODY'){o=3Do.parentElement?o.parentElem=
+ent:o.parentNode;if(!o)return '';t=3Ds.ot(o);n=3Ds.oid(o);x=3Do.s_oidt}o=
+c=3Do.onclick?''+o.onclick:'';if((oc.indexOf(\"s_gs(\")>=3D0&&oc.indexOf=
+(\".s_oc(\")<0)||oc.indexOf(\".tl(\")>=3D0)return ''}if(n)ta=3Do.target;=
+h=3Ds.oh(o);i=3Dh.indexOf('?');h=3Ds.linkLeaveQueryString||i<0?h:h.subst=
+ring(0,i);l=3Ds.linkName;t=3Ds.linkType?s.linkType.toLowerCase():s.lt(h)=
+;if(t&&(h||l))q+=3D'&pe=3Dlnk_'+(t=3D=3D'd'||t=3D=3D'e'?s.ape(t):'o')+(h=
+?'&pev1=3D'+s.ape(h):'')+(l?'&pev2=3D'+s.ape(l):'');else trk=3D0;if(s.tr=
+ackInlineStats){if(!p){p=3Ds.pageURL;w=3D0}t=3Ds.ot(o);i=3Do.sourceIndex=
+;if(s.gg('objectID')){n=3Ds.gg('objectID');x=3D1;i=3D1}if(p&&n&&t)qs=3D'=
+&pid=3D'+s.ape(s.fl(p,255))+(w?'&pidt=3D'+w:'')+'&oid=3D'+s.ape(s.fl(n,1=
+00))+(x?'&oidt=3D'+x:'')+'&ot=3D'+s.ape(t)+(i?'&oi=3D'+i:'')}}if(!trk&&!=
+qs)return '';s.sampled=3Ds.vs(sed);if(trk){if(s.sampled)code=3Ds.mr(sess=
+,(vt?'&t=3D'+s.ape(vt):'')+s.hav()+q+(qs?qs:s.rq()),0,id,ta);qs=3D'';s.m=
+_m('t');if(s.p_r)s.p_r();s.referrer=3D''}s.sq(qs);}else{s.dl(vo);}if(vo)=
+s.pt(s.vl_g,',','vo1',vb);s.lnk=3Ds.eo=3Ds.linkName=3Ds.linkType=3Ds.wd.=
+s_objectID=3Ds.ppu=3Ds.pe=3Ds.pev1=3Ds.pev2=3Ds.pev3=3D'';if(s.pg)s.wd.s=
+_lnk=3Ds.wd.s_eo=3Ds.wd.s_linkName=3Ds.wd.s_linkType=3D'';if(!id&&!s.tc)=
+{s.tc=3D1;s.flushBufferedRequests()}return code};s.tl=3Dfunction(o,t,n,v=
+o){var s=3Dthis;s.lnk=3Ds.co(o);s.linkType=3Dt;s.linkName=3Dn;s.t(vo)};i=
+f(pg){s.wd.s_co=3Dfunction(o){var s=3Ds_gi(\"_\",1,1);return s.co(o)};s.=
+wd.s_gs=3Dfunction(un){var s=3Ds_gi(un,1,1);return s.t()};s.wd.s_dc=3Dfu=
+nction(un){var s=3Ds_gi(un,1);return s.t()}}s.ssl=3D(s.wd.location.proto=
+col.toLowerCase().indexOf('https')>=3D0);s.d=3Ddocument;s.b=3Ds.d.body;i=
+f(s.d.getElementsByTagName){s.h=3Ds.d.getElementsByTagName('HEAD');if(s.=
+h)s.h=3Ds.h[0]}s.n=3Dnavigator;s.u=3Ds.n.userAgent;s.ns6=3Ds.u.indexOf('=
+Netscape6/');var apn=3Ds.n.appName,v=3Ds.n.appVersion,ie=3Dv.indexOf('MS=
+IE '),o=3Ds.u.indexOf('Opera '),i;if(v.indexOf('Opera')>=3D0||o>0)apn=3D=
+'Opera';s.isie=3D(apn=3D=3D'Microsoft Internet Explorer');s.isns=3D(apn=3D=
+=3D'Netscape');s.isopera=3D(apn=3D=3D'Opera');s.ismac=3D(s.u.indexOf('Ma=
+c')>=3D0);if(o>0)s.apv=3DparseFloat(s.u.substring(o+6));else if(ie>0){s.=
+apv=3DparseInt(i=3Dv.substring(ie+5));if(s.apv>3)s.apv=3DparseFloat(i)}e=
+lse if(s.ns6>0)s.apv=3DparseFloat(s.u.substring(s.ns6+10));else s.apv=3D=
+parseFloat(v);s.em=3D0;if(s.em.toPrecision)s.em=3D3;else if(String.fromC=
+harCode){i=3Descape(String.fromCharCode(256)).toUpperCase();s.em=3D(i=3D=
+=3D'%C4%80'?2:(i=3D=3D'%U0100'?1:0))}s.sa(un);s.vl_l=3D'dynamicVariableP=
+refix,visitorID,vmk,visitorMigrationKey,visitorMigrationServer,visitorMi=
+grationServerSecure,ppu,charSet,visitorNamespace,cookieDomainPeriods,coo=
+kieLifetime,pageName,pageURL,referrer,currencyCode';s.va_l=3Ds.sp(s.vl_l=
+,',');s.vl_t=3Ds.vl_l+',variableProvider,channel,server,pageType,transac=
+tionID,purchaseID,campaign,state,zip,events,products,linkName,linkType';=
+for(var n=3D1;n<76;n++)s.vl_t+=3D',prop'+n+',eVar'+n+',hier'+n+',list'+n=
+;s.vl_l2=3D',tnt,pe,pev1,pev2,pev3,resolution,colorDepth,javascriptVersi=
+on,javaEnabled,cookiesEnabled,browserWidth,browserHeight,connectionType,=
+homepage,plugins';s.vl_t+=3Ds.vl_l2;s.va_t=3Ds.sp(s.vl_t,',');s.vl_g=3Ds=
+.vl_t+',trackingServer,trackingServerSecure,trackingServerBase,fpCookieD=
+omainPeriods,disableBufferedRequests,mobile,visitorSampling,visitorSampl=
+ingGroup,dynamicAccountSelection,dynamicAccountList,dynamicAccountMatch,=
+trackDownloadLinks,trackExternalLinks,trackInlineStats,linkLeaveQueryStr=
+ing,linkDownloadFileTypes,linkExternalFilters,linkInternalFilters,linkTr=
+ackVars,linkTrackEvents,linkNames,lnk,eo,_1_referrer';s.va_g=3Ds.sp(s.vl=
+_g,',');s.pg=3Dpg;s.gl(s.vl_g);if(!ss)s.wds()",w=3Dwindow,l=3Dw.s_c_il,n=
+=3Dnavigator,u=3Dn.userAgent,v=3Dn.appVersion,e=3Dv.indexOf("MSIE "),m=3D=
+u.indexOf("Netscape6/"),a,i,s;
+if(un){un=3Dun.toLowerCase();if(l){for(i=3D0;i<l.length;i++){s=3Dl[i];if=
+(!s._c||s._c=3D=3D"s_c"){if(s.oun=3D=3Dun){return s;
+}else{if(s.fs&&s.sa&&s.fs(s.oun,un)){s.sa(un);return s;}}}}}}w.s_an=3D"0=
+123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+w.s_sp=3Dnew Function("x","d","var a=3Dnew Array,i=3D0,j;if(x){if(x.spli=
+t)a=3Dx.split(d);else if(!d)for(i=3D0;i<x.length;i++)a[a.length]=3Dx.sub=
+string(i,i+1);else while(i>=3D0){j=3Dx.indexOf(d,i);a[a.length]=3Dx.subs=
+tring(i,j<0?x.length:j);i=3Dj;if(i>=3D0)i+=3Dd.length}}return a");
+w.s_jn=3Dnew Function("a","d","var x=3D'',i,j=3Da.length;if(a&&j>0){x=3D=
+a[0];if(j>1){if(a.join)x=3Da.join(d);else for(i=3D1;i<j;i++)x+=3Dd+a[i]}=
+}return x");
+w.s_rep=3Dnew Function("x","o","n","return s_jn(s_sp(x,o),n)");w.s_d=3Dn=
+ew Function("x","var t=3D'`^@$#',l=3Ds_an,l2=3Dnew Object,x2,d,b=3D0,k,i=
+=3Dx.lastIndexOf('~~'),j,v,w;if(i>0){d=3Dx.substring(0,i);x=3Dx.substrin=
+g(i+2);l=3Ds_sp(l,'');for(i=3D0;i<62;i++)l2[l[i]]=3Di;t=3Ds_sp(t,'');d=3D=
+s_sp(d,'~');i=3D0;while(i<5){v=3D0;if(x.indexOf(t[i])>=3D0) {x2=3Ds_sp(x=
+,t[i]);for(j=3D1;j<x2.length;j++){k=3Dx2[j].substring(0,1);w=3Dt[i]+k;if=
+(k!=3D' '){v=3D1;w=3Dd[b+l2[k]]}x2[j]=3Dw+x2[j].substring(1)}}if(v)x=3Ds=
+_jn(x2,'');else{w=3Dt[i]+' ';if(x.indexOf(w)>=3D0)x=3Ds_rep(x,w,t[i]);i+=
++;b+=3D62}}}return x");
+w.s_fe=3Dnew Function("c","return s_rep(s_rep(s_rep(c,'\\\\','\\\\\\\\')=
+,'\"','\\\\\"'),\"\\n\",\"\\\\n\")");
+w.s_fa=3Dnew Function("f","var s=3Df.indexOf('(')+1,e=3Df.indexOf(')'),a=
+=3D'',c;while(s>=3D0&&s<e){c=3Df.substring(s,s+1);if(c=3D=3D',')a+=3D'\"=
+,\"';else if((\"\\n\\r\\t \").indexOf(c)<0)a+=3Dc;s++}return a?'\"'+a+'\=
+"':a");
+w.s_ft=3Dnew Function("c","c+=3D'';var s,e,o,a,d,q,f,h,x;s=3Dc.indexOf('=
+=3Dfunction(');while(s>=3D0){s++;d=3D1;q=3D'';x=3D0;f=3Dc.substring(s);a=
+=3Ds_fa(f);e=3Do=3Dc.indexOf('{',s);e++;while(d>0){h=3Dc.substring(e,e+1=
+);if(q){if(h=3D=3Dq&&!x)q=3D'';if(h=3D=3D'\\\\')x=3Dx?0:1;else x=3D0}els=
+e{if(h=3D=3D'\"'||h=3D=3D\"'\")q=3Dh;if(h=3D=3D'{')d++;if(h=3D=3D'}')d--=
+}if(d>0)e++}c=3Dc.substring(0,s)+'new Function('+(a?a+',':'')+'\"'+s_fe(=
+c.substring(o+1,e))+'\")'+c.substring(e+1);s=3Dc.indexOf('=3Dfunction(')=
+}return c;");
+c=3Ds_d(c);if(e>0){a=3DparseInt(i=3Dv.substring(e+5));if(a>3){a=3DparseF=
+loat(i);}}else{if(m>0){a=3DparseFloat(u.substring(m+10));
+}else{a=3DparseFloat(v);}}if(a>=3D5&&v.indexOf("Opera")<0&&u.indexOf("Op=
+era")<0){w.s_c=3Dnew Function("un","pg","ss","var s=3Dthis;"+c);
+return new s_c(un,pg,ss);}else{s=3Dnew Function("un","pg","ss","var s=3D=
+new Object;"+s_ft(c)+";return s");
+}return s(un,pg,ss);}if(s_beacon()){s_code=3Ds.t();if(s_code){document.w=
+rite(s_code);
+}}function s_beacon(){var s_block=3D["file://",".openoffice."];var b_sta=
+te=3Dtrue;for(var a=3D0;
+a<s_block.length;a++){if(location.href.indexOf(s_block[a])>-1){b_state=3D=
+false;}}return b_state;
+}function s_SetOraConfig(){s.currencyCode=3D"USD";s.charSet=3D"UTF-8";s.=
+trackDownloadLinks=3Dtrue;
+s.trackExternalLinks=3Dtrue;s.trackInlineStats=3Dtrue;s.linkDownloadFile=
+Types=3D"exe,zip,wav,mp3,mov,mpg,avi,doc,pdf,xls,bat,bin,brk,cpio,dll,dm=
+g,gz,jar,rm,rpm,sh,so,tar,tgz,z,smil,smi,swf,wmv,wma,docx,xls,xlsx,ppt,p=
+ptx,txt,bz2,msi,jnlp";
+s.linkInternalFilters=3D"javascript:,.oracle.,sellingpoint";s.linkLeaveQ=
+ueryString=3Dfalse;
+s.linkTrackVars=3D"None";s.linkTrackEvents=3D"None";s.visitorNamespace=3D=
+"oracle";s.trackingServer=3D"oracle.112.2o7.net";
+s.trackingServerSecure=3D"oracle.112.2o7.net";s.usePlugins=3Dtrue;}funct=
+ion s_SetOraMedia(){s.loadModule("Media");
+s.Media.autoTrack=3Dfalse;s.Media.trackWhilePlaying=3Dtrue;s.Media.track=
+Vars=3D"None";s.Media.trackEvents=3D"None";
+s.Media.trackSeconds=3D"30";}function s_doPlugins(){if(window.s_prePlugi=
+ns){s_prePlugins(s);
+}s.hier1=3DdecodeURI(location.href.toLowerCase());if(typeof(s_prop12)!=3D=
+"undefined"){s.prop12=3Ds_prop12;
+}if(typeof(s_channel)!=3D"undefined"){s.channel=3Ds_channel;}if(typeof s=
+_pageName!=3D"undefined"){s.pageName=3Ds_pageName;
+}if(typeof s.pageName=3D=3D"undefined"||s.pageName=3D=3D""){s_orapageNam=
+e();}if(s.pageName.indexOf("404")!=3D-1){s.pageName=3Ds_account[1]+":"+s=
+_account[2]+":Error 404";
+s.pageType=3D"errorPage";}s_oraRSS();s_oraMsgid();s_oraPaidSearch();if(s=
+.getQueryParam("evite")){s.eVar8=3Ds.getQueryParam("evite");
+}if(s.getQueryParam("lid")){s.eVar11=3Ds.getQueryParam("lid");}if(s.getQ=
+ueryParam("eid")){s.eVar12=3Ds.getQueryParam("eid");
+}s_oraEnhancedDownloadTracking();s_oraSubRSS();s.prop20=3Ds.eVar20=3Ds.g=
+etNewRepeat();
+if(s.getQueryParam("SC")){s.campaign=3Ds.getQueryParam("SC");}s_oraIntCa=
+mpaign();s_oraIntCampaign();
+s.eVar24=3Ds.prop24=3Ds.getPreviousValue(s.pageURL,"gpw_e24","");s_oraSe=
+tsiteID();s_oraCampaign();
+s.prop50=3Ds.eVar50=3D"D=3Ds_vi";s.prop51=3DoraVersion;var exitLink=3Ds.=
+exitLinkHandler();if(exitLink){s.linkTrackVars=3D"prop8";
+s.prop8=3Ds.pageName;}if(s.getQueryParam("refid")){s.prop31=3Ds.getQuery=
+Param("refid");
+}if(s.getQueryParam("origref")){s.referrer=3D(location.href).split("orig=
+ref=3D")[1];}s.linkHandler("download.oracle.com","e");
+if(window.s_postPlugins){s_postPlugins(s);}}function navTrack(sitename,l=
+anguage,pagearea,linklabel){var linkvalue=3D"";
+linkvalue=3D(typeof(sitename)!=3D"undefined"||sitename!=3D"")?(sitename)=
+:"";linkvalue=3D(typeof(language)!=3D"undefined"||language!=3D"")?(linkv=
+alue+":"+language):linkvalue;
+linkvalue=3D(typeof(pagearea)!=3D"undefined"||pagearea!=3D"")?(linkvalue=
++":"+pagearea):linkvalue;
+linkvalue=3D(typeof(linklabel)!=3D"undefined"||linklabel!=3D"")?(linkval=
+ue+":"+linklabel):linkvalue;
+linkvalue=3Dlinkvalue.toLowerCase();if(linkvalue!=3D""){var s=3Ds_gi(s_s=
+etAccount());s.prop22=3Dlinkvalue;
+s.linkTrackVars=3D"prop22";s.tl(this,"o",linkvalue);s_objectID=3Dlinkval=
+ue;s.prop22=3D"";
+s.linkTrackVars=3D"";}}function s_setOraLangCountry(){var pageCountry=3D=
+"xx";var pageLang=3D"xx";
+if(typeof ssUrlPrefix=3D=3D"undefined"||ssUrlPrefix=3D=3D""){pageCountry=
+=3D"xx";}else{pageCountry=3DssUrlPrefix.replace(/[/]/gi,"");
+}if(typeof g_strLanguageId=3D=3D"undefined"||g_strLanguageId=3D=3D""){pa=
+geLang=3D"xx";}else{pageLang=3Dg_strLanguageId;
+}return pageCountry+"-"+pageLang;}function s_orapageName(){if(s_account[=
+2]=3D=3D""){s_account[2]=3Ds_setOraLangCountry();
+}var s_pageName=3Dlocation.pathname.toLowerCase();var s_iNames=3D["index=
+.html","index.jsp","index.htm","index.shtml","index.xml","index.jhtml","=
+index.jshtml","index.jspa","index.php","index.asp"];
+for(var a=3D0;a<s_iNames.length;a++){var s_iName=3D"/"+s_iNames[a];if(s_=
+pageName.indexOf(s_iName)>-1&&s_pageName.indexOf(s_iName)=3D=3Ds_pageNam=
+e.length-s_iName.length){s_pageName=3Ds_pageName.substring(0,s_pageName.=
+length-s_iNames[a].length);
+}}s_pageName=3Ds_pageName.replace(/[/us/]/i,"/");s_pageName=3Ds_pageName=
+.replace(/[/technetwork/]/i,"/");
+s_pageName=3Ds_pageName.replace(/[/partner/]/i,"/");if(document.title.in=
+dexOf("404")!=3D-1){s_pageName=3D"Error 404";
+}s.pageName=3Ds_account[1]+":"+s_account[2]+":"+s_pageName;}function s_o=
+raSetsiteID(){var s_siteID=3D"none:xx";
+if(s_account[2].search("-")>0){s_siteID=3Ds_account[1]+":"+s_account[2].=
+slice(0,s_account[2].search("-"));
+}s.prop26=3Ds.eVar26=3Ds_siteID;}function s_oraRSS(){if(s.getQueryParam(=
+"rssid")){s.eVar2=3Ds.getQueryParam("rssid");
+s.eVar3=3Ds.getQueryParam("rssid")+": "+((s.pageName&&s.pageName!=3D"und=
+efined")?s.pageName:s.baseURL);
+s.events=3Ds.apl(s.events,"event4",",",1);}}function s_oraMsgid(){if(s.g=
+etQueryParam("msgid")){s.eVar4=3Ds.getQueryParam("msgid");
+s.eVar5=3Ds.getQueryParam("msgid")+": "+((s.pageName&&s.pageName!=3D"und=
+efined")?s.pageName:s.baseURL);
+s.events=3Ds.apl(s.events,"event5",",",1);}}function s_oraPaidSearch(){i=
+f(s.getQueryParam("sckw")){s.eVar6=3Ds.getQueryParam("sckw");
+s.eVar7=3Ds.getQueryParam("sckw")+": "+((s.pageName&&s.pageName!=3D"unde=
+fined")?s.pageName:s.baseURL);
+s.events=3Ds.apl(s.events,"event6",",",1);}}function s_oraEnhancedDownlo=
+adTracking(){if(!s.EDTOverride){s.url=3Ds.downloadLinkHandler();
+if(s.url){s.prop8=3Ds.pageName;s.eVar15=3Ds.url.substring(s.url.lastInde=
+xOf("/")+1,s.url.length);
+s.eVar16=3Ds.url;s.events=3Ds.apl(s.events,"event15",",",1);s.linkTrackV=
+ars=3D"prop8,eVar15,eVar16,events";
+s.linkTrackEvents=3D"event15";}}}function s_oraSubRSS(){if(s.linkHandler=
+(".xml|http://events.oracle.com/rss.jsp","o")){s.linkLeaveQueryString=3D=
+true;
+s.url=3Ds.linkHandler(".xml|http://events.oracle.com/rss.jsp","o");s.eVa=
+r16=3Ds.url;s.eVar17=3Ds.url.substring(s.url.lastIndexOf("/")+1,s.url.le=
+ngth);
+s.events=3Ds.apl(s.events,"event16",",",1);s.linkTrackVars=3D"eVar16,eVa=
+r17,events";s.linkTrackEvents=3D"event16";
+s.linkLeaveQueryString=3Dfalse;}}function s_oraCampaign(){if(s.getQueryP=
+aram("pcode")||s.getQueryParam("src")||s.getQueryParam("act")){s.eVar46=3D=
+(s.getQueryParam("pcode"))?s.getQueryParam("pcode"):"";
+s.eVar46=3D(s.getQueryParam("Src"))?s.eVar46+":"+s.getQueryParam("Src"):=
+s.eVar46;if(!s.getQueryParam("Src")){s.eVar46=3D(s.getQueryParam("src"))=
+?s.eVar46+":"+s.getQueryParam("src"):s.eVar46;
+}s.eVar46=3D(s.getQueryParam("Act"))?s.eVar46+":"+s.getQueryParam("Act")=
+:s.eVar46;s.eVar46=3Ds.eVar46.replace(/^:/gi,"").replace(/::+/gi,":");
+}}function s_oraIntCampaign(){if(!s.eVar21){s.eVar21=3Ds.getQueryParam("=
+intcmp");s.eVar21=3Ds.getValOnce(s.eVar21,"s_eVar21",0);
+}if(s.eVar21){s.events=3Ds.apl(s.events,"event14",",",2);}}function s_or=
+aIntCampaign(){var getCampaign=3Ds.getAndPersistValue(s.campaign,"s_cp_p=
+ersist",0);
+var NoCampaignpageName=3D"Non CMP - "+s.pageName;var CampaignandPage=3Dg=
+etCampaign+"-"+s.pageName;
+var getICampaign=3Ds.getAndPersistValue(s.eVar21,"s_eV21_persist",0);var=
+ NoICampaignpageName=3D"Non CMP - "+s.pageName;
+var ICampaignandPage=3DgetICampaign+"-"+s.pageName;if(!getCampaign){s.pr=
+op38=3DNoCampaignpageName;
+}else{s.prop38=3DCampaignandPage;}if(!getICampaign){s.prop39=3DNoICampai=
+gnpageName;}else{s.prop39=3DICampaignandPage;
+}if(!s.eVar21){s.eVar21=3Ds.getQueryParam("intcmp");}s.eVar21=3Ds.getVal=
+Once(s.eVar21,"s_eVar21",0);
+if(s.eVar21){s.events=3Ds.apl(s.events,"event14",",",2);}}function s_set=
+AdobePlugins(){s.getQueryParam=3Dnew Function("p","d","u","var s=3Dthis,=
+v=3D'',i,t;d=3Dd?d:'';u=3Du?u:(s.pageURL?s.pageURL:s.wd.location);if(u=3D=
+=3D'f')u=3Ds.gtfs().location;while(p){i=3Dp.indexOf(',');i=3Di<0?p.lengt=
+h:i;t=3Ds.p_gpv(p.substring(0,i),u+'');if(t)v+=3Dv?d+t:t;p=3Dp.substring=
+(i=3D=3Dp.length?i:i+1)}return v");
+s.p_gpv=3Dnew Function("k","u","var s=3Dthis,v=3D'',i=3Du.indexOf('?'),q=
+;if(k&&i>-1){q=3Du.substring(i+1);v=3Ds.pt(q,'&','p_gvf',k)}return v");
+s.p_gvf=3Dnew Function("t","k","if(t){var s=3Dthis,i=3Dt.indexOf('=3D'),=
+p=3Di<0?t:t.substring(0,i),v=3Di<0?'True':t.substring(i+1);if(p.toLowerC=
+ase()=3D=3Dk.toLowerCase())return s.epa(v)}return ''");
+s.getValOnce=3Dnew Function("v","c","e","var s=3Dthis,k=3Ds.c_r(c),a=3Dn=
+ew Date;e=3De?e:0;if(v){a.setTime(a.getTime()+e*86400000);s.c_w(c,v,e?a:=
+0);}return v=3D=3Dk?'':v");
+s.getNewRepeat=3Dnew Function("var s=3Dthis,e=3Dnew Date(),cval,ct=3De.g=
+etTime(),y=3De.getYear();e.setTime(ct+30*24*60*60*1000);cval=3Ds.c_r('s_=
+nr');if(cval.length=3D=3D0){s.c_w('s_nr',ct,e);return 'New';}if(cval.len=
+gth!=3D0&&ct-cval<30*60*1000){s.c_w('s_nr',ct,e);return 'New';}if(cval<1=
+123916400001){e.setTime(cval+30*24*60*60*1000);s.c_w('s_nr',ct,e);return=
+ 'Repeat';}else return 'Repeat';");
+s.getPreviousValue=3Dnew Function("v","c","el","var s=3Dthis,t=3Dnew Dat=
+e,i,j,r=3D'';t.setTime(t.getTime()+1800000);if(el){if(s.events){i=3Ds.sp=
+lit(el,',');j=3Ds.split(s.events,',');for(x in i){for(y in j){if(i[x]=3D=
+=3Dj[y]){if(s.c_r(c)) r=3Ds.c_r(c);v?s.c_w(c,v,t):s.c_w(c,'no value',t);=
+return r}}}}}else{if(s.c_r(c)) r=3Ds.c_r(c);v?s.c_w(c,v,t):s.c_w(c,'no v=
+alue',t);return r}");
+s.apl=3Dnew Function("L","v","d","u","var s=3Dthis,m=3D0;if(!L)L=3D'';if=
+(u){var i,n,a=3Ds.split(L,d);for(i=3D0;i<a.length;i++){n=3Da[i];m=3Dm||(=
+u=3D=3D1?(n=3D=3Dv):(n.toLowerCase()=3D=3Dv.toLowerCase()));}}if(!m)L=3D=
+L?L+d+v:v;return L");
+s.downloadLinkHandler=3Dnew Function("p","var s=3Dthis,h=3Ds.p_gh(),n=3D=
+'linkDownloadFileTypes',i,t;if(!h||(s.linkType&&(h||s.linkName)))return =
+'';i=3Dh.indexOf('?');t=3Ds[n];s[n]=3Dp?p:t;if(s.lt(h)=3D=3D'd')s.linkTy=
+pe=3D'd';else h=3D'';s[n]=3Dt;return h;");
+s.linkHandler=3Dnew Function("p","t","var s=3Dthis,h=3Ds.p_gh(),i,l;t=3D=
+t?t:'o';if(!h||(s.linkType&&(h||s.linkName)))return '';i=3Dh.indexOf('?'=
+);h=3Ds.linkLeaveQueryString||i<0?h:h.substring(0,i);l=3Ds.pt(p,'|','p_g=
+n',h.toLowerCase());if(l){s.linkName=3Dl=3D=3D'[['?'':l;s.linkType=3Dt;r=
+eturn h;}return '';");
+s.p_gn=3Dnew Function("t","h","var i=3Dt?t.indexOf('~'):-1,n,x;if(t&&h){=
+n=3Di<0?'':t.substring(0,i);x=3Dt.substring(i+1);if(h.indexOf(x.toLowerC=
+ase())>-1)return n?n:'[[';}return 0;");
+s.fullLinkHandler=3Dnew Function("p","t","var s=3Dthis,h=3Ds.p_gho(),i,l=
+;t=3Dt?t:'o';if(!h||(s.linkType&&(h||s.linkName)))return '';i=3Dh.href.i=
+ndexOf('?');h.href=3Ds.linkLeaveQueryString||i<0?h.href:h.href.substring=
+(0,i);l=3Ds.pt(p,'|','p_gn',h.href.toLowerCase());if(l){s.linkName=3Dl=3D=
+=3D'[['?'':l;s.linkType=3Dt;return h;}return '';");
+s.p_gho=3Dnew Function("var s=3Dthis;if(!s.eo&&!s.lnk)return '';var o=3D=
+s.eo?s.eo:s.lnk,y=3Ds.ot(o),n=3Ds.oid(o),x=3Do.s_oidt;if(s.eo&&o=3D=3Ds.=
+eo){while(o&&!n&&y!=3D'BODY'){o=3Do.parentElement?o.parentElement:o.pare=
+ntNode;if(!o)return '';y=3Ds.ot(o);n=3Ds.oid(o);x=3Do.s_oidt}}return o?o=
+:'';");
+s.p_gh=3Dnew Function("var s=3Dthis;if(!s.eo&&!s.lnk)return '';var o=3Ds=
+.eo?s.eo:s.lnk,y=3Ds.ot(o),n=3Ds.oid(o),x=3Do.s_oidt;if(s.eo&&o=3D=3Ds.e=
+o){while(o&&!n&&y!=3D'BODY'){o=3Do.parentElement?o.parentElement:o.paren=
+tNode;if(!o)return '';y=3Ds.ot(o);n=3Ds.oid(o);x=3Do.s_oidt}}return o.hr=
+ef?o.href:'';");
+s.split=3Dnew Function("l","d","var i,x=3D0,a=3Dnew Array;while(l){i=3Dl=
+.indexOf(d);i=3Di>-1?i:l.length;a[x++]=3Dl.substring(0,i);l=3Dl.substrin=
+g(i+d.length);}return a");
+s.getAndPersistValue=3Dnew Function("v","c","e","var s=3Dthis,a=3Dnew Da=
+te;e=3De?e:0;a.setTime(a.getTime()+e*86400000);if(v)s.c_w(c,v,e?a:0);ret=
+urn s.c_r(c);");
+s.exitLinkHandler=3Dnew Function("p","var s=3Dthis,h=3Ds.p_gh(),n=3D'lin=
+kInternalFilters',i,t;if(!h||(s.linkType&&(h||s.linkName)))return '';i=3D=
+h.indexOf('?');t=3Ds[n];s[n]=3Dp?p:t;h=3Ds.linkLeaveQueryString||i<0?h:h=
+.substring(0,i);if(s.lt(h)=3D=3D'e')s.linkType=3D'e';else h=3D'';s[n]=3D=
+t;return h;");
+}
+------------1vRAVl0sa2O7owJD4wn4Fi--

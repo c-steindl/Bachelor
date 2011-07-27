@@ -3,6 +3,7 @@ import sys
 import time
 import enum
 import string
+import results as res
 import matplotlib.pyplot as plt
 
 class Host():
@@ -36,7 +37,7 @@ class Host():
             i = i + 1
             client = [i, addr, conn]
             self.clients.append(client)
-        print 'connected clients', self.clients
+        #print 'connected clients', self.clients
         
     def dataConnect(self):
         results = open('results.csv', 'wb')
@@ -55,12 +56,14 @@ class Host():
             conn = c[2]
             conn.send('send')
             while True:
-                if data == self.enum.stop:
+                if data  == self.enum.stop:
                     break
                 data = conn.recv(1024)
+                print data
                 results.write(data)
+                
             results.write('\n')
-        print 'connected clients', self.clients
+        #print 'connected clients', self.clients
         results.close()
         self.closeConnect()
         
@@ -141,6 +144,7 @@ if __name__ == "__main__":
             if d == [myServer.enum.data, 0]:
                 myServer.dataConnect()
         
+        res.main('results.csv')
         
         
     else: usage()

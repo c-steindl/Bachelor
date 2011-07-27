@@ -27,9 +27,8 @@ class Test():
 class IOTest(Test):
     
     def startMat(self):
-        self.results.writerow([self.enum.IO])
-        self.results.writerow(['Mattest'])
-        self.results.writerow([str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'Mattest', str(socket.gethostname())])
+        
         
         i = 0
         init = time.time()
@@ -41,11 +40,11 @@ class IOTest(Test):
             #print values
             self.results.writerow(values)
             i = i + 1
+        self.results.writerow(['EndTest'])
             
     def startIO(self):
-        self.results.writerow([self.enum.IO])
-        self.results.writerow(['I/O'])
-        self.results.writerow([str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'I-O', str(socket.gethostname())])
+
         
         j = 0
         init = time.time()
@@ -65,13 +64,14 @@ class IOTest(Test):
             #print values
             self.results.writerow(values)
             j = j + 1
+        
+        self.results.writerow(['EndTest'])
             
 class NetTest(Test):
     
     def startTCP(self, serverIP, port):
-        self.results.writerow([self.enum.Net])
-        self.results.writerow(['TCP'])
-        self.results.writerow([str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'TCP', str(socket.gethostname())])
+        
         
         init = time.time()
         exceptions = 0
@@ -79,7 +79,7 @@ class NetTest(Test):
         while i < self.iter:
             start = time.time()
             j = 0
-            while j < 10:
+            while j < 30:
                 try: 
                     self.TCP('test', serverIP, port)
                 except:
@@ -93,10 +93,11 @@ class NetTest(Test):
         print 'Exceptions', exceptions
         self.TCP(self.enum.stop, serverIP, port)
         
+        self.results.writerow(['EndTest'])
+        
     def startBand(self, serverIP, port):
-        self.results.writerow([self.enum.Net])
-        self.results.writerow(['Band'])
-        self.results.writerow([str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'Band', str(socket.gethostname())])
+        
         
         bytes = 0
         o = open('lorem.txt', 'r')
@@ -130,6 +131,8 @@ class NetTest(Test):
             if data:
                 break
         print 'stop'
+        
+        self.results.writerow(['EndTest'])
         
         
     def TCP (self, message, serverIP, port):

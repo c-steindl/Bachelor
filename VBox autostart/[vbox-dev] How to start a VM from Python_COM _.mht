@@ -1,0 +1,461 @@
+Content-Type: multipart/related; start=<op.mhtml.1310419629616.d16d49744f384194@10.0.0.7>; boundary=----------hyciHi3qBzXS0zyjqMKphr
+Content-Location: http://www.mail-archive.com/vbox-dev@virtualbox.org/msg03495.html
+Subject: =?utf-8?Q?[vbox-dev]=20How=20to=20start=20a=20VM=20from=20Python/COM=20=3F?=
+MIME-Version: 1.0
+
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline; filename=msg03495.html
+Content-Type: text/html; charset=utf-8; name=msg03495.html
+Content-ID: <op.mhtml.1310419629616.d16d49744f384194@10.0.0.7>
+Content-Location: http://www.mail-archive.com/vbox-dev@virtualbox.org/msg03495.html
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[vbox-dev] How to start a VM from Python/COM ?</title>
+  <link rel="stylesheet" href="/advanced.css" media="screen">
+  <link rel="contents" href="index.html#03495">
+  <link rel="index" href="maillist.html#03495">
+  <link rel="prev" href="msg03494.html">
+  <link rel="next" href="msg03500.html">
+  <link rel="alternate" title="vbox-dev RSS" href="http://www.mail-archive.com/vbox-dev@virtualbox.org/maillist.xml" TYPE="application/rss+xml">
+</head>
+<body id="msg">
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<div id="msgcontainer">
+	<a id="mail-archive-logo" href="/"></a>
+<h1>
+	<span id="listlink"><a href="/vbox-dev@virtualbox.org/info.html">vbox-dev</a></span> &nbsp;
+</h1>
+	<form action="/search" method=get>
+		<ul id="topLinks">
+			<li><span class="msglink"><a href="msg03494.html" accesskey="p" title="Earlier messages"><img src="/leftarrow.png" border="0" height="22" width="20" align="top" alt="left arrow"></a></span> <span class="threadlink"><a href="index.html#03495" title="Messages by Thread" accesskey="c">Thread</a></span> <span class="msglink"><a href="msg03500.html" accesskey="n" title="Later messages"><img src="/rightarrow.png" border="0" height="22" width="20" align="top" alt="right arrow"></a></span></li>
+			<li><span class="msglink"><a href="msg03494.html" accesskey="b" title="Earlier messages"><img src="/leftarrow.png" border="0" height="22" width="20" align="top" alt="left arrow"></a></span> <span class="chronologicallink"><a href="maillist.html#03495" title="Messages by Date" accesskey="i">Date</a></span> <span class="msglink"><a href="msg03496.html" accesskey="f" title="Later messages"><img src="/rightarrow.png" border="0" height="22" width="20" align="top" alt="right arrow"></a></span></li>
+			<li>
+				<label>
+<input type=text name="q" value="" size=25>
+<input type="hidden" name="l" value="vbox-dev@virtualbox.org">
+<input type=submit value="Search">
+</label>
+			</li>
+		</ul>
+	</form>
+</div>
+
+<div id="msgcontainer2">
+	<div id="corner1"></div>
+	<div id="corner2"></div>
+	<div id="msgcontent">
+
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+		<div class="msgHead">
+			<h1><span class="subject">[vbox-dev] How to start a VM from Python/COM ?</span></h1>
+			<p><span class="sender">Alexey Eromenko</span><br>
+			<span class="date">Sun, 30 Jan 2011 08:34:08 -0800</span></p>
+		</div>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<div class="msgBody">
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi all !
+
+Today I tried to write small python script to start VirtualBox VMs. It
+should work from both Windows and Linux hosts.
+
+Host: Windows Vista 32 + VBox 4.0 + SDK + python 2.5 + pywin32
+
+TRY 1:
+I wrote according to VBox SDK docs (2.3.1 Python COM API, v4.0
+SDKref.PDF): (plus added few imports)
+======================================================
+
+import os,sys
+import win32com
+
+vbox = win32com.client.Dispatch(&quot;VirtualBox.VirtualBox&quot;)
+session = win32com.client.Dispatch(&quot;VirtualBox.Session&quot;)
+mach = vbox.findMachine(&quot;uuid or name of machine to start&quot;)
+progress = mach.launchVMProcess(session, &quot;gui&quot;, &quot;&quot;)
+progress.waitForCompletion(-1)
+
+EOF
+
+I get this:
+
+E:\Alex-temp&gt;vbox-devel01.py
+Traceback (most recent call last):
+  File &quot;E:\Alex-temp\vbox-devel01.py&quot;, line 16, in &lt;module&gt;
+    vbox = win32com.client.Dispatch(&quot;VirtualBox.VirtualBox&quot;)
+AttributeError: 'module' object has no attribute 'client'
+
+----
+I tried to read source of &quot;vboxshell.py&quot;, but it is too hard for me,
+and it does not use &quot;VirtualBox.VirtualBox&quot; unlike the SDK example.
+I have basic skills in python, but not in VirtualBox-python and not in
+COM programming.
+Any ideas ?
+
+TRY 2:
+This code I copied from &quot;2.3.2 Common Python bindings layer&quot; SDK PDF.
+======================================================
+
+# This code assumes vboxapi.py from VirtualBox distribution
+# being in PYTHONPATH, or installed system-wide
+from vboxapi import VirtualBoxManager
+# This code initializes VirtualBox manager with default style
+# and parameters
+virtualBoxManager = VirtualBoxManager(None, None)
+# Alternatively, one can be more verbose, and initialize
+# glue with webservice backend, and provide authentication
+# information
+virtualBoxManager = VirtualBoxManager(&quot;WEBSERVICE&quot;,
+{’url’:’<a  rel="nofollow" href="http://myhost.com::18083/’">http://myhost.com::18083/’</a>,
+’user’:’me’,
+’password’:’secret’})
+
+And here is the error:
+E:\Alex-temp&gt;vbox-devel02.py
+  File &quot;E:\Alex-temp\vbox-devel02.py&quot;, line 13
+SyntaxError: Non-ASCII character '\x92' in file E:\Alex-temp\vbox-devel02.py on
+line 13, but no encoding declared; see <a  rel="nofollow" href="http://www.python.org/peps/pep-0263.html">http://www.python.org/peps/pep-0263.html</a>
+for details
+
+I tried to add:
+# -*- coding: ascii -*-
+..on the first line, but it did not help.
+Any ideas ?
+
+TRY 3:
+======================================================
+vboxshell.py renders text incorrectly on my Windows host.
+
+I did one command: &quot;help&quot;, and got:
+
+vbox&gt; help
+Help page:
+    ←[94malias←[0m: Control aliases
+    ←[94mattachCtr←[0m: Attach storage controller to the VM: attachCtr win Ctr0
+IDE ICH6
+    ←[94mattachHdd←[0m: Attach HDD to the VM: attachHdd win /disk.vdi &quot;IDE Contr
+oller&quot; 0:1
+    ←[94mattachIso←[0m: Attach CD/DVD to the VM: attachIso win /os.iso &quot;IDE Cont
+roller&quot; 0:1
+    ←[94mattachUsb←[0m: Attach USB device to the VM (use listUsb to show availab
+le devices): attachUsb win uuid
+    ←[94mcloseportal←[0m: Close teleportation portal (see openportal,teleport):
+closeportal Win
+...
+
+vboxshell.py, being a 100K byte code example is too hard to understand.
+Why are those extra characters rendered ? Because Windows 'cmd'
+console does not support colors ?
+======================================================
+By and large I would like to see some *working*, yet
+easy-to-understand examples.
+
+On the side note: SDKref.pdf references VBox 3.3 once, which should be
+changed to v4.0 (in chapter &quot;3.4 VirtualBox events&quot;)
+
+-- 
+-Alexey Eromenko &quot;Technologov&quot;
+
+_______________________________________________
+vbox-dev mailing list
+vbox-dev@virtualbox.org
+<a  rel="nofollow" href="http://vbox.innotek.de/mailman/listinfo/vbox-dev">http://vbox.innotek.de/mailman/listinfo/vbox-dev</a>
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+</div> <!-- end of msgBody class -->
+
+<div id="adbox">
+</div>
+
+<div class="tSliceList">
+<ul>
+<li>
+<div class="tSliceCur">
+<span class="subject">[vbox-dev] How to start a VM from Python/COM ?</span>
+<span class="sender">Alexey Eromenko</span>
+</div> <!-- end of tSliceCur class -->
+<ul>
+<li>
+<span class="subject"><a name="03500" href="msg03500.html">Re: [vbox-dev] How to start a VM from Python/COM ?</a></span>
+<span class="sender">Alexey Eromenko</span>
+<ul>
+<li>
+<span class="subject"><a name="03501" href="msg03501.html">Re: [vbox-dev] How to start a VM from Python/COM ?</a></span>
+<span class="sender">Alexey Eromenko</span>
+<!-- noop -->
+</ul>
+<!-- noop -->
+<li>
+<span class="subject"><a name="03502" href="msg03502.html">Re: [vbox-dev] How to start a VM from Python/COM ?</a></span>
+<span class="sender">Nikolay Igotti</span>
+<ul>
+<li>
+<span class="subject"><a name="03503" href="msg03503.html">Re: [vbox-dev] How to start a VM from Python/COM ?</a></span>
+<span class="sender">Alexey Eromenko</span>
+<!-- noop -->
+<li>
+<span class="subject"><a name="03514" href="msg03514.html">Re: [vbox-dev] How to start a VM from Python/COM ?</a></span>
+<span class="sender">Alexey Eromenko</span>
+<!-- noop -->
+</ul>
+<!-- noop -->
+</ul>
+</li>
+</ul>
+
+</div> <!-- end of tSliceList class -->
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+  <ul id="botLinks">
+  <li><div class="reply">
+<FORM METHOD="POST" ACTION="/mailto.php">
+
+
+<INPUT TYPE="HIDDEN" NAME="subject" VALUE="[vbox-dev] How to start a VM from Python/COM ?">
+<INPUT TYPE="HIDDEN" NAME="msgid" VALUE="AANLkTikRDUJpUBiA02ZQiG=PcZ91o3_L-V1Gqt0-wRv0@mail.gmail.com">
+Reply via email to<br>
+<INPUT TYPE="SUBMIT" VALUE=" Alexey Eromenko ">
+</FORM>
+</div>
+  </li>
+  </ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</div> <!-- end of msgcontent class -->
+</div> <!-- end of msgcontainer2 class -->
+
+<!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
+<div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div><div id="extraDiv3"><span></span></div>
+<div id="extraDiv4"><span></span></div><div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div>
+
+</body>
+</html>
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline
+Content-Type: image/png
+Content-Location: http://www.mail-archive.com/images/msg-no-logo.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAACgAAAABVCAMAAACyuU3gAAABgFBMVEUAAAAICAgO
+DgwQEBATFRQaGBkXGxIhISAhIhsoKCYvMSozMzM7OzZDQ0FJSURKSkhTUUhRUVFb
+WVFaWlhiYlxmZmZtbW1vb3B0c3JzdGyIb2V8dWqacGR6eW19e3N7e3uBfHSEgnSI
+gXWnemyEg3yEhISLhHuMh4GOin2LjIaMjIySjIWRjo2WlI2blI2+jH27j4KZmZnI
+koKdnaGinZannZrMlYSin6Ogo6Wmo56lpaWqpaCnpaqsp6SrqKyuq6Wtra21raev
+r7K0r62zsLO1s621tbW6ta+6tba3t7q6t7q9vLe9vb3Cvbe+vsHEv77DwcXHw77F
+xcXLxb7OycPMzMzRzMXPztTUzsfTz87T0dfZ1M3W1tbc1s/Y197h3NXe3t7k3tfm
+3t7g4OPp5Nzm5ubq6uvt7erv7+/4+Pj/////////////////////////////////
+//////////////////////////////////////////////////////9goiSzAAAA
+CXBIWXMAAABIAAAASABGyWs+AAALMklEQVR42u3dXVvbRgKGYZuPTUKgTcpHYVsw
+sAaKsdmdylnVsi0LWwhjhO0IlOBEpM5SiHf//w9YaSQZE9I9H/a5D9qmV4969Fzv
+zMiZ/wAAAEA5o9tvu7k3DH1KfPjw4X3ED3kZ/vcBAACo5t9fZO3dxf6kAofDiQSc
+KEACEAAAQD2fbsb1d/fNCnxUgGkARgVIAAIAACgnrLhgOPy6Ae8enQQ/nACTBjwl
+AAEAANQLQC+6zBdG4O2XxOMKfLABBqGkAPuCAAQAAFDOTd+PDYLg5m40ehCBkzPg
+owL84Bs6AQgAAKCcUfc0TMBBIroROJGA37wIGKQFaAuDAAQAAFDOF98wfM/zxg04
+iG4EjkajBxvgRAAO03uAfc0gAAEAANQzGjhC3gMMG3AiAm9HIxmBXx8BJwEYBMF7
+Q9drBCAAAIB6ARj0dS9aAJObgKkgiCIw3QAfBKA8Aw4sjQAEAABQ0o1veRMFeJ+A
+YQQO5TcCvz4Clv3XE2H/EYAAAAAKuvUt90EAjiNQPvX9cBP9TsjkBCjvAHqaphnc
+AQQAAFDRnW/FE+A4AdMlMKy/8ZXA6AfjJhdAQ9N1wzAJQAAAAPWMBk39cf4l5AY4
+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
+Yf+NB8A//gs8kzxTLKMAIgAAAABJRU5ErkJggg==
+
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline
+Content-Type: image/png
+Content-Location: http://www.mail-archive.com/images/msg-top2.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAAMgAAAAFAQMAAAA64DG3AAAABlBMVEXNloXq5N3q
+1e3rAAAAEUlEQVQI12P4jwswkCNDBgAAkF9KtmU8wTcAAAAASUVORK5CYII=
+
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline
+Content-Type: image/jpeg
+Content-Location: http://www.mail-archive.com/images/msg-left.jpg
+Content-Transfer-Encoding: Base64
+
+/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwK
+CgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHCAgICAgICAgICD/2wBDAQcH
+Bw0MDRgQEBgaFREVGiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICD/wAARCADoADADAREAAhEBAxEB/8QAGwABAQADAQEBAAAA
+AAAAAAAAAAUDBAYBAgj/xAA3EAEAAAQEAQcICwAAAAAAAAAAAQIEEQMFhLM2BhIT
+ISVRshQVJCYxcXOxIiMyM0NSgYKRktH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAwIB
+BP/EACURAQACAgEEAQQDAAAAAAAAAAABAjKBMwMRMUESISJCYWJxof/aAAwDAQAC
+EQMRAD8A/Q9klCwFgalfmdJRQhDFjGbFn+7wZOueb3QZtaIUp05sx4MnKurhz8Ch
+wqbDj9mNVPG/9ZeuDn3S326ceZ7/ANM3mrll+bLv5x/8d+N/058ul/L/ABtNIgNX
+Mq6Sho8SomheMvVJL3zR9kGbT2b6dPlPZt8nMi8mw/L66HS5njw508834cI+ySXu
+s106e58u9bq9/pGML8qrzvQc+m2AmZhhwqM4yekm68OfGmxZpe/oZecnbzD0dL6V
+tP6dgu8j6ldHoICbYDQn4pyTVbTE5QvTjtp1vNXeUhAHoINk2ywNCfinI9VssflC
+9OO2nWrvKAAhptAJ+LxTkeq2WPyhenHbTrF3mAARE2gE/F4pyPVbLE5QvTjtp1a7
+zAAI1mGiwJ2NxTkeq2k5yhenHbTql3mAAR02gE3H4pyPVbTE5QvTjtp1S7zAAJFm
+GiwJtRxTkWq2U5yhenHbTqV3mAASbMNFgTKninItVspzlC9OO2nUrvMAAlWYaLAm
+VXFORarZTnKF6cdtOoXeYABMsw0WBKquKci1eynOUL047adQu8wACcw0Ak1nFOQ6
+vZYnKNr047adOs8wACey0Ak1vFOQ6vZTnKNr047adMs8wADQZdASa3inItXtJzlC
+9OO2nSrPOAA0WXQEqth6z5HqtpicoXpx206NV5wAGmy6Al1kPWTJdTtMTlC1MLad
+AqgAA1LOOlgTKyHrDk+p22JyhamFtLyiAADWcdATauHb2U6jbYnKFa4W0tqIgANd
+x0BPqodt5XHu6fwMT5hSuM6WFEgAGCzjpYGlUQ7Xy6Pd03gZnzClcZVG0gAGGzjp
+YGpjw7UoY/F8LPtuMZUW0wAGNwAauNDtCjj8Twue248S3mmAAGNx0BgxYemU37/k
+57ajw22mAAHwADFPD0nAj3c75OOx4bDrgAD5sBYHxND67Dj7/kOso4AA8AB8xh9O
+X9QfYAAPLAWAt1wB6AAD/9k=
+
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline
+Content-Type: image/png
+Content-Location: http://www.mail-archive.com/images/mail-archive.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAALIAAAAXCAMAAACYheUHAAAABGdBTUEAALGPC/xh
+BQAAAutQTFRFAAAAgAAAAIAAgIAAAACAgACAAICAgICAwMDA/wAAAP8A//8AAAD/
+/wD/AP//////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAABmAACZAADM
+AAD/ADMAADMzADNmADOZADPMADP/AGYAAGYzAGZmAGaZAGbMAGb/AJkAAJkzAJlm
+AJmZAJnMAJn/AMwAAMwzAMxmAMyZAMzMAMz/AP8AAP8zAP9mAP+ZAP/MAP//MwAA
+MwAzMwBmMwCZMwDMMwD/MzMAMzMzMzNmMzOZMzPMMzP/M2YAM2YzM2ZmM2aZM2bM
+M2b/M5kAM5kzM5lmM5mZM5nMM5n/M8wAM8wzM8xmM8yZM8zMM8z/M/8AM/8zM/9m
+M/+ZM//MM///ZgAAZgAzZgBmZgCZZgDMZgD/ZjMAZjMzZjNmZjOZZjPMZjP/ZmYA
+ZmYzZmZmZmaZZmbMZmb/ZpkAZpkzZplmZpmZZpnMZpn/ZswAZswzZsxmZsyZZszM
+Zsz/Zv8AZv8zZv9mZv+ZZv/MZv//mQAAmQAzmQBmmQCZmQDMmQD/mTMAmTMzmTNm
+mTOZmTPMmTP/mWYAmWYzmWZmmWaZmWbMmWb/mZkAmZkzmZlmmZmZmZnMmZn/mcwA
+mcwzmcxmmcyZmczMmcz/mf8Amf8zmf9mmf+Zmf/Mmf//zAAAzAAzzABmzACZzADM
+zAD/zDMAzDMzzDNmzDOZzDPMzDP/zGYAzGYzzGZmzGaZzGbMzGb/zJkAzJkzzJlm
+zJmZzJnMzJn/zMwAzMwzzMxmzMyZzMzMzMz/zP8AzP8zzP9mzP+ZzP/MzP///wAA
+/wAz/wBm/wCZ/wDM/wD//zMA/zMz/zNm/zOZ/zPM/zP//2YA/2Yz/2Zm/2aZ/2bM
+/2b//5kA/5kz/5lm/5mZ/5nM/5n//8wA/8wz/8xm/8yZ/8zMMyR1NgAAAo1JREFU
+GNPVzz3S4yAMBuB00HE43Uf30SXkyq5CFR2G8hPix9ifHce7szObdyaOAAEPj/B1
+eQTpCSH/voBM0CICdNwVNdthOurRb9o05giRvDdoxzj05C/IoiEg/YZT8szMK/Kl
+o3jQM2e4fccgnJ3aQgDj0IG7IJdNYs99R16Ryx2yAAD+U7KI1BVPsiFPfcSH5Bjj
+EZkAAeQO2ZO/Q87BvMNbJZ2s6NRseRBPzvtFRvAIdId8lR05n+2gVoJuJc+81MHC
+8XOyV84V6e/JXgcEw7SRn8ylTsypkFO0pDof4wEZwemx4PuECFEZiSeNGDlXvl4m
+ed0W6pDqX914QBYdOHAaHMjKfFmdUZXMNTF07I5ctAjYJhxonBYewUJGLkEpGJf7
+sO+g0HtyxymZLCtZf0utYyPPlok5nZHJbvYA0sXOucJEl+OttsuwmI3ct4gV2uJK
+xymZ2h0rOTLnMmVgIbdM9phDMtqJAcpfvn9XlNth7DZy21lGrV3y7AlZEEk0A7k6
+Y/ZtyZGnE7KHcjABtnFTYvhNLtj2LVsR/NCeixNyEAdQn9bIi2mmrG3kV8yZmU/I
+aLcb1W9wri7sydjJupf6lAMUS259hE9i5MicQjJeIetEyzFZYI3bkemQDCu5YAvc
+DQfdISv0GZ68NLLqp5gzn5FpuAlkS3ZXZH2vD74sOUDXcou88BQmTo0cTRpacUBG
+oFrp/XSTbD2unLBpv0NOKlX1x2QPIK12gDucXJH1mVLbNu13yGFi5mcnv+z7hoz1
+7sr3A07X0F+Qc89Q+j8iq41TJ+tszxFZTLnxr2RBKKFzsj6zndDb4SY5cQUVcojT
+OzIBDkcYZyUHIbwi6zNx3/4x+b/KF5J/ABl9Ufp94gGYAAAAAElFTkSuQmCC
+
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline; filename=advanced.css
+Content-Type: text/css; charset=utf-8; name=advanced.css
+Content-Location: http://www.mail-archive.com/advanced.css
+Content-Transfer-Encoding: 8bit
+
+body{margin:0;padding:0;background-color:#fff;color:#000;font-family:verdana,arial,sans-serif;}#logo{float:left;left:184px;top:0;margin:0;padding:0;}#logo2{position:absolute;left:184px;top:0;}#logo-explain{ position:absolute;left:405px;top:30px;font-size: 80%;}.fineprint{font-size: 70%;    }#mainimage{float:left;left:0;top:0;width:184px;height:322px;background-repeat:no-repeat;z-index:10;}#welcomepage #mainimage,#notfound #mainimage{background-image:url(../images/image-welcome.jpg);}#container{background-repeat:repeat-x;margin-bottom:2em;}#welcomepage #container,#notfound #container{background-image:url(../images/base-welcome.png);}#container2{background-repeat:no-repeat;background-position:100% 0;}#welcomepage #container2{background-image:url(../images/right-welcome.jpg);}#notfound #container2{background-image:url(../images/right-404.jpg);}#container2 h1{position:absolute;left:0;top:0;color:#000;margin:0;padding:0;width:184px;z-index:1;font-family:verdana,arial,sans-serif;}#msgcontainer{background-repeat:repeat-x;background-position:100% 0;min-width:68em;font-family:monospace;}#msg #msgcontainer{background-image:url(../images/msg-no-logo.png);background-color:#E8E2DB;}#thread #msgcontainer{background-image:url(../images/thread-no-logo.png);background-color:#E0E0E3;}#cron #msgcontainer,#infopg #msgcontainer{background-image:url(../images/cron-no-logo.png);background-color:#D6EAE6;}#msgcontainer h1{color:#B42A00;font-weight:normal;margin:0;padding:15px 0 0 20px;}.msgHead{color:#006792;}.msgBody{float:left;width:75%;}#topLinks, #botLinks{margin:0;padding:25px 0 5px 20px;list-style-type:none;}#topLinks li, #botLinks li{display:inline;margin-right:50px;font-family:verdana,arial,sans-serif;}#msgcontainer2{background-repeat:repeat-x;background-color:#fff;margin-bottom:2em;}#msg #msgcontainer2{background-image:url(../images/msg-top2.png);height:5px;min-width:68em;font-family:monospace;}#thread #msgcontainer2{background-image:url(../images/thread-top2.png);font-size:80%;}#cron #msgcontainer2,#infopg #msgcontainer2{background-image:url(../images/cron-top2.png);font-size:80%;}#corner2{float:left;width:48px;height:232px;}#msg #corner2{background-image:url(../images/msg-left.jpg);}#thread #corner2{background-image:url(../images/thread-left.jpg);}#cron #corner2,#infopg #corner2{background-image:url(../images/cron-left.jpg);}#msgcontent,#indexcontent{margin:0px 16px 0px 48px;}#msgcontent h1,#msgcontent h2{margin:0;padding:1em 0 0 0;font-size:140%;}#indexcontent h2{margin:0;padding:1em 0 0 0;}#indexcontent li{list-style:none}#indexcontent a:visited{color:#000;}.tSliceList{clear:left;margin:2em 0;padding:1em;background-color:#E9E1D4;font-size:90%;font-family:verdana,arial,sans-serif;}.tSliceList ul{margin-left:0;padding-left:2em;list-style-type:none;}.tSliceCur .subject{color:#CE9684;}.sliceCur .subject{color:#CE9684;}#adbox{float:right;width:160px;background-color:#fff;padding:0px 0 20px 20px;margin-top:10px;}a#mail-archive-logo{float:right;display:block;width:178px;height:23px;margin-top:16px;margin-right:32px;background-image:url(../images/mail-archive.png);background-repeat:no-repeat;}#msgcontainer > a#mail-archive-logo{margin-right:65px;}form{margin:0;padding:0;}dt{font-weight:bold;margin:1em 0;}dd{margin-left:0;padding-left:0;}#content{margin:0 170px 0 184px;padding-top:155px;line-height:140%;}h2,h3,h4,h5,h6{color:#006792;margin-top:0;}h2{font-size:140%;}h3{font-size:120%;}h4,h5,h6{font-size:100%;}p{margin-top:0;}#cron #listlink,#cron #listlink a:link,#cron #listlink a:visited,#thread #listlink,#thread #listlink a:link,#thread #listlink a:visited,#msg #listlink,#msg #listlink a:link,#msg #listlink a:visited{color:#B42A00;text-decoration:underline;background-color:transparent;}#listlink,#listlink a:link,#listlink a:visited{color:#B42A00;text-decoration:none;background-color:transparent;}#msglink a:visited,#msglist a:visited{color:#000;}a:link{color:#006792;}a:hover,a:active,a:visited{color:#000;}hr{color:#CD9685;background:#fff;border:0;height:2px;}.subject{font-weight:bold;padding-right:10px;}.date{color:#888888;padding-right:10px;}.sender{font-style:italic;}.subtle{color:#888888;padding-left:10px;font-size:80%;}.infoheader{font-weight:bold;float:left;width:15em;}.infobody{float:left;width:40em;}
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline; filename=leftarrow.png
+Content-Type: image/png; name=leftarrow.png
+Content-Location: http://www.mail-archive.com/leftarrow.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAMAAAD3n0w0AAAABGdBTUEAALlrZELN
+bAAAAYZQTFRFAAAANDQ0O1GSNDQ0N1GFNDQ0NDQ0NDQ0NDQ0NDQ0N1GFNDQ0QFSV
+NDQ0NDQ0NDQ0NDQ0PVKPNDQ0N1B+NDQ0NlKBQlWVQlWVNDQ0NDQ0OlOHNDQ0OFOF
+QlKWOFOFNDQ0OlSHNDQ0NDQ0NDQ0NEloQVSQNDQ0NDQ0NDQ0NDQ0R1qcOFKFNDxH
+O1WHT2edND1KQ1SVR1qdQVWSQlWVOlOFO1OIPFOLPlKNP1OQQlWVW3GoPFmGRmKU
+Vm2jQ2KPWG+nVnKkSGaNSGWZX3mqQ2GKTW2cepTAbYq3T3CedYq5jaXLU3utf5zE
+oLzaU3WkU3iqiKPJj7LUN2eyN3C3OHW9OXi9OnK4O3O5PGy1PHW5QXK3Q2+0RmiZ
+RoPCSXKtSXS1SmuaTHKmT4K9UoS6VIC4VI/KVJDKVoK5WIa6WpbNXIK6ZZPEcIm3
+dKPQdYq5hajOiLbciLbdjLnejrDSj7bZlLXWlcLjlsLjmr7dnMblosvoo8zopM3o
+psvnqczlsNbtsNftvt7wfifNUwAAAFJ0Uk5TAAEBAgIDBAUGBwcJCQoLDA0NDg4P
+ERIVFhkcHR0dICUlLDIzNDY3OTo8RExNUFFTVFRWVmBgYGBgYGRne4Kcpaits7W9
+xNba3uXn6fDx8vX4+ZMz/PoAAADGSURBVBjTY2CgIdAyxBASs/LyRBeTtfdtzEMV
+4jFwq6tvyLGEAmNxBgYmQVuf2pqq6opSKAgwYmBQdQ6sLIeCMhBRbMGg515SVFhQ
+iATyzRkccjPT0lLTkEC2GYOCU0ZsaAgySDZlYJCy8U4KDw4ODouEgnQTkJN0XVOi
+giLiEqHATxskyCJq5x8fHSMHBTJcEOcLW3tkJSD7h5GVg5tfQMXFUURIgI+Xk52N
+mZGBkV1AUl5JTUNHX1NdWVFeWkKEm42BMgAAQ51ABouOfJkAAAAASUVORK5CYII=
+
+------------hyciHi3qBzXS0zyjqMKphr
+Content-Disposition: inline; filename=rightarrow.png
+Content-Type: image/png; name=rightarrow.png
+Content-Location: http://www.mail-archive.com/rightarrow.png
+Content-Transfer-Encoding: Base64
+
+iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAMAAAD3n0w0AAAABGdBTUEAALlrZELN
+bAAAAYxQTFRFAAAANDQ0O1GSNDQ0N1GFNDQ0NDQ0NDQ0NDQ0NDQ0N1GFNDQ0NDQ0
+QFSVNDQ0NDQ0NDQ0NDQ0PVKPNDQ0N1B+NDQ0NDQ0NlKBQlWVNDQ0QlWVNDQ0OlOH
+OFOFQlKWOFOFNDQ0OlSHNDQ0NDQ0NDQ0NDQ0NElnQVSQNDQ0NDQ0NDQ0NDQ0R1qc
+OFKFNDpDO1WHNDtHT2edRFaVR1qdQVWSQlWVOlOFO1OIPFOLPlKNP1OQQlWVW3Go
+PFmGRmKUVm2jQ2KPWG+nVnKkSGWLSGWZX3mqQ2CITW2cepTAbYq3T3CedYq5jaXL
+U3utgJzEoLzaU3WkU3iqiKPJj7LUN2eyN3C3OHW9OXi9OnK4O3O5PGy1PHW5QXK3
+Q2+0RmiZRoPCSXKtSXS1SmuaTHKmT4K9UoS6VIC4VI/KVJDKVoK5WIa6WpbNXIK6
+ZZPEcIm3dKPQdYq5hajOiLbciLbdjLnejrDSj7bZlLXWlcLjlsLjm77dnMblosvo
+o8zopM3opsvnqczlsNbtsNftvt7wU/+7kQAAAFR0Uk5TAAEBAgIDBAUGBwcICQkK
+CwwNDQ4ODxAREhQVHBwdHSAjJSkqMjM0Njc5Oz1ETE5QUVFUVFZWYGBgYGBgZGd7
+gpylqK2ztb7E1tre5efp8PHy9fj5IfhXTwAAAMhJREFUGNNjYKApMNbBIujtYyOB
+IVjQ7O8oB2FKmVpDQV5TY4OHES9I0CSoHAqqamvq6v3shZgYGKxKKyrhoKKyOthV
+nYHBsrC4CAjhoKTM05DBIjcjIyM9AwGy850YzFPDkEF4fJaLIoNZZjQURISGhkam
++NrJMDDoBiRDQUJUSEyauz7ISVyy8lAQF5sY6CDOguqjpBwvWxEIk5GRmZWdk4df
+UNjZTU1UWICPg42ZgZGVW1BSWkFZRcNAT1tLU1VJWoyTgTIAAMBwQZEmA8fBAAAA
+AElFTkSuQmCC
+
+------------hyciHi3qBzXS0zyjqMKphr--

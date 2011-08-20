@@ -12,7 +12,7 @@ s = string.printable
 s = s[:94]
 print s
 i = 0
-while i < 1000:
+while i < 5368709120:
 	file.write(random.choice(s))
 	i = i + 1
 

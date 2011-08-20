@@ -4,6 +4,7 @@ import test
 import time
 import enum
 import csv
+import platform
 
 class Client():
     test = 0
@@ -22,8 +23,12 @@ class Client():
         self.serverIP = serverIP
 
     def connect(self):
-        self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.s.connect((self.serverIP, self.port))
+        try:
+            self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            self.s.connect((self.serverIP, self.port))
+        except Exception:
+            print 'Could not open Socket'
         #print self.s.getsockname()
         
     def closeConnect(self):
@@ -47,7 +52,31 @@ class Client():
             if data:
                 text = open(self.path, 'r').read()
                 print text
-                print 'sendall', self.s.send(text)
+                print 'sendall_data', self.s.send(text)
+                self.s.send(self.enum.stop)
+                self.closeConnect()
+                break
+            
+    def sendConfig(self):
+        time.sleep(10)
+        self.connect()
+        while True:
+            data = self.s.recv(1024)
+            if data:
+                text = 'newVM \n'
+                text = text + (str(socket.gethostname() + '(' + socket.gethostbyname(socket.gethostname()) + ')') + '\n')
+                text = text + platform.machine() +'\n'
+                text = text + platform.node() +'\n'
+                text = text + platform.processor() +'\n'
+                text = text + platform.system() +'\n'
+                
+                try:
+                    text = text + os.system('less /proc/meminfo') +'\n'
+                    text = text + os.system('less /proc/cpuinfo') +'\n'
+                except Exception:
+                    print 'No Unix System'
+                    pass
+                print 'sendall_config', self.s.send(text)
                 self.s.send(self.enum.stop)
                 self.closeConnect()
                 break
@@ -63,6 +92,9 @@ class Client():
             if data[1] == self.enum.rw:
                 t = test.IOTest(myClient.iter, myClient.path)
                 t.startIO()
+            if data[1] == self.enum.seek:
+                t = test.IOTest(myClient.iter, myClient.path)
+                t.startSeek()
         elif data[0] == self.enum.Net:
             if data[1] == self.enum.tcp:
                 t = test.NetTest(myClient.iter, myClient.path)
@@ -72,6 +104,8 @@ class Client():
                 t.startBand(myClient.serverIP, myClient.port)
         elif data[0] == self.enum.data:
             self.sendData()
+        elif data[0] == self.enum.config:
+            self.sendConfig()
         elif data [0] == self.enum.stopClient:
             sys.exit(0)
         self.closeConnect()

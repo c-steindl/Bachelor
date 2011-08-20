@@ -11,3 +11,5 @@ class Enum():
     band = 'BandwidthTest'
     stopClient = 'SystemExit'
     data = 'sendData'
+    config = 'sendConfig'
+    seek = 'SeekAndWrite'

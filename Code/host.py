@@ -1,5 +1,6 @@
 import socket
 import sys
+import os
 import time
 import enum
 import string
@@ -10,40 +11,55 @@ class Host():
     port = 0
     clients = list()
     numClients = 0
-    iter = 5
     enum = enum.Enum()
     config = list()
+    path = str(time.time())
+    file = 'results.csv'
     
     def __init__(self, port, numClients, iter):
-        print socket.gethostbyname(socket.gethostname())
+        print 'IP:', socket.gethostbyname(socket.gethostname())
         self.port = port
+        print 'Port:', self.port
+        os.mkdir(self.path)
+        print 'Results at:', self.path + '/'
         self.numClients = numClients
+        print 'Number of Clients:', self.numClients
 
         self.config.append([self.enum.iter, int(iter)])
-        self.config.append([self.enum.IO, self.enum.mat])
+        #self.config.append([self.enum.IO, self.enum.mat])
         self.config.append([self.enum.IO, self.enum.rw])
+        #self.config.append([self.enum.IO, self.enum.seek])
         self.config.append([self.enum.Net, self.enum.tcp])
         #self.config.append([self.enum.Net, self.enum.band])
         self.config.append([self.enum.data, 0])
+        self.config.append([self.enum.config, 0])
         self.config.append([self.enum.stopClient, 0])
 
     def initConnect(self):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind(('', self.port))
-        s.listen(1)
-        i = 0
-        while i < self.numClients:
-            conn, addr = s.accept()
-            i = i + 1
-            client = [i, addr, conn]
-            self.clients.append(client)
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            s.bind(('', self.port))
+            s.listen(1)
+            i = 0
+            while i < self.numClients:
+                conn, addr = s.accept()
+                i = i + 1
+                client = [i, addr, conn]
+                self.clients.append(client)
+        except Exception as msg:
+            print 'Achtung', msg
         #print 'connected clients', self.clients
         
     def dataConnect(self):
-        results = open('results.csv', 'wb')
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind(('', self.port))
-        s.listen(1)
+        results = open(myServer.path + '/' + myServer.file, 'wb')
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            s.bind(('', self.port))
+            s.listen(1)
+        except Exception:
+            print 'Could not open socket'
         i = 0
         while i < self.numClients:
             conn, addr = s.accept()
@@ -67,6 +83,38 @@ class Host():
         results.close()
         self.closeConnect()
         
+    def configConnect(self):
+        config = open(myServer.path + '/config.txt', 'wb')
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            s.bind(('', self.port))
+            s.listen(1)
+        except Exception:
+            print 'Could not open socket'
+        i = 0
+        while i < self.numClients:
+            conn, addr = s.accept()
+            i = i + 1
+            client = [i, addr, conn]
+            self.clients.append(client)
+        for x in range(self.numClients):
+            data = 0
+            c = self.clients[x]
+            conn = c[2]
+            conn.send('send')
+            while True:
+                if data  == self.enum.stop:
+                    break
+                data = conn.recv(1024)
+                print data
+                config.write(data)
+                
+            config.write('\n')
+        #print 'connected clients', self.clients
+        config.close()
+        self.closeConnect()
+        
     def closeConnect(self):
         while self.clients:
             client = self.clients.pop()
@@ -80,14 +128,19 @@ class Host():
             i = i + 1
 
     def netConnect(self):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind(('', self.port))
-        s.listen(1)
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            s.bind(('', self.port))
+            s.listen(1)
+        except Exception:
+            print 'Could not open socket'
         stop = 0
         client = list()
         while stop < self.numClients:
             conn, addr = s.accept()
             d = conn.recv(128).split()
+            #print d
             if d[0] == self.enum.stop:
                 stop = stop + 1
                 client.append(conn)
@@ -100,27 +153,35 @@ class Host():
             c.send(message)
             
     def bandConnect(self):
-        stop = 1
-        client = list()
         self.initConnect()
-        while stop < self.numClients:
-            for i in range(len(self.clients)):
-                data = self.clients[i][2].recv(128)
-                #print data
-                d = string.find(data, self.enum.stop)
-                if d > 0:
-                    stop = stop + 1
-                    client.append(self.clients[i][2])
-                    print 'increment', stop, self.numClients
-        print 'outof'
-        message = myServer.enum.stop + ' ' + myServer.enum.band
         
-        print client
-        while client:
-            c = client.pop()
-            c.send(message)
-            print message
+        stop = 0
+        #try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        s.bind(('', self.port + 1))
+        s.listen(1)
+        #except Exception:
+        #    print 'Could not open socket'
+        
+        lastData = ''
+        currentData = ''
+        #nextData = ''
+        conn, addr = s.accept()
+        while True:
+            lastData = currentData
+            currentData = conn.recv(512)
+            data = lastData + currentData
+            print 'yes', data.find('stop'), lastData, currentData, data
+            if data.find('stop') >= 0:
+                stop = stop + 1
+            if stop == self.numClients:
+                break
+            print data
+            
+        self.sendAll('end_bandwidth')
         self.closeConnect()
+                
         
         
 def usage():
@@ -143,8 +204,12 @@ if __name__ == "__main__":
                 myServer.bandConnect()
             if d == [myServer.enum.data, 0]:
                 myServer.dataConnect()
+            if d == [myServer.enum.config, 0]:
+                myServer.configConnect()
         
-        res.main('results.csv')
+        res.main(myServer.path, myServer.file, 'normal')
+        res.main(myServer.path, myServer.file, 'sum')
+        res.main(myServer.path, myServer.file, 'both')
         
         
     else: usage()

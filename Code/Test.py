@@ -3,6 +3,7 @@ import timeit
 import socket
 import enum
 import csv
+import sys
 
 class Test():
     start = 0
@@ -11,10 +12,15 @@ class Test():
     enum = enum.Enum()
     path = 0
     
+    name = str(socket.gethostname() + '(' + socket.gethostbyname(socket.gethostname()) + ')')
+    
     def __init__(self, iter, path):
         self.iter = iter
         self.path = path
-        self.results = csv.writer(open(self.path, 'ab')) 
+        try:
+            self.results = csv.writer(open(self.path, 'ab'))
+        except Exception:
+            print 'Could not open', self.path 
     
     def fib(self, n):
         if n <= 0:
@@ -27,31 +33,37 @@ class Test():
 class IOTest(Test):
     
     def startMat(self):
-        self.results.writerow(['NewTest', 'Mattest', str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'Mattest', self.name])
         
         
         i = 0
         init = time.time()
+        dur = 0.0
+        #sys.setrecursionlimit(1500)
+        start = 0.0
+        dur = 0.0
         while i < self.iter:
             start = time.time()
-            a = self.fib(30)
+            a = self.fib(25)
             dur = time.time() - start
             values = [str(i), str(dur), str(time.time()-init)]
-            #print values
+            print values
             self.results.writerow(values)
             i = i + 1
         self.results.writerow(['EndTest'])
             
     def startIO(self):
-        self.results.writerow(['NewTest', 'I-O', str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'I-O', self.name])
 
         
         j = 0
         init = time.time()
+        start = 0.0
+        dur = 0.0
         while j < self.iter:
             start = time.time()
             k = 0
-            while k < 100: 
+            while k < 5:
                 o = open('lorem.txt', 'r')
                 data = o.read()
                 i = open('temp.txt', 'w')
@@ -61,7 +73,36 @@ class IOTest(Test):
                 k = k + 1
             dur = time.time() - start
             values = [str(j), str(dur), str(time.time()-init)]
-            #print values
+            print values
+            self.results.writerow(values)
+            j = j + 1
+        
+        self.results.writerow(['EndTest'])
+        
+    def startSeek(self):
+        self.results.writerow(['NewTest', 'SeekAndWrite', self.name])
+
+        
+        j = 0
+        init = time.time()
+        start = 0.0
+        dur = 0.0
+        while j < self.iter:
+            start = time.time()
+            k = 0
+            while k < 10: 
+                o = open('data.txt', 'r')
+                data = o.read()
+                o = open('string.txt', 'r')
+                s = o.read()
+                index = data.find(s)
+                i = open('temp.txt', 'w')
+                i.write(str(data[index:index+10000]))
+                o.close()
+                i.close()
+                k = k + 1
+            dur = time.time() - start
+            values = [str(j), str(dur), str(time.time()-init)]
             self.results.writerow(values)
             j = j + 1
         
@@ -70,16 +111,18 @@ class IOTest(Test):
 class NetTest(Test):
     
     def startTCP(self, serverIP, port):
-        self.results.writerow(['NewTest', 'TCP', str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'TCP', self.name])
         
         
         init = time.time()
         exceptions = 0
         i = 0
+        start = 0.0
+        dur = 0.0
         while i < self.iter:
             start = time.time()
             j = 0
-            while j < 30:
+            while j < 50:
                 try: 
                     self.TCP('test', serverIP, port)
                 except:
@@ -87,7 +130,7 @@ class NetTest(Test):
                 j = j + 1
             dur = time.time() - start
             values = [str(i), str(dur), str(time.time()-init)]
-            #print values
+            print values
             self.results.writerow(values)
             i = i + 1
         print 'Exceptions', exceptions
@@ -96,47 +139,53 @@ class NetTest(Test):
         self.results.writerow(['EndTest'])
         
     def startBand(self, serverIP, port):
-        self.results.writerow(['NewTest', 'Band', str(socket.gethostname())])
+        self.results.writerow(['NewTest', 'Band', self.name])
+        
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        s.connect((serverIP, port))
         
         
-        bytes = 0
+        s1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s1.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        s1.connect((serverIP, port + 1))
+        
+        j = 0
+        init = time.time()
+        start = 0.0
+        dur = 0.0
         o = open('lorem.txt', 'r')
         data = o.read()
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((serverIP, port))
-        init = time.time()
-        exceptions = 0
-        i = 0
-        while i < self.iter:
+        while j < self.iter:
             start = time.time()
-            j = 0
-            while j < 25:
-                try: 
-                    bytes += self.transmit(data, s)
-                except:
-                    exceptions = exceptions + 1
-                j = j + 1
+            k = 0
+            while k < 5:
+                s1.send(data)
+                print 'iter'
+                k = k + 1
             dur = time.time() - start
-            values = [str(bytes), str(dur), str(time.time()-init)]
-            #print values
+            values = [str(j), str(dur), str(time.time()-init)]
+            print values
             self.results.writerow(values)
-            i = i + 1
-        print 'Exceptions', exceptions
+            j = j + 1
+            o.close()
+        
         time.sleep(2)
-        self.transmit(' ' + self.enum.stop, s)
-        print 'sendstop'
+        s1.send('stop')
+        print 'yes'
         while True:
-            data = s.recv(512)
-            print data
-            if data:
+            print 'yes1'
+            d = s.recv(512)
+            print d
+            if d:
                 break
-        print 'stop'
         
         self.results.writerow(['EndTest'])
         
         
     def TCP (self, message, serverIP, port):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         s.connect((serverIP, port))
         s.send(message)
         if message == self.enum.stop:

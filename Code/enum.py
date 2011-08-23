@@ -13,3 +13,5 @@ class Enum():
     data = 'sendData'
     config = 'sendConfig'
     seek = 'SeekAndWrite'
+    iteration = 'Iteration'
+    plot = 'plotResults'

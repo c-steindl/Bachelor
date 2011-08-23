@@ -15,6 +15,7 @@ class Host():
     config = list()
     path = str(time.time())
     file = 'results.csv'
+    iterations = 0
     
     def __init__(self, port, numClients, iter):
         print 'IP:', socket.gethostbyname(socket.gethostname())
@@ -24,16 +25,19 @@ class Host():
         print 'Results at:', self.path + '/'
         self.numClients = numClients
         print 'Number of Clients:', self.numClients
+        self.iterations = iter
+        print 'Number of Iterations:', self.iterations
 
-        self.config.append([self.enum.iter, int(iter)])
-        #self.config.append([self.enum.IO, self.enum.mat])
-        self.config.append([self.enum.IO, self.enum.rw])
+        #self.config.append([self.enum.iter, int(iter)])
+        self.config.append([self.enum.IO, self.enum.mat])
+        #self.config.append([self.enum.IO, self.enum.rw])
         #self.config.append([self.enum.IO, self.enum.seek])
-        self.config.append([self.enum.Net, self.enum.tcp])
+        #self.config.append([self.enum.Net, self.enum.tcp])
         #self.config.append([self.enum.Net, self.enum.band])
         self.config.append([self.enum.data, 0])
         self.config.append([self.enum.config, 0])
-        self.config.append([self.enum.stopClient, 0])
+        self.config.append([self.enum.stopClient, 1])
+        #self.config.append([self.enum.plot, 1])
 
     def initConnect(self):
         try:
@@ -47,9 +51,9 @@ class Host():
                 i = i + 1
                 client = [i, addr, conn]
                 self.clients.append(client)
+                #print 'connected clients', self.clients
         except Exception as msg:
             print 'Achtung', msg
-        #print 'connected clients', self.clients
         
     def dataConnect(self):
         results = open(myServer.path + '/' + myServer.file, 'wb')
@@ -181,6 +185,22 @@ class Host():
             
         self.sendAll('end_bandwidth')
         self.closeConnect()
+        
+    def sendIteration(self):
+        i = 0
+        while i < self.iterations:
+            message = str(self.enum.iteration) + ' ' + str(i)
+            self.initConnect()
+            self.sendAll(message)
+            print message
+            self.closeConnect()
+            i = i + 1
+            
+    def sendFinish(self):
+        message = str(self.enum.stop) + ' ' + str(1)
+        self.initConnect()
+        self.sendAll(message)
+        self.closeConnect()
                 
         
         
@@ -198,6 +218,7 @@ if __name__ == "__main__":
             myServer.sendAll(message)
             print message
             myServer.closeConnect()
+            #if d == [myServer.enum.IO, myServer.enum.mat]:
             if d == [myServer.enum.Net, myServer.enum.tcp]:
                 myServer.netConnect()
             if d == [myServer.enum.Net, myServer.enum.band]:
@@ -206,10 +227,15 @@ if __name__ == "__main__":
                 myServer.dataConnect()
             if d == [myServer.enum.config, 0]:
                 myServer.configConnect()
+            
+            if d[0] == myServer.enum.IO or d[0] == myServer.enum.Net:    
+                myServer.sendIteration()
+                myServer.sendFinish()
         
-        res.main(myServer.path, myServer.file, 'normal')
-        res.main(myServer.path, myServer.file, 'sum')
-        res.main(myServer.path, myServer.file, 'both')
+            if d[0] == myServer.enum.plot:
+                res.main(myServer.path, myServer.file, 'normal')
+                res.main(myServer.path, myServer.file, 'sum')
+                res.main(myServer.path, myServer.file, 'both')
         
         
     else: usage()

@@ -71,11 +71,19 @@ class Client():
                 text = text + platform.system() +'\n'
                 
                 try:
-                    text = text + os.system('less /proc/meminfo') +'\n'
-                    text = text + os.system('less /proc/cpuinfo') +'\n'
+                    text = text + os.popen('cat /proc/meminfo').read() +'\n'
+                    text = text + os.popen('cat /proc/cpuinfo').read() +'\n'
                 except Exception:
                     print 'No Unix System'
                     pass
+                
+                try:
+                    text = text + os.popen('systeminfo').read() +'\n'
+                except Exception:
+                    print 'No Windows System'
+                    pass
+                
+                text = text + '---------------------------\n'
                 print 'sendall_config', self.s.send(text)
                 self.s.send(self.enum.stop)
                 self.closeConnect()
@@ -87,20 +95,20 @@ class Client():
             self.iter = int(data[1])
         elif data[0] == self.enum.IO:
             if data[1] == self.enum.mat:
-                t = test.IOTest(myClient.iter, myClient.path)
+                t = test.IOTest(myClient.iter, myClient.path, myClient.serverIP, myClient.port)
                 t.startMat()
             if data[1] == self.enum.rw:
-                t = test.IOTest(myClient.iter, myClient.path)
+                t = test.IOTest(myClient.iter, myClient.path, myClient.serverIP, myClient.port)
                 t.startIO()
             if data[1] == self.enum.seek:
-                t = test.IOTest(myClient.iter, myClient.path)
+                t = test.IOTest(myClient.iter, myClient.path, myClient.serverIP, myClient.port)
                 t.startSeek()
         elif data[0] == self.enum.Net:
             if data[1] == self.enum.tcp:
-                t = test.NetTest(myClient.iter, myClient.path)
+                t = test.NetTest(myClient.iter, myClient.path, myClient.serverIP, myClient.port)
                 t.startTCP(myClient.serverIP, myClient.port)
             if data[1] == self.enum.band:
-                t = test.NetTest(myClient.iter, myClient.path)
+                t = test.NetTest(myClient.iter, myClient.path, myClient.serverIP, myClient.port)
                 t.startBand(myClient.serverIP, myClient.port)
         elif data[0] == self.enum.data:
             self.sendData()

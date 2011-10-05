@@ -1,7 +1,9 @@
+import string
+
 class Enum():
     dur = 'duration'
     start = 'start'
-    stop = 'finish'
+    stop = string.printable[90]
     IO = 'IOTest'
     Net = 'NetworkTest'
     iter = 'NumberOfIterations'
@@ -15,3 +17,4 @@ class Enum():
     seek = 'SeekAndWrite'
     iteration = 'Iteration'
     plot = 'plotResults'
+    chunkSize = 4096

@@ -4,6 +4,7 @@ import socket
 import enum
 import csv
 import sys
+import os
 
 class Test():
     start = 0
@@ -15,7 +16,8 @@ class Test():
     serverIP = ''
     port = 0
     
-    name = str(socket.gethostname() + '(' + socket.gethostbyname(socket.gethostname()) + ')')
+    #name = str(socket.gethostname() + '(' + socket.gethostbyname(socket.gethostname()) + ')')
+    name = str(socket.gethostname())
     
     def __init__(self, iter, path, IP, p):
         self.iter = iter
@@ -56,6 +58,48 @@ class Test():
         else:
             return self.fib(n-1) + self.fib(n-2)
         
+    def IO(self):
+        o = open('lorem.txt', 'r')
+        data = o.read()
+        i = open('temp.txt', 'w')
+        i.write(str(data))
+        o.close()
+        i.close()
+        
+    def seek(self, s):
+        o = open('/home/bachelor/Code/test.txt', 'r')
+        #o = open('lorem.txt', 'r')
+        
+        lastString = ''
+        while True:
+            currentString = o.read(self.enum.chunkSize)
+            lastString = lastString + currentString
+            index1 = lastString.find(s)
+            if index1 > 0:
+                index1 = o.tell() + index1 - (2 * self.enum.chunkSize)
+                break
+            else:
+                lastString = currentString
+                
+        i = open('temp.txt', 'w')
+        size = os.path.getsize(o.name) - 1
+        if (index1 + 1000000) > size:
+            index2 = size
+        else:
+            index2 = index1 + 1000000
+
+        try:
+            o.seek(index1)
+            while True:
+                data = o.read(self.enum.chunkSize)
+                i.write(str(data))
+                if o.tell() > index2:
+                    break
+        except Exception:
+            print 'Could not write to file'
+        o.close()
+        i.close()
+        
 class IOTest(Test):      
         
     def startMat(self):
@@ -74,7 +118,7 @@ class IOTest(Test):
                 start = time.time()
                 a = self.fib(35)
                 dur = time.time() - start
-                values = [str(i[1]), str(dur), str(time.time()-init)]
+                values = [str(i[1]), str(dur), str(start)]
                 print values
                 self.results.writerow(values)
             if i[0] == self.enum.stop:
@@ -84,59 +128,55 @@ class IOTest(Test):
 
             
     def startIO(self):
+        time.sleep(2)
         self.results.writerow(['NewTest', 'I-O', self.name])
 
-        
-        j = 0
         init = time.time()
+        dur = 0.0
         start = 0.0
         dur = 0.0
-        while j < self.iter:
-            start = time.time()
-            k = 0
-            while k < 5:
-                o = open('lorem.txt', 'r')
-                data = o.read()
-                i = open('temp.txt', 'w')
-                i.write(str(data))
-                o.close()
-                i.close()
-                k = k + 1
-            dur = time.time() - start
-            values = [str(j), str(dur), str(time.time()-init)]
-            print values
-            self.results.writerow(values)
-            j = j + 1
         
+        while True:
+            i = self.recieve()
+            if i[0] == self.enum.iteration:
+                j = 0
+                start = time.time()
+                while j < 5:
+                    a = self.IO()
+                    j = j + 1
+                dur = time.time() - start
+                values = [str(i[1]), str(dur), str(start)]
+                print values
+                self.results.writerow(values)
+            if i[0] == self.enum.stop:
+                break
+            
         self.results.writerow(['EndTest'])
         
+        
+        
+        
     def startSeek(self):
+        time.sleep(2)
         self.results.writerow(['NewTest', 'SeekAndWrite', self.name])
 
-        
-        j = 0
         init = time.time()
+        dur = 0.0
         start = 0.0
         dur = 0.0
-        while j < self.iter:
-            start = time.time()
-            k = 0
-            while k < 10: 
-                o = open('data.txt', 'r')
-                data = o.read()
-                o = open('string.txt', 'r')
-                s = o.read()
-                index = data.find(s)
-                i = open('temp.txt', 'w')
-                i.write(str(data[index:index+10000]))
-                o.close()
-                i.close()
-                k = k + 1
-            dur = time.time() - start
-            values = [str(j), str(dur), str(time.time()-init)]
-            self.results.writerow(values)
-            j = j + 1
         
+        while True:
+            i = self.recieve()
+            if i[0] == self.enum.iteration:
+                start = time.time()
+                self.seek(i[2])
+                dur = time.time() - start
+                values = [str(i[1]), str(dur), str(start)]
+                print values
+                self.results.writerow(values)
+            if i[0] == self.enum.stop:
+                break
+            
         self.results.writerow(['EndTest'])
             
 class NetTest(Test):
@@ -153,19 +193,19 @@ class NetTest(Test):
         while i < self.iter:
             start = time.time()
             j = 0
-            while j < 50:
+            while j < 5000:
                 try: 
                     self.TCP('test', self.serverIP, self.port)
                 except:
                     exceptions = exceptions + 1
                 j = j + 1
             dur = time.time() - start
-            values = [str(i), str(dur), str(time.time()-init)]
+            values = [str(i), str(dur), str(start)]
             print values
             self.results.writerow(values)
             i = i + 1
         print 'Exceptions', exceptions
-        self.TCP(self.enum.stop, serverIP, port)
+        self.TCP(self.enum.stop, self.serverIP, self.port)
         
         self.results.writerow(['EndTest'])
         
@@ -195,7 +235,7 @@ class NetTest(Test):
                 print 'iter'
                 k = k + 1
             dur = time.time() - start
-            values = [str(j), str(dur), str(time.time()-init)]
+            values = [str(j), str(dur), str(start)]
             print values
             self.results.writerow(values)
             j = j + 1

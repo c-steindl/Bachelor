@@ -5,6 +5,7 @@ import time
 import enum
 import csv
 import platform
+import os
 
 class Client():
     test = 0
@@ -63,7 +64,8 @@ class Client():
         while True:
             data = self.s.recv(1024)
             if data:
-                text = 'newVM \n'
+                text = ''
+                text = text + 'newVM \n'
                 text = text + (str(socket.gethostname() + '(' + socket.gethostbyname(socket.gethostname()) + ')') + '\n')
                 text = text + platform.machine() +'\n'
                 text = text + platform.node() +'\n'
@@ -106,10 +108,10 @@ class Client():
         elif data[0] == self.enum.Net:
             if data[1] == self.enum.tcp:
                 t = test.NetTest(myClient.iter, myClient.path, myClient.serverIP, myClient.port)
-                t.startTCP(myClient.serverIP, myClient.port)
+                t.startTCP()
             if data[1] == self.enum.band:
                 t = test.NetTest(myClient.iter, myClient.path, myClient.serverIP, myClient.port)
-                t.startBand(myClient.serverIP, myClient.port)
+                t.startBand()
         elif data[0] == self.enum.data:
             self.sendData()
         elif data[0] == self.enum.config:

@@ -1,0 +1,75 @@
+\begin{thebibliography}{10}
+
+\bibitem{Ongaro.2008}
+D.~Ongaro, A.~L. Cox, and S.~Rixner, eds., {\em {S}cheduling {I}/{O} in virtual
+  machine monitors}, {V}{E}{E} '08, (New York and NY and USA), ACM, 2008.
+
+\bibitem{IBMSystems.2005}
+{IBM Systems}, ``{V}irtualization
+  (http://publib.boulder.ibm.com/infocenter/\\eserver/v1r2/topic/eicay/eicay.p%
+df),'' 2005.
+
+\bibitem{VBox}
+``{H}omepage {O}racle {V}{M} {V}irtual{B}ox (https://www.virtualbox.org/).''
+
+\bibitem{Mic}
+``{H}omepage {W}indows {V}irtual {P}{C}
+  (http://www.microsoft.com/windows/virtual-pc/).''
+
+\bibitem{Xen}
+``{H}omepage {X}en {H}ypervisor (http://xen.org/).''
+
+\bibitem{VMware}
+``{H}omepage {V}{M}ware (http://www.vmware.com/).''
+
+\bibitem{Menasce.2005}
+D.~A. Menasc{\'e}, ``{V}irtualization: {C}oncepts, {A}pplications, and
+  {P}erformance {M}odeling,'' 2005.
+
+\bibitem{Clark.2005}
+C.~Clark, K.~Fraser, S.~Hand, J.~G. Hansen, E.~Jul, C.~Limpach, I.~Pratt, and
+  A.~Warfield, ``{L}ive migration of virtual machines,'' in {\em {P}roceedings
+  of the 2nd conference on {S}ymposium on {N}etworked {S}ystems {D}esign {\&}
+  {I}mplementation - {V}olume 2}, NSDI '05, pp.~273--286, USENIX Association,
+  2005.
+
+\bibitem{Sahoo.2010}
+J.~Sahoo, S.~Mohapatra, and R.~Lath, ``{V}irtualization: {A} {S}urvey on
+  {C}oncepts, {T}axonomy and {A}ssociated {S}ecurity {I}ssues,'' {\em Computer
+  and Network Technology, International Conference on}, vol.~0, pp.~222--226,
+  2010.
+
+\bibitem{Abramson.2006}
+D.~Abramson, ``{I}ntel({R}) {V}irtualization {T}echnology for {D}irected
+  {I}/{O},'' {\em Intel Technology Journal}, vol.~10, no.~03, 2006.
+
+\bibitem{Weng.2009}
+C.~Weng, Z.~Wang, M.~Li, and X.~Lu, eds., {\em {T}he hybrid scheduling
+  framework for virtual machine systems}, {V}{E}{E} '09, (New York and NY and
+  USA), ACM, 2009.
+
+\bibitem{mat}
+``{H}omepage {M}atplotlib (http://matplotlib.sourceforge.net/).''
+
+\bibitem{scipy}
+``{H}omepage {N}umpy (http://numpy.scipy.org/).''
+
+\bibitem{Igotti.2008}
+N.~Igotti, ``{P}ython {A}{P}{I} to the {V}irtual{B}ox {V}{M}
+  (http://blogs.oracle.com/nike/entry/python{\_}api{\_}to{\_}the{\_}virtualbox%
+),'' 5.9.2008.
+
+\bibitem{Seddigh.2001}
+N.~Seddigh and M.~Devetsikiotis, ``{S}tudies of {T}{C}{P}'s retransmission
+  timeout mechanism,'' in {\em {C}ommunications, 2001. {I}{C}{C} 2001.
+  {I}{E}{E}{E} {I}nternational {C}onference on}, vol.~6, pp.~1834 --1840 vol.6,
+  2001.
+
+\bibitem{Postel.1981}
+J.~Postel, ``{T}ransmission {C}ontrol {P}rotocol \\
+  (http://www.ietf.org/rfc/rfc793.txt),'' 1981.
+
+\bibitem{Sphinx}
+``{H}omepage {S}phinx (http://sphinx.pocoo.org/).''
+
+\end{thebibliography}

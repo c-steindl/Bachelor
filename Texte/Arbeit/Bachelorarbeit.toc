@@ -1,0 +1,42 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Einleitung}{3}
+\contentsline {subsection}{\numberline {1.1}Aufgabenstellung}{3}
+\contentsline {section}{\numberline {2}Virtuelle Maschinen}{4}
+\contentsline {subsection}{\numberline {2.1}Virtualisierung}{4}
+\contentsline {subsubsection}{\numberline {2.1.1}Vorteile Virtualisierung/Wieso VM}{4}
+\contentsline {subsubsection}{\numberline {2.1.2}Scheduling}{4}
+\contentsline {subsection}{\numberline {2.2}Aufbau einer Virtuellen Maschine}{5}
+\contentsline {section}{\numberline {3}Architektur}{6}
+\contentsline {subsection}{\numberline {3.1}Design}{6}
+\contentsline {subsection}{\numberline {3.2}Umsetzung}{7}
+\contentsline {subsubsection}{\numberline {3.2.1}Sequenzdiagramm}{7}
+\contentsline {paragraph}{Anmerkung}{7}
+\contentsline {subsubsection}{\numberline {3.2.2}Aufbau der Architektur}{7}
+\contentsline {subsubsection}{\numberline {3.2.3}Klassen-, Datei-, Skriptbeschreibung}{8}
+\contentsline {paragraph}{Host}{8}
+\contentsline {paragraph}{Client}{10}
+\contentsline {paragraph}{Enum}{10}
+\contentsline {paragraph}{Results}{10}
+\contentsline {paragraph}{VBox.py}{11}
+\contentsline {paragraph}{config.csv}{12}
+\contentsline {paragraph}{Test}{12}
+\contentsline {subsubsection}{\numberline {3.2.4}Tests}{12}
+\contentsline {paragraph}{Mattest}{12}
+\contentsline {paragraph}{I-O}{13}
+\contentsline {paragraph}{SeekAndWrite}{13}
+\contentsline {paragraph}{TCP}{13}
+\contentsline {section}{\numberline {4}Testf\"alle}{15}
+\contentsline {subsection}{\numberline {4.1}Allgemeine Beschreibung}{15}
+\contentsline {subsection}{\numberline {4.2}Fortschreitende Ergebnisse}{15}
+\contentsline {section}{\numberline {5}Zukunftspl\"ane}{16}
+\contentsline {subsection}{\numberline {5.1}Dokumentation}{16}
+\contentsline {subsection}{\numberline {5.2}Messkampagnen und Messstrategien}{16}
+\contentsline {subsection}{\numberline {5.3}Ansteuerung des Hypervisors}{16}
+\contentsline {subsection}{\numberline {5.4}Weitere Tests}{16}
+\contentsline {subsection}{\numberline {5.5}Vergleich nativer und virtualisierter Tests}{16}
+\contentsline {section}{\numberline {6}Schluss}{17}
+\contentsline {section}{\numberline {A}Lessons lerned}{18}
+\contentsline {subsection}{\numberline {A.1}Portierung}{18}
+\contentsline {subsection}{\numberline {A.2}Expect the unexpected}{18}
+\contentsline {subsection}{\numberline {A.3}Synchronizit\"at}{18}
+\contentsline {section}{\numberline {B}Eigene Testklasse erstellen}{19}

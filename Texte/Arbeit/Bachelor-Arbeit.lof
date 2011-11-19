@@ -1,0 +1,21 @@
+\select@language {ngerman}
+\contentsline {figure}{\numberline {1}{\ignorespaces Schematische Darstellung des Xen Hypervisors \cite {Ongaro.2008}.}}{6}
+\contentsline {figure}{\numberline {2}{\ignorespaces Komponentendiagramm des Frameworks mit zwei virtuellen Maschinen}}{8}
+\contentsline {figure}{\numberline {3}{\ignorespaces Der Ablauf zwischen der Klasse \textit {Host} und einer Klasse \textit {Client} in einem Sequenzdiagramm}}{9}
+\contentsline {figure}{\numberline {4}{\ignorespaces Struktur und Aufteilung der Klassen innerhalb des Frameworks}}{10}
+\contentsline {figure}{\numberline {5}{\ignorespaces Legende f\"ur die Plots von Seite \pageref {fig:TCP} bis \pageref {fig:S}}}{18}
+\contentsline {figure}{\numberline {6}{\ignorespaces Ergebnisse des TCP-Tests}}{19}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Scatterplot eines TCP-Tests}}}{19}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Histogramm eines TCP-Tests}}}{19}
+\contentsline {figure}{\numberline {7}{\ignorespaces Ergebnisse des Mattests}}{20}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Scatterplot eines Mattests}}}{20}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Histogramm eines Mattests}}}{20}
+\contentsline {figure}{\numberline {8}{\ignorespaces Ergebnisse des IO-Tests bei 256MB Hauptspeicher}}{21}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Scatterplot eines IO-Tests (256MB Hauptspeicher)}}}{21}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Histogramm eines IO-Tests (256MB Hauptspeicher)}}}{21}
+\contentsline {figure}{\numberline {9}{\ignorespaces Ergebnisse des IO-Tests bei 128MB Hauptspeicher}}{22}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Scatterplot eines IO-Tests (128MB Hauptspeicher)}}}{22}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Histogramm eines IO-Tests (256MB Hauptspeicher)}}}{22}
+\contentsline {figure}{\numberline {10}{\ignorespaces Ergebnisse des SeekAndWrite-Tests}}{23}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Scatterplot eines SeekAndWrite-Tests}}}{23}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Kumulierte Laufzeit eines SeekAndWrite-Tests}}}{23}

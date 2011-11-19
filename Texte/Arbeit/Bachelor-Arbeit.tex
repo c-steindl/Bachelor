@@ -1,0 +1,131 @@
+
+%% Basierend auf einer TeXnicCenter-Vorlage von Mark MÃ¼ller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% WÃ¤hlen Sie die Optionen aus, indem Sie % vor der Option entfernen  
+% Dokumentation des KOMA-Script-Packets: scrguide
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optionen zum Layout des Artikels                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[%
+%a4paper,							% alle weiteren Papierformat einstellbar
+%landscape,						% Querformat
+10pt,								  % SchriftgrÃ¶ÃŸe (12pt, 11pt (Standard))
+BCOR0.8cm,						% Bindekorrektur, bspw. 1 cm
+%DIV=calc,						% fÃ¼hrt die Satzspiegelberechnung neu aus
+%											  s. scrguide 2.4
+%twoside,							% Doppelseiten
+%twocolumn,						% zweispaltiger Satz
+parskip=half*,				% Absatzformatierung s. scrguide 3.1
+%headsepline,					% Trennline zum Seitenkopf	
+%footsepline,					% Trennline zum SeitenfuÃŸ
+%titlepage,						% Titelei auf eigener Seite
+%normalheadings,			% Ãœberschriften etwas kleiner (smallheadings)
+%idxtotoc,						% Index im Inhaltsverzeichnis
+%liststotoc,					% Abb.- und Tab.verzeichnis im Inhalt
+%bibtotoc,						% Literaturverzeichnis im Inhalt
+%abstracton,					% Ãœberschrift Ã¼ber der Zusammenfassung an	
+%leqno,   						% Nummerierung von Gleichungen links
+%fleqn,								% Ausgabe von Gleichungen linksbÃ¼ndig
+%draft								% Ã¼berlangen Zeilen in Ausgabe gekennzeichnet
+]
+{scrartcl}
+
+%\pagestyle{empty}		% keine Kopf und FuÃŸzeile (k. Seitenzahl)
+%\pagestyle{plain}	  % lebender Kolumnentitel  
+
+%% Deutsche Anpassungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{lmodern} %Type1-Schriftart fÃ¼r nicht-englische Texte
+
+%% Packages fÃ¼r Grafiken, Abbildungen & Farbe %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %%Zum Laden von Grafiken
+\usepackage{amsmath} %%Mathepaket
+\usepackage{tabularx}
+%\usepackage{geometry}
+\usepackage{subfigure} %%Teilabbildungen in einer Abbildung
+%\usepackage{tikz} %%Vektorgrafiken aus LaTeX heraus erstellen
+\usepackage{color}
+\usepackage{colortbl}
+	\definecolor{hellgrau}{rgb}{0.95,0.95,0.95}
+\usepackage{listings}
+\usepackage{algorithmic}
+
+%% PDF-Optionen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[
+%	pdftitle={},
+%	pdfsubject={},
+%	pdfauthor={},
+%	linktocpage=true,
+%	pagecolor=darkblue,
+%	pdfkeywords={}
+%]{hyperref}
+
+
+%% Bibliographiestil %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{natbib}
+
+\begin{document}
+%\pagestyle{empty} %%Keine Kopf-/Fusszeilen auf den ersten Seiten.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Ihr Artikel                                                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% eigene Titelseitengestaltung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+%\begin{titlepage}
+\input{Deckblatt.tex}
+%\end{titlepage}
+
+%% Angaben zur Standardformatierung des Titels %%%%%%%%%%%%%%%%%%%%%%%%
+%\titlehead{Titelkopf }
+%\subject{Typisierung}
+%\title{Titel}
+%\author{Autor}
+%\and{Der Name des Co-Autoren}
+%\thanks{FuÃŸnote}			% entspr. \footnote im FlieÃŸtext
+%\date{}							% falls anderes, als das aktuelle gewÃ¼nscht
+%\publishers{Herausgeber}
+
+%% Widmungsseite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\dedication{Widmung}
+%\maketitle 						% Titelei wird erzeugt
+
+%% Zusammenfassung nach Titel, vor Inhaltsverzeichnis %%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\pagenumbering{Roman}
+\subsection*{Eidesstattliche Erklärung}
+
+Ich erkläre hiermit an Eides Statt, dass ich die vorliegende Arbeit selbständig und ohne Benutzung anderer als der angegebenen Hilfsmittel angefertigt habe; die aus fremden Quellen (einschließlich elektronischer Quellen) direkt oder indirekt übernommenen Gedanken sind ausnahmslos als solche kenntlich gemacht.\\
+
+Wien, 15. November 2011 \hspace{\fill} Christoph Steindl\\
+
+\subsection*{Zusammenfassung}
+Im Zuge dieser Arbeit wurde ein Framework implementiert, mit dem man Aussagen über die Fairness eines VMM (Virtual Machine Monitor) machen kann. Um dies zu erreichen, werden in mehreren virtuellen Maschinen Belastungstests synchron durchgeführt und deren Laufzeiten geloggt. Anhand dieser Zeiten wird versucht herauszufinden, ob gewisse virtuelle Maschinen bevorzugt werden und daher der VMM beziehungsweise dessen Scheduling-Mechanismus fair arbeitet.
+\subsection*{Abstract}
+Alleine das immer häufigere Auftreten des Begriffes "`Cloud Computing"' in Zeitungen, Magazinen und vergleichbaren Medien zeigt, dass der Begriff "`Virtualisierung"' immer präsenter wird. Diese so genannte "`Cloud"' stellt jedermann virtuelle Ressourcen zur Verfügung, die er selbst gar nicht besitzt, aber trotzdem verwenden kann. Doch nicht nur in der "`Cloud"' wirt virtuell gearbeitet, denn der Schritt der Virtualisierung beginnt schon viel früher, nämlich zum Beispiel bei seiner eigenen Hardware. Man ist eigentlich fast tagtäglich damit konfrontiert, ohne es zu merken. Doch nur weil etwas virtuell ist, heißt dies noch lange nicht, dass es keine Güte besitzt und die Qualitäten der einzelnen virtuellen Services nicht variieren können. Dies ist der Punkt, wo diese Bachelorarbeit ansetzt. Im Zuge dieser Arbeit wurde ein Framework erstellt, mit dem man Aussagen über virtuelle Maschinen, beziehungsweise über die Monitore, welche die virtuellen Maschinen steuern, machen kann. Dieses Framework soll zeigen, ob diese Monitore immer fair arbeiten und somit die einzelnen virtuellen Maschinen gleichgestellt sind.
+
+\clearpage
+
+%% Erzeugung von Verzeichnissen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents			% Inhaltsverzeichnis
+\clearpage
+\listoftables				% Tabellenverzeichnis
+\listoffigures				% Abbildungsverzeichnis
+\clearpage
+
+
+%% Der Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{Bach.tex}
+\clearpage
+%% Bibliographie unter Verwendung von dinnat %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setbibpreamble{PrÃ¤ambel}		% Text vor dem Verzeichnis
+\bibliographystyle{ieeetr}
+%\bibliography{bib}	% Sie benÃ¶tigen einen *.bib-Datei
+
+\end{document}

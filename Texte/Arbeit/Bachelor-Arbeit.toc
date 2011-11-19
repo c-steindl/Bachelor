@@ -1,0 +1,47 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Einleitung}{1}
+\contentsline {subsection}{\numberline {1.1}Aufgabenstellung}{1}
+\contentsline {section}{\numberline {2}Virtuelle Maschinen}{2}
+\contentsline {subsection}{\numberline {2.1}Virtualisierung}{2}
+\contentsline {subsubsection}{\numberline {2.1.1}Vorteile von Virtualisierung}{2}
+\contentsline {subsubsection}{\numberline {2.1.2}Nachteile von Virtualisierung}{3}
+\contentsline {subsubsection}{\numberline {2.1.3}Scheduling}{4}
+\contentsline {paragraph}{Xen-Scheduling}{4}
+\contentsline {subsection}{\numberline {2.2}Aufbau einer virtuellen Maschine}{4}
+\contentsline {section}{\numberline {3}Architektur des Frameworks}{6}
+\contentsline {subsection}{\numberline {3.1}Design}{6}
+\contentsline {subsubsection}{\numberline {3.1.1}Aufbau der Architektur}{7}
+\contentsline {subsection}{\numberline {3.2}Umsetzung}{7}
+\contentsline {subsubsection}{\numberline {3.2.1}Sequenzdiagramm}{8}
+\contentsline {subsubsection}{\numberline {3.2.2}Klassen-, Datei-, Skriptbeschreibung}{9}
+\contentsline {paragraph}{Host}{9}
+\contentsline {paragraph}{Client}{11}
+\contentsline {paragraph}{Const}{11}
+\contentsline {paragraph}{results.py}{11}
+\contentsline {paragraph}{VBox.py}{12}
+\contentsline {paragraph}{config.csv}{13}
+\contentsline {paragraph}{Test}{13}
+\contentsline {subsubsection}{\numberline {3.2.3}Implementierte Tests}{14}
+\contentsline {paragraph}{Mattest}{14}
+\contentsline {paragraph}{I-O}{14}
+\contentsline {paragraph}{SeekAndWrite}{14}
+\contentsline {paragraph}{TCP}{15}
+\contentsline {section}{\numberline {4}Testf\"alle}{16}
+\contentsline {subsection}{\numberline {4.1}Allgemeine Beschreibung}{16}
+\contentsline {subsection}{\numberline {4.2}Ergebnisse}{16}
+\contentsline {subsubsection}{\numberline {4.2.1}TCP}{16}
+\contentsline {subsubsection}{\numberline {4.2.2}Mattest}{17}
+\contentsline {subsubsection}{\numberline {4.2.3}IO}{17}
+\contentsline {subsubsection}{\numberline {4.2.4}SeekAndWrite}{17}
+\contentsline {section}{\numberline {5}Zukunftspl\"ane}{24}
+\contentsline {subsection}{\numberline {5.1}Dokumentation}{24}
+\contentsline {subsection}{\numberline {5.2}Messkampagnen und Messstrategien}{24}
+\contentsline {subsection}{\numberline {5.3}Ansteuerung des Hypervisors}{24}
+\contentsline {subsection}{\numberline {5.4}Weitere Tests}{24}
+\contentsline {subsection}{\numberline {5.5}Vergleich nativer und virtualisierter Tests}{24}
+\contentsline {section}{\numberline {6}Zusammenfassung}{26}
+\contentsline {section}{\numberline {A}Eigene Testklasse erstellen}{27}
+\contentsline {section}{\numberline {B}Lessons lerned}{29}
+\contentsline {subsection}{\numberline {B.1}Portierung}{29}
+\contentsline {subsection}{\numberline {B.2}Expect the unexpected}{29}
+\contentsline {subsection}{\numberline {B.3}Synchronizit\"at}{30}
